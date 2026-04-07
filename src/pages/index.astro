@@ -17,23 +17,25 @@
       --white: #F0F4F8;
       --muted: #6B8299;
       --light-muted: #B8C8D8;
+      --dark-bg: #111820;
+      --dark-surface: #182028;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--white); color: var(--slate); }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--dark-bg); color: var(--white); }
 
     /* NAV */
     nav {
-      background: var(--white);
+      background: var(--dark-surface);
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #D8E4F0;
+      border-bottom: 1px solid var(--slate);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .nav-logo { font-size: 1.2rem; font-weight: 600; color: var(--slate); text-decoration: none; }
+    .nav-logo { font-size: 1.2rem; font-weight: 600; color: var(--white); text-decoration: none; }
     .nav-logo span { color: var(--magenta); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
@@ -125,7 +127,7 @@
       gap: 0;
     }
     .pillar { padding: 3rem 2rem; }
-    .pillar-train { background: var(--white); }
+    .pillar-train { background: var(--dark-surface); }
     .pillar-gather { background: var(--slate); }
     .pillar-belong { background: var(--teal); }
     .pillar-label {
@@ -139,16 +141,16 @@
     .pillar-gather .pillar-label { color: var(--magenta); }
     .pillar-belong .pillar-label { color: #04342C; }
     .pillar h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .pillar-train h2 { color: var(--slate); }
+    .pillar-train h2 { color: var(--white); }
     .pillar-gather h2 { color: var(--white); }
     .pillar-belong h2 { color: #04342C; }
     .pillar p { font-size: 0.95rem; line-height: 1.7; }
-    .pillar-train p { color: var(--muted); }
+    .pillar-train p { color: var(--light-muted); }
     .pillar-gather p { color: var(--light-muted); }
     .pillar-belong p { color: #085041; }
 
-    /* WHAT'S ON */
-    .events { background: var(--white); padding: 5rem 2rem; text-align: center; }
+    /* EVENTS */
+    .events { background: var(--dark-bg); padding: 5rem 2rem; text-align: center; }
     .section-label {
       font-size: 0.75rem;
       font-weight: 700;
@@ -157,7 +159,7 @@
       color: var(--magenta);
       margin-bottom: 0.75rem;
     }
-    .events h2 { font-size: 2.2rem; font-weight: 700; color: var(--slate); margin-bottom: 0.75rem; }
+    .events h2 { font-size: 2.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
     .events-sub { color: var(--muted); font-size: 1rem; margin-bottom: 3rem; }
     .event-cards {
       display: grid;
@@ -167,14 +169,15 @@
       margin: 0 auto;
     }
     .event-card {
-      background: var(--slate);
+      background: var(--dark-surface);
+      border: 1px solid var(--slate);
       border-radius: 16px;
       padding: 1.5rem;
       text-align: left;
     }
     .event-tag {
       display: inline-block;
-      background: var(--storm);
+      background: var(--slate);
       color: var(--light-muted);
       font-size: 0.7rem;
       font-weight: 600;
@@ -188,17 +191,17 @@
     .event-card p { font-size: 0.875rem; color: var(--light-muted); line-height: 1.6; }
 
     /* KJ FEATURE */
-    .kj { background: var(--storm); padding: 5rem 2rem; text-align: center; }
+    .kj { background: var(--slate); padding: 5rem 2rem; text-align: center; }
     .kj h2 { font-size: 2.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
     .kj p { color: var(--light-muted); font-size: 1rem; max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
     .kj-phrase { color: var(--magenta); font-style: italic; font-size: 1.1rem; margin-bottom: 2rem; }
 
     /* FOOTER */
     footer {
-      background: var(--slate);
+      background: var(--dark-surface);
       padding: 3rem 2rem;
       text-align: center;
-      border-top: 1px solid var(--storm);
+      border-top: 1px solid var(--slate);
     }
     footer .footer-logo { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
     footer .footer-logo span { color: var(--magenta); }
