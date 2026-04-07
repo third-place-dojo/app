@@ -1,17 +1,309 @@
 ---
-
 ---
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Third Place Dojo — Coudersport</title>
+  <meta name="description" content="A community space in Coudersport, PA. Gather, train, belong. Home of Kokoro-Jitsu." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --slate: #1E2A38;
+      --storm: #2C3E52;
+      --magenta: #C94FAE;
+      --teal: #1D9E75;
+      --white: #F0F4F8;
+      --muted: #6B8299;
+      --light-muted: #B8C8D8;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--white); color: var(--slate); }
+
+    /* NAV */
+    nav {
+      background: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #D8E4F0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { font-size: 1.2rem; font-weight: 600; color: var(--slate); text-decoration: none; }
+    .nav-logo span { color: var(--magenta); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--magenta); }
+    .nav-cta {
+      background: var(--magenta);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      background: var(--slate);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--magenta);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 0.25rem;
+    }
+    .hero-kanji {
+      font-size: 2rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: var(--light-muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--magenta);
+      color: var(--white);
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .btn-secondary:hover { opacity: 0.85; }
+    .btn-ghost {
+      background: var(--storm);
+      color: var(--light-muted);
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .btn-ghost:hover { opacity: 0.85; }
+
+    /* PILLARS */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0;
+    }
+    .pillar { padding: 3rem 2rem; }
+    .pillar-train { background: var(--white); }
+    .pillar-gather { background: var(--slate); }
+    .pillar-belong { background: var(--teal); }
+    .pillar-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .pillar-train .pillar-label { color: var(--magenta); }
+    .pillar-gather .pillar-label { color: var(--magenta); }
+    .pillar-belong .pillar-label { color: #04342C; }
+    .pillar h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .pillar-train h2 { color: var(--slate); }
+    .pillar-gather h2 { color: var(--white); }
+    .pillar-belong h2 { color: #04342C; }
+    .pillar p { font-size: 0.95rem; line-height: 1.7; }
+    .pillar-train p { color: var(--muted); }
+    .pillar-gather p { color: var(--light-muted); }
+    .pillar-belong p { color: #085041; }
+
+    /* WHAT'S ON */
+    .events { background: var(--white); padding: 5rem 2rem; text-align: center; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--magenta);
+      margin-bottom: 0.75rem;
+    }
+    .events h2 { font-size: 2.2rem; font-weight: 700; color: var(--slate); margin-bottom: 0.75rem; }
+    .events-sub { color: var(--muted); font-size: 1rem; margin-bottom: 3rem; }
+    .event-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .event-card {
+      background: var(--slate);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: left;
+    }
+    .event-tag {
+      display: inline-block;
+      background: var(--storm);
+      color: var(--light-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    .event-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .event-card p { font-size: 0.875rem; color: var(--light-muted); line-height: 1.6; }
+
+    /* KJ FEATURE */
+    .kj { background: var(--storm); padding: 5rem 2rem; text-align: center; }
+    .kj h2 { font-size: 2.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+    .kj p { color: var(--light-muted); font-size: 1rem; max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+    .kj-phrase { color: var(--magenta); font-style: italic; font-size: 1.1rem; margin-bottom: 2rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--slate);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--storm);
+    }
+    footer .footer-logo { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    footer .footer-logo span { color: var(--magenta); }
+    footer .footer-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+    footer .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+    footer .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    footer .footer-links a:hover { color: var(--magenta); }
+    footer .footer-copy { color: var(--storm); font-size: 0.75rem; margin-top: 2rem; }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Third Place <span>Dojo</span></a>
+    <ul class="nav-links">
+      <li><a href="#train">Train</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="#events" class="nav-cta">Come in</a>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-eyebrow">Coudersport, Pennsylvania</p>
+    <h1>Third Place<br>Dojo</h1>
+    <p class="hero-kanji">道場</p>
+    <p class="hero-tagline">A place to gather, learn, roll, play, and belong. Community first. Martial arts always.</p>
+    <div class="hero-buttons">
+      <a href="#train" class="btn-primary">Train with us</a>
+      <a href="#events" class="btn-secondary">See events</a>
+      <a href="#about" class="btn-ghost">Learn more</a>
+    </div>
+  </section>
+
+  <section class="pillars" id="about">
+    <div class="pillar pillar-train">
+      <p class="pillar-label">Train</p>
+      <h2>Learn to move.</h2>
+      <p>Kokoro-Jitsu, BJJ Fundamentals, BJJ Advanced, and open mat sessions. All skill levels welcome — zero experience required to walk in.</p>
+    </div>
+    <div class="pillar pillar-gather">
+      <p class="pillar-label">Gather</p>
+      <h2>Show up.</h2>
+      <p>Game nights, movie nights, Ghost Jiu-Jitsu, Goodwill Jiu-Jitsu, and whatever the community decides to build next. You don't have to train to belong here.</p>
+    </div>
+    <div class="pillar pillar-belong">
+      <p class="pillar-label">Belong</p>
+      <h2>Stay awhile.</h2>
+      <p>Coudersport's third place. Between home and work there's supposed to be somewhere else — a place you go because you want to. This is that place.</p>
+    </div>
+  </section>
+
+  <section class="events" id="events">
+    <p class="section-label">What's on</p>
+    <h2>Something's always happening.</h2>
+    <p class="events-sub">Check back as we build out the schedule. More events added regularly.</p>
+    <div class="event-cards">
+      <div class="event-card">
+        <span class="event-tag">Signature event</span>
+        <h3>Ghost Jiu-Jitsu</h3>
+        <p>Glow-in-the-dark rolling with live music and DJ. The dojo becomes something else entirely.</p>
+      </div>
+      <div class="event-card">
+        <span class="event-tag">Signature event</span>
+        <h3>Goodwill Jiu-Jitsu</h3>
+        <p>Roll in thrift-store suits, costumes, or whatever you want to express. Nothing offensive, everything welcome.</p>
+      </div>
+      <div class="event-card">
+        <span class="event-tag">Community night</span>
+        <h3>Game night</h3>
+        <p>Video games, board games, card games, pizza. Pure third-place energy. No training required.</p>
+      </div>
+      <div class="event-card">
+        <span class="event-tag">Open mat</span>
+        <h3>Gracie Garage</h3>
+        <p>Drop-in open mat. Come roll, come watch, come ask questions. Low barrier, high welcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="kj" id="train">
+    <p class="section-label">The martial art</p>
+    <h2>Kokoro-Jitsu</h2>
+    <p class="kj-phrase">こころ術</p>
+    <p>A living martial art rooted in BJJ, Kenpo, Karate, and Aiki-Jitsu — built around the idea that you absorb what works, discard what doesn't, and add what is uniquely yours. Practical, mindful, and always evolving.</p>
+    <a href="https://kokorojitsu.com" class="btn-primary" target="_blank">Learn more at kokorojitsu.com</a>
+  </section>
+
+  <footer>
+    <p class="footer-logo">Third Place <span>Dojo</span></p>
+    <p class="footer-sub">Coudersport, Pennsylvania &nbsp;·&nbsp; 道場</p>
+    <div class="footer-links">
+      <a href="#train">Train</a>
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+      <a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a>
+    </div>
+    <p class="footer-copy">Third Place Dojo &copy; 2025</p>
+  </footer>
+
+</body>
 </html>
