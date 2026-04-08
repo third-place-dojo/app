@@ -4,334 +4,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Third Place Dojo — Coudersport, PA</title>
+<title>Third Place Dojo - Coudersport, PA</title>
 <meta name="description" content="A community space in Coudersport, PA. Gather, train, belong. Home of Kokoro-Jitsu." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --slate: #1E2A38;
-    --magenta: #C94FAE;
-    --teal: #1D9E75;
-    --white: #F0F4F8;
-    --slate-light: #2e3f52;
-    --slate-dark: #141d27;
-    --warm-cream: #F5EFE6;
-    --warm-sand: #E8DDD0;
-    --text-muted: #8a9bb0;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F5EFE6;
+    color: #1E2A38;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
   }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-background: var(–warm-cream);
-color: var(–slate);
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 300;
-overflow-x: hidden;
-}
-
-/* ── NAV ── */
-nav {
-position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-display: flex; align-items: center; justify-content: space-between;
-padding: 1.25rem 2.5rem;
-background: rgba(245,239,230,0.88);
-backdrop-filter: blur(12px);
-border-bottom: 1px solid rgba(30,42,56,0.08);
-}
-.nav-logo {
-font-family: ‘Playfair Display’, serif; font-size: 1.1rem; font-weight: 700;
-color: var(–slate); letter-spacing: 0.02em; text-decoration: none;
-}
-.nav-logo span { color: var(–magenta); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
-text-transform: uppercase; color: var(–slate); text-decoration: none;
-opacity: 0.7; transition: opacity 0.2s, color 0.2s;
-}
-.nav-links a:hover { opacity: 1; color: var(–magenta); }
-.nav-cta {
-background: var(–slate); color: var(–white) !important;
-opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
-transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(–magenta) !important; }
-
-/* ── BUTTONS ── */
-.btn-primary {
-background: var(–magenta); color: white; padding: 0.875rem 2rem;
-border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
-letter-spacing: 0.04em; display: inline-block;
-transition: transform 0.2s, box-shadow 0.2s;
-box-shadow: 0 4px 20px rgba(201,79,174,0.3);
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.4); }
-
-.btn-teal {
-background: var(–teal); color: white; padding: 0.875rem 2rem;
-border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
-letter-spacing: 0.04em; display: inline-block;
-transition: transform 0.2s, box-shadow 0.2s;
-box-shadow: 0 4px 20px rgba(29,158,117,0.3);
-}
-.btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
-
-.btn-ghost {
-background: transparent; color: var(–slate); padding: 0.875rem 2rem;
-border-radius: 3rem; border: 1.5px solid rgba(30,42,56,0.25);
-text-decoration: none; font-size: 0.9rem; font-weight: 400;
-letter-spacing: 0.04em; display: inline-block;
-transition: border-color 0.2s, color 0.2s;
-}
-.btn-ghost:hover { border-color: var(–teal); color: var(–teal); }
-
-/* ── HERO ── */
-.hero {
-min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-padding-top: 5rem; position: relative; overflow: hidden;
-}
-.hero-left {
-display: flex; flex-direction: column; justify-content: center;
-padding: 5rem 3rem 5rem 5rem; position: relative; z-index: 2;
-}
-.hero-eyebrow {
-font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em;
-text-transform: uppercase; color: var(–teal); margin-bottom: 1.5rem;
-opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
-}
-.hero-title {
-font-family: ‘Playfair Display’, serif; font-size: clamp(3rem, 5vw, 4.5rem);
-line-height: 1.1; color: var(–slate); margin-bottom: 1.75rem;
-opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
-}
-.hero-title em { font-style: italic; color: var(–magenta); }
-.hero-body {
-font-family: ‘Fraunces’, serif; font-size: 1.15rem; line-height: 1.75;
-color: var(–slate); max-width: 38ch; margin-bottom: 2.5rem;
-opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
-}
-.hero-actions {
-display: flex; gap: 1rem; flex-wrap: wrap;
-opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
-}
-.hero-right {
-position: relative; display: flex;
-align-items: center; justify-content: center; overflow: hidden;
-}
-.hero-bg-shape {
-position: absolute; inset: 0;
-background: linear-gradient(135deg, var(–slate) 0%, var(–slate-light) 100%);
-clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
-}
-.hero-circle-1 {
-position: absolute; width: 420px; height: 420px; border-radius: 50%;
-border: 1px solid rgba(201,79,174,0.2); top: 50%; left: 50%;
-transform: translate(-50%,-50%); animation: slowSpin 30s linear infinite;
-}
-.hero-circle-2 {
-position: absolute; width: 280px; height: 280px; border-radius: 50%;
-border: 1px solid rgba(29,158,117,0.3); top: 50%; left: 50%;
-transform: translate(-50%,-50%); animation: slowSpin 20s linear infinite reverse;
-}
-.hero-kanji {
-position: absolute; z-index: 1; font-size: 13rem;
-color: rgba(255,255,255,0.04); font-family: serif; line-height: 1;
-user-select: none; letter-spacing: -0.05em; left: 1rem; top: 50%;
-transform: translateY(-50%);
-}
-.hero-wordmark {
-position: relative; z-index: 2; display: flex; flex-direction: column;
-align-items: center; text-align: center; gap: 0.1rem;
-animation: fadeIn 1.2s ease forwards 0.6s; opacity: 0;
-padding: 0 1.5rem; width: 100%;
-}
-.hero-wordmark-top {
-font-family: ‘Fraunces’, serif; font-size: clamp(2.5rem, 4vw, 3.75rem);
-font-weight: 300; font-style: italic; color: rgba(240,244,248,0.75);
-letter-spacing: 0.06em; line-height: 1;
-}
-.hero-wordmark-bottom {
-font-family: ‘Playfair Display’, serif; font-size: clamp(6rem, 11vw, 9.5rem);
-font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 0.88;
-text-shadow: 0 2px 6px rgba(0,0,0,0.5), 0 8px 40px rgba(0,0,0,0.4);
-}
-.hero-wordmark-sub {
-margin-top: 1.25rem; font-size: 0.72rem; letter-spacing: 0.22em;
-text-transform: uppercase; color: var(–teal); font-weight: 500;
-}
-
-/* ── ABOUT STRIP ── */
-.about-strip {
-background: var(–white); padding: 5rem 5rem;
-position: relative; overflow: hidden;
-}
-.about-strip::before {
-content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-background: linear-gradient(90deg, var(–magenta), var(–teal));
-}
-.about-inner {
-display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-}
-.about-heading {
-font-family: ‘Playfair Display’, serif; font-size: clamp(2rem, 3vw, 2.75rem);
-line-height: 1.2; color: var(–slate);
-}
-.about-heading em { font-style: italic; color: var(–magenta); }
-.about-right { }
-.about-body {
-font-family: ‘Fraunces’, serif; font-size: 1.05rem; line-height: 1.85;
-color: var(–slate); opacity: 0.8; margin-bottom: 1.75rem;
-}
-.about-body p + p { margin-top: 1rem; }
-.about-body strong { font-weight: 600; opacity: 1; color: var(–slate); }
-
-/* ── PILLARS ── */
-.pillars-section { display: grid; grid-template-columns: repeat(3, 1fr); }
-.pillar { padding: 4rem 2.5rem; }
-.pillar-train { background: var(–slate-dark); }
-.pillar-gather { background: var(–slate); }
-.pillar-belong { background: var(–teal); }
-.pillar-label {
-font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
-text-transform: uppercase; margin-bottom: 1rem; display: block;
-}
-.pillar-train .pillar-label,
-.pillar-gather .pillar-label { color: var(–magenta); }
-.pillar-belong .pillar-label { color: rgba(4,52,44,0.7); }
-.pillar-heading {
-font-family: ‘Playfair Display’, serif; font-size: 2rem;
-font-weight: 700; margin-bottom: 1rem; line-height: 1.1;
-}
-.pillar-train .pillar-heading,
-.pillar-gather .pillar-heading { color: var(–white); }
-.pillar-belong .pillar-heading { color: #04342C; }
-.pillar-body { font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
-.pillar-train .pillar-body,
-.pillar-gather .pillar-body { color: rgba(240,244,248,0.65); }
-.pillar-belong .pillar-body { color: #085041; }
-.pillar-link {
-display: inline-flex; align-items: center; gap: 0.5rem;
-font-size: 0.85rem; font-weight: 500; text-decoration: none;
-transition: gap 0.2s;
-}
-.pillar-train .pillar-link,
-.pillar-gather .pillar-link { color: var(–magenta); }
-.pillar-belong .pillar-link { color: #04342C; }
-.pillar-link:hover { gap: 0.8rem; }
-
-/* ── PAGE TEASERS ── */
-.teasers-section { padding: 7rem 5rem; background: var(–warm-cream); }
-.teasers-label {
-font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
-text-transform: uppercase; color: var(–teal); margin-bottom: 1rem;
-}
-.teasers-title {
-font-family: ‘Playfair Display’, serif; font-size: clamp(2rem, 3vw, 2.5rem);
-color: var(–slate); margin-bottom: 3rem;
-}
-.teasers-grid {
-display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
-}
-.teaser-card {
-background: var(–white); border-radius: 1.25rem; padding: 2rem 1.75rem;
-border: 1px solid rgba(30,42,56,0.07);
-transition: transform 0.25s, box-shadow 0.25s;
-display: flex; flex-direction: column;
-text-decoration: none; color: inherit;
-}
-.teaser-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,42,56,0.09); }
-.teaser-icon { font-size: 2rem; margin-bottom: 1rem; }
-.teaser-tag {
-font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
-text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem;
-margin-bottom: 1rem; display: inline-block;
-}
-.teaser-tag.magenta { background: rgba(201,79,174,0.1); color: var(–magenta); }
-.teaser-tag.teal { background: rgba(29,158,117,0.1); color: var(–teal); }
-.teaser-tag.slate { background: rgba(30,42,56,0.08); color: var(–slate); }
-.teaser-name {
-font-family: ‘Playfair Display’, serif; font-size: 1.35rem;
-color: var(–slate); margin-bottom: 0.6rem;
-}
-.teaser-desc { font-size: 0.9rem; line-height: 1.7; color: var(–slate); opacity: 0.65; flex-grow: 1; }
-.teaser-arrow {
-margin-top: 1.5rem; font-size: 0.85rem; font-weight: 500;
-color: var(–magenta); display: flex; align-items: center; gap: 0.4rem;
-transition: gap 0.2s;
-}
-.teaser-card:hover .teaser-arrow { gap: 0.7rem; }
-.teaser-tag.teal ~ .teaser-name ~ .teaser-desc ~ .teaser-arrow,
-.teaser-card:has(.teal) .teaser-arrow { color: var(–teal); }
-.teaser-card:has(.slate) .teaser-arrow { color: var(–slate); }
-
-/* ── FOOTER ── */
-footer {
-background: var(–slate-dark); padding: 3rem 5rem;
-display: flex; align-items: center; justify-content: space-between;
-flex-wrap: wrap; gap: 1.5rem;
-}
-.footer-brand {
-font-family: ‘Playfair Display’, serif; font-size: 1rem;
-color: var(–white); opacity: 0.9;
-}
-.footer-brand span { color: var(–magenta); }
-.footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
-.footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
-.footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
-.footer-links a {
-font-size: 0.8rem; color: rgba(240,244,248,0.5); text-decoration: none;
-letter-spacing: 0.06em; transition: color 0.2s;
-}
-.footer-links a:hover { color: var(–teal); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(24px); }
-to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slowSpin {
-from { transform: translate(-50%,-50%) rotate(0deg); }
-to { transform: translate(-50%,-50%) rotate(360deg); }
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-nav { padding: 1rem 1.5rem; }
-.nav-links { display: none; }
-
-```
-.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 0; }
-.hero-right { order: -1; height: 280px; padding-top: 4.5rem; }
-.hero-left { order: 1; background: var(--warm-cream); padding: 3rem 1.75rem 3.5rem; }
-.hero-bg-shape { clip-path: none; }
-.hero-kanji { font-size: 6rem; }
-.hero-wordmark-bottom { font-size: 5rem; }
-.hero-wordmark-top { font-size: 1.9rem; }
-.hero-title { color: var(--slate); font-size: clamp(2.4rem, 8vw, 3.5rem); }
-.hero-eyebrow { color: var(--teal); }
-.btn-ghost { color: var(--slate); border-color: rgba(30,42,56,0.3); }
-
-.about-strip { padding: 4rem 1.75rem; }
-.about-inner { grid-template-columns: 1fr; gap: 2rem; }
-
-.pillars-section { grid-template-columns: 1fr; }
-
-.teasers-section { padding: 4rem 1.75rem; }
-
-footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
-```
-
-}
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(245,239,230,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,42,56,0.08);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+    color: #1E2A38; letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav-logo span { color: #C94FAE; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #1E2A38; text-decoration: none;
+    opacity: 0.7; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: #C94FAE; }
+  .nav-cta {
+    background: #1E2A38; color: #F0F4F8 !important;
+    opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #C94FAE !important; }
+  .btn-primary {
+    background: #C94FAE; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,79,174,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.4); }
+  .btn-teal {
+    background: #1D9E75; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(29,158,117,0.3);
+  }
+  .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
+  .btn-ghost {
+    background: transparent; color: #1E2A38; padding: 0.875rem 2rem;
+    border-radius: 3rem; border: 1.5px solid rgba(30,42,56,0.25);
+    text-decoration: none; font-size: 0.9rem; font-weight: 400;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: #1D9E75; color: #1D9E75; }
+  .hero {
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 5rem; position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 3rem 5rem 5rem; position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1; color: #1E2A38; margin-bottom: 1.75rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+  .hero-title em { font-style: italic; color: #C94FAE; }
+  .hero-body {
+    font-family: 'Fraunces', serif; font-size: 1.15rem; line-height: 1.75;
+    color: #1E2A38; max-width: 38ch; margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+  .hero-right {
+    position: relative; display: flex;
+    align-items: center; justify-content: center; overflow: hidden;
+  }
+  .hero-bg-shape {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1E2A38 0%, #2e3f52 100%);
+    clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .hero-circle-1 {
+    position: absolute; width: 420px; height: 420px; border-radius: 50%;
+    border: 1px solid rgba(201,79,174,0.2); top: 50%; left: 50%;
+    transform: translate(-50%,-50%); animation: slowSpin 30s linear infinite;
+  }
+  .hero-circle-2 {
+    position: absolute; width: 280px; height: 280px; border-radius: 50%;
+    border: 1px solid rgba(29,158,117,0.3); top: 50%; left: 50%;
+    transform: translate(-50%,-50%); animation: slowSpin 20s linear infinite reverse;
+  }
+  .hero-kanji {
+    position: absolute; z-index: 1; font-size: 13rem;
+    color: rgba(255,255,255,0.04); font-family: serif; line-height: 1;
+    user-select: none; letter-spacing: -0.05em; left: 1rem; top: 50%;
+    transform: translateY(-50%);
+  }
+  .hero-wordmark {
+    position: relative; z-index: 2; display: flex; flex-direction: column;
+    align-items: center; text-align: center; gap: 0.1rem;
+    animation: fadeIn 1.2s ease forwards 0.6s; opacity: 0;
+    padding: 0 1.5rem; width: 100%;
+  }
+  .hero-wordmark-top {
+    font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 4vw, 3.75rem);
+    font-weight: 300; font-style: italic; color: rgba(240,244,248,0.75);
+    letter-spacing: 0.06em; line-height: 1;
+  }
+  .hero-wordmark-bottom {
+    font-family: 'Playfair Display', serif; font-size: clamp(6rem, 11vw, 9.5rem);
+    font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 0.88;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5), 0 8px 40px rgba(0,0,0,0.4);
+  }
+  .hero-wordmark-sub {
+    margin-top: 1.25rem; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #1D9E75; font-weight: 500;
+  }
+  .about-strip {
+    background: #F0F4F8; padding: 5rem;
+    position: relative; overflow: hidden;
+  }
+  .about-strip::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #C94FAE, #1D9E75);
+  }
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-heading {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.2; color: #1E2A38;
+  }
+  .about-heading em { font-style: italic; color: #C94FAE; }
+  .about-body {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.85;
+    color: #1E2A38; opacity: 0.8; margin-bottom: 1.75rem;
+  }
+  .about-body p + p { margin-top: 1rem; }
+  .about-body strong { font-weight: 600; color: #1E2A38; }
+  .pillars-section { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .pillar { padding: 4rem 2.5rem; }
+  .pillar-train { background: #141d27; }
+  .pillar-gather { background: #1E2A38; }
+  .pillar-belong { background: #1D9E75; }
+  .pillar-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 1rem; display: block;
+  }
+  .pillar-train .pillar-label,
+  .pillar-gather .pillar-label { color: #C94FAE; }
+  .pillar-belong .pillar-label { color: rgba(4,52,44,0.7); }
+  .pillar-heading {
+    font-family: 'Playfair Display', serif; font-size: 2rem;
+    font-weight: 700; margin-bottom: 1rem; line-height: 1.1;
+  }
+  .pillar-train .pillar-heading,
+  .pillar-gather .pillar-heading { color: #F0F4F8; }
+  .pillar-belong .pillar-heading { color: #04342C; }
+  .pillar-body { font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
+  .pillar-train .pillar-body,
+  .pillar-gather .pillar-body { color: rgba(240,244,248,0.65); }
+  .pillar-belong .pillar-body { color: #085041; }
+  .pillar-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: gap 0.2s;
+  }
+  .pillar-train .pillar-link,
+  .pillar-gather .pillar-link { color: #C94FAE; }
+  .pillar-belong .pillar-link { color: #04342C; }
+  .pillar-link:hover { gap: 0.8rem; }
+  .teasers-section { padding: 7rem 5rem; background: #F5EFE6; }
+  .teasers-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem;
+  }
+  .teasers-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.5rem);
+    color: #1E2A38; margin-bottom: 3rem;
+  }
+  .teasers-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+  }
+  .teaser-card {
+    background: #F0F4F8; border-radius: 1.25rem; padding: 2rem 1.75rem;
+    border: 1px solid rgba(30,42,56,0.07); transition: transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+  }
+  .teaser-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,42,56,0.09); }
+  .teaser-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .teaser-tag {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem;
+    margin-bottom: 1rem; display: inline-block;
+  }
+  .teaser-tag.magenta { background: rgba(201,79,174,0.1); color: #C94FAE; }
+  .teaser-tag.teal { background: rgba(29,158,117,0.1); color: #1D9E75; }
+  .teaser-tag.slate { background: rgba(30,42,56,0.08); color: #1E2A38; }
+  .teaser-name {
+    font-family: 'Playfair Display', serif; font-size: 1.35rem;
+    color: #1E2A38; margin-bottom: 0.6rem;
+  }
+  .teaser-desc { font-size: 0.9rem; line-height: 1.7; color: #1E2A38; opacity: 0.65; flex-grow: 1; }
+  .teaser-arrow {
+    margin-top: 1.5rem; font-size: 0.85rem; font-weight: 500;
+    color: #C94FAE; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
+  }
+  .teaser-card:hover .teaser-arrow { gap: 0.7rem; }
+  footer {
+    background: #141d27; padding: 3rem 5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
+  .footer-brand span { color: #C94FAE; }
+  .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(240,244,248,0.5); text-decoration: none;
+    letter-spacing: 0.06em; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #1D9E75; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slowSpin {
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 0; }
+    .hero-right { order: -1; height: 280px; padding-top: 4.5rem; }
+    .hero-left { order: 1; background: #F5EFE6; padding: 3rem 1.75rem 3.5rem; }
+    .hero-bg-shape { clip-path: none; }
+    .hero-kanji { font-size: 6rem; }
+    .hero-wordmark-bottom { font-size: 5rem; }
+    .hero-wordmark-top { font-size: 1.9rem; }
+    .hero-title { color: #1E2A38; font-size: clamp(2.4rem, 8vw, 3.5rem); }
+    .hero-eyebrow { color: #1D9E75; }
+    .btn-ghost { color: #1E2A38; border-color: rgba(30,42,56,0.3); }
+    .about-strip { padding: 4rem 1.75rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .pillars-section { grid-template-columns: 1fr; }
+    .teasers-section { padding: 4rem 1.75rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
 </style>
-
 </head>
 <body>
-
-<!-- NAV -->
-
 <nav>
   <a href="/" class="nav-logo">Third Place <span>Dojo</span></a>
   <ul class="nav-links">
@@ -342,18 +287,11 @@ footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
     <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
   </ul>
 </nav>
-
-<!-- HERO -->
-
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Coudersport, PA &nbsp;·&nbsp; Space Secured</p>
-    <h1 class="hero-title">
-      Your third<br>place to <em>train,<br>learn, belong.</em>
-    </h1>
-    <p class="hero-body">
-      A place to gather, learn, roll, play, and belong. Community first. Martial arts always.
-    </p>
+    <p class="hero-eyebrow">Coudersport, PA · Space Secured</p>
+    <h1 class="hero-title">Your third<br>place to <em>train,<br>learn, belong.</em></h1>
+    <p class="hero-body">A place to gather, learn, roll, play, and belong. Community first. Martial arts always.</p>
     <div class="hero-actions">
       <a href="/train" class="btn-primary">Train with us</a>
       <a href="/events" class="btn-teal">See events</a>
@@ -368,100 +306,81 @@ footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
     <div class="hero-wordmark">
       <span class="hero-wordmark-top">Third Place</span>
       <span class="hero-wordmark-bottom">Dojo</span>
-      <span class="hero-wordmark-sub">こころ術 &nbsp;·&nbsp; Coudersport</span>
+      <span class="hero-wordmark-sub">こころ術 · Coudersport</span>
     </div>
   </div>
 </section>
-
-<!-- ABOUT STRIP -->
-
 <section class="about-strip">
   <div class="about-inner">
     <h2 class="about-heading">Not a gym.<br>Not a club.<br><em>A third place.</em></h2>
     <div class="about-right">
       <div class="about-body">
-        <p>Ray Oldenburg coined the "third place" as the social spaces between home and work where real community happens. Barbershops, coffee shops, parks. We believe a <strong>dojo can be that</strong> for Coudersport.</p>
+        <p>Ray Oldenburg coined the third place as the social spaces between home and work where real community happens. Barbershops, coffee shops, parks. We believe a <strong>dojo can be that</strong> for Coudersport.</p>
         <p>No ego. No rank theater. No pressure. Just people showing up, moving their bodies, and getting a little better at life together.</p>
       </div>
-      <a href="/about" class="btn-ghost">Our story →</a>
+      <a href="/about" class="btn-ghost">Our story</a>
     </div>
   </div>
 </section>
-
-<!-- TRAIN / GATHER / BELONG -->
-
 <section class="pillars-section">
   <div class="pillar pillar-train">
     <span class="pillar-label">Train</span>
     <h2 class="pillar-heading">Learn to move.</h2>
-    <p class="pillar-body">Kokoro-Jitsu, BJJ Fundamentals, and open mat sessions. All skill levels welcome — zero experience required.</p>
-    <a href="/train" class="pillar-link">See classes →</a>
+    <p class="pillar-body">Kokoro-Jitsu, BJJ Fundamentals, and open mat sessions. All skill levels welcome, zero experience required.</p>
+    <a href="/train" class="pillar-link">See classes</a>
   </div>
   <div class="pillar pillar-gather">
     <span class="pillar-label">Gather</span>
     <h2 class="pillar-heading">Show up.</h2>
     <p class="pillar-body">Game nights, Ghost Jiu-Jitsu, Goodwill Jiu-Jitsu, and whatever the community builds next. No training required.</p>
-    <a href="/events" class="pillar-link">See events →</a>
+    <a href="/events" class="pillar-link">See events</a>
   </div>
   <div class="pillar pillar-belong">
     <span class="pillar-label">Belong</span>
     <h2 class="pillar-heading">Stay awhile.</h2>
     <p class="pillar-body">Coudersport's third place. A place you go because you want to. Simple pricing, no contracts, no pressure.</p>
-    <a href="/pricing" class="pillar-link">See pricing →</a>
+    <a href="/pricing" class="pillar-link">See pricing</a>
   </div>
 </section>
-
-<!-- PAGE TEASERS -->
-
 <section class="teasers-section">
   <p class="teasers-label">Explore</p>
   <h2 class="teasers-title">Everything that happens here.</h2>
   <div class="teasers-grid">
-
-```
-<a href="/train" class="teaser-card">
-  <div class="teaser-icon">🌀</div>
-  <span class="teaser-tag magenta">Martial Art</span>
-  <h3 class="teaser-name">Kokoro-Jitsu</h3>
-  <p class="teaser-desc">A living art rooted in BJJ, Kenpo, Karate, and Aiki. Absorb. Discard. Add. Structured ranks, objective testing, zero ego culture.</p>
-  <span class="teaser-arrow">Explore the art →</span>
-</a>
-
-<a href="/events" class="teaser-card">
-  <div class="teaser-icon">👻</div>
-  <span class="teaser-tag teal">Events</span>
-  <h3 class="teaser-name">Ghost &amp; Goodwill JJ</h3>
-  <p class="teaser-desc">Glow-in-the-dark rolling, thrift-store gi nights, game nights, and more. The dojo as a community space, not just a training floor.</p>
-  <span class="teaser-arrow" style="color:var(--teal)">See what's on →</span>
-</a>
-
-<a href="/train#gracie-garage" class="teaser-card">
-  <div class="teaser-icon">🤼</div>
-  <span class="teaser-tag slate">Open Mat</span>
-  <h3 class="teaser-name">Gracie Garage</h3>
-  <p class="teaser-desc">Free, informal grappling in the spirit of Gracie Garage. No hierarchy, no pressure. Just rolling and learning together.</p>
-  <span class="teaser-arrow" style="color:var(--slate)">Join the mat →</span>
-</a>
-
-<a href="/pricing" class="teaser-card">
-  <div class="teaser-icon">💸</div>
-  <span class="teaser-tag magenta">Membership</span>
-  <h3 class="teaser-name">Simple Pricing</h3>
-  <p class="teaser-desc">$15 drop-in or $75/month unlimited. No contracts, no hidden fees. Walk in and see how it feels.</p>
-  <span class="teaser-arrow">See pricing →</span>
-</a>
-```
-
+    <a href="/train" class="teaser-card">
+      <div class="teaser-icon">🌀</div>
+      <span class="teaser-tag magenta">Martial Art</span>
+      <h3 class="teaser-name">Kokoro-Jitsu</h3>
+      <p class="teaser-desc">A living art rooted in BJJ, Kenpo, Karate, and Aiki. Absorb. Discard. Add. Structured ranks, objective testing, zero ego culture.</p>
+      <span class="teaser-arrow">Explore the art</span>
+    </a>
+    <a href="/events" class="teaser-card">
+      <div class="teaser-icon">👻</div>
+      <span class="teaser-tag teal">Events</span>
+      <h3 class="teaser-name">Ghost and Goodwill JJ</h3>
+      <p class="teaser-desc">Glow-in-the-dark rolling, thrift-store gi nights, game nights, and more. The dojo as a community space, not just a training floor.</p>
+      <span class="teaser-arrow" style="color:#1D9E75">See what's on</span>
+    </a>
+    <a href="/train" class="teaser-card">
+      <div class="teaser-icon">🤼</div>
+      <span class="teaser-tag slate">Open Mat</span>
+      <h3 class="teaser-name">Gracie Garage</h3>
+      <p class="teaser-desc">Free, informal grappling in the spirit of Gracie Garage. No hierarchy, no pressure. Just rolling and learning together.</p>
+      <span class="teaser-arrow" style="color:#1E2A38">Join the mat</span>
+    </a>
+    <a href="/pricing" class="teaser-card">
+      <div class="teaser-icon">💸</div>
+      <span class="teaser-tag magenta">Membership</span>
+      <h3 class="teaser-name">Simple Pricing</h3>
+      <p class="teaser-desc">$15 drop-in or $75/month unlimited. No contracts, no hidden fees. Walk in and see how it feels.</p>
+      <span class="teaser-arrow">See pricing</span>
+    </a>
   </div>
 </section>
-
-<!-- FOOTER -->
-
 <footer>
   <div>
     <div class="footer-brand">Third Place <span>Dojo</span></div>
-    <div class="footer-sub">118 N. Main St. &nbsp;·&nbsp; Coudersport, PA &nbsp;·&nbsp; 道場</div>
-    <div class="footer-copy">Third Place Dojo &copy; 2025</div>
+    <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
+    <div class="footer-copy">Third Place Dojo 2025</div>
   </div>
   <ul class="footer-links">
     <li><a href="/train">Train</a></li>
@@ -472,6 +391,5 @@ footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
-
 </body>
 </html>
