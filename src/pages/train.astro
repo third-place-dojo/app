@@ -46,6 +46,34 @@
     font-weight: 500; transition: background 0.2s !important;
   }
   .nav-cta:hover { background: #a83d90 !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #F0F4F8; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(14,22,32,0.97); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+    color: #F0F4F8; text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #C94FAE; }
+  .mobile-menu .mobile-cta {
+    background: #C94FAE; color: white; padding: 0.875rem 2.5rem;
+    border-radius: 3rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+  }
   .btn-primary {
     background: #C94FAE; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -60,12 +88,10 @@
   }
   .page-header {
     background: linear-gradient(160deg, #141d27 0%, #1E2A38 100%);
-    padding: 9rem 5rem 5rem;
-    position: relative; overflow: hidden;
+    padding: 9rem 5rem 5rem; position: relative; overflow: hidden;
   }
   .page-header::after {
-    content: '道場';
-    position: absolute; right: 3rem; bottom: -1.5rem;
+    content: '道場'; position: absolute; right: 3rem; bottom: -1.5rem;
     font-family: serif; font-size: 14rem;
     color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
   }
@@ -74,8 +100,7 @@
     text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
   }
   .page-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem);
     color: #ffffff; line-height: 1.05; font-weight: 700;
     margin-bottom: 1.25rem; position: relative; z-index: 1;
   }
@@ -84,16 +109,13 @@
     font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
     color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
   }
-  .schedule-section {
-    padding: 6rem 5rem; background: #F0F4F8; position: relative;
-  }
+  .schedule-section { padding: 6rem 5rem; background: #F0F4F8; position: relative; }
   .schedule-section::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
     background: linear-gradient(90deg, #C94FAE, #1D9E75);
   }
   .schedule-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: #1E2A38; margin-bottom: 0.5rem;
   }
   .schedule-sub { font-size: 0.95rem; color: #8a9bb0; margin-bottom: 3rem; }
@@ -129,8 +151,7 @@
   .schedule-note a:hover { text-decoration: underline; }
   .programs-section { padding: 6rem 5rem; background: #F5EFE6; }
   .programs-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: #1E2A38; margin-bottom: 3rem;
   }
   .programs-grid {
@@ -208,6 +229,7 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .page-header { padding: 7rem 1.75rem 3.5rem; }
     .schedule-section, .programs-section { padding: 4rem 1.75rem; }
     .kj-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.75rem; }
@@ -226,7 +248,18 @@
     <li><a href="/about">About</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/train">Train</a>
+  <a href="/events">Events</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about">About</a>
+  <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
+</div>
 
 <header class="page-header">
   <span class="page-header-label">Training Programs</span>
@@ -366,6 +399,21 @@
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
