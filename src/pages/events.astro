@@ -1,1 +1,405 @@
+---
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events - Third Place Dojo</title>
+<meta name="description" content="Events at Third Place Dojo in Coudersport, PA. Ghost Jiu-Jitsu, Thrift-Jitsu, game nights, movie nights, and more." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F5EFE6;
+    color: #1E2A38;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(20,29,39,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav-logo span { color: #C94FAE; }
+  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #F0F4F8; text-decoration: none;
+    opacity: 0.6; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; color: #C94FAE; }
+  .nav-cta {
+    background: #C94FAE; color: #ffffff !important;
+    opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
+    font-weight: 500; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #a83d90 !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #F0F4F8; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(14,22,32,0.97); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+    color: #F0F4F8; text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #C94FAE; }
+  .mobile-menu .mobile-cta {
+    background: #C94FAE; color: white; padding: 0.875rem 2.5rem;
+    border-radius: 3rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+  }
+  .btn-primary {
+    background: #C94FAE; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,79,174,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
+  .btn-teal {
+    background: #1D9E75; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(29,158,117,0.3);
+  }
+  .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
+  }
 
+  /* PAGE HEADER */
+  .page-header {
+    background: linear-gradient(160deg, #141d27 0%, #1E2A38 100%);
+    padding: 9rem 5rem 5rem; position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: '道場'; position: absolute; right: 3rem; bottom: -1.5rem;
+    font-family: serif; font-size: 14rem;
+    color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
+  }
+  .page-header-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #ffffff; line-height: 1.05; font-weight: 700;
+    margin-bottom: 1.25rem; position: relative; z-index: 1;
+  }
+  .page-header h1 em { font-style: italic; color: #C94FAE; }
+  .page-header p {
+    font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
+    color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
+  }
+
+  /* EVENTS GRID */
+  .events-section {
+    padding: 7rem 5rem; background: #F0F4F8; position: relative;
+  }
+  .events-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #C94FAE, #1D9E75);
+  }
+  .events-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #1E2A38; margin-bottom: 0.5rem;
+  }
+  .events-sub {
+    font-size: 0.95rem; color: #8a9bb0; margin-bottom: 3.5rem; line-height: 1.6;
+  }
+  .events-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
+  }
+  .event-card {
+    background: #ffffff; border-radius: 1.5rem; overflow: hidden;
+    border: 1px solid rgba(30,42,56,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .event-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,42,56,0.1); }
+  .event-header {
+    padding: 2.5rem 2rem 1.5rem;
+    display: flex; flex-direction: column;
+  }
+  .event-emoji { font-size: 2.75rem; margin-bottom: 1rem; line-height: 1; }
+  .event-tag {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem;
+    margin-bottom: 1rem; display: inline-block; align-self: flex-start;
+  }
+  .event-tag.magenta { background: rgba(201,79,174,0.1); color: #C94FAE; }
+  .event-tag.teal { background: rgba(29,158,117,0.1); color: #1D9E75; }
+  .event-tag.slate { background: rgba(30,42,56,0.08); color: #1E2A38; }
+  .event-name {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem;
+    color: #1E2A38; line-height: 1.2; margin-bottom: 0.75rem;
+  }
+  .event-body {
+    padding: 0 2rem 2rem; flex-grow: 1; display: flex; flex-direction: column;
+  }
+  .event-desc {
+    font-size: 0.95rem; line-height: 1.75; color: #1E2A38; opacity: 0.7;
+    flex-grow: 1; margin-bottom: 1.5rem;
+  }
+  .event-status {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.78rem; font-weight: 500; color: #8a9bb0;
+    background: rgba(30,42,56,0.05); padding: 0.4rem 0.9rem;
+    border-radius: 2rem; align-self: flex-start;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #C94FAE; }
+
+  /* SUGGEST SECTION */
+  .suggest-section {
+    background: #1E2A38; padding: 7rem 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .suggest-section::before {
+    content: '?'; position: absolute; right: 3rem; bottom: -2rem;
+    font-size: 20rem; font-family: serif; color: rgba(255,255,255,0.03);
+    line-height: 1; user-select: none;
+  }
+  .suggest-left { position: relative; z-index: 1; }
+  .suggest-left h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+    color: #ffffff; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 1.25rem;
+  }
+  .suggest-left h2 em { font-style: italic; color: #C94FAE; }
+  .suggest-left p {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.85;
+    color: rgba(240,244,248,0.65); margin-bottom: 2rem;
+  }
+  .suggest-right { position: relative; z-index: 1; }
+  .suggest-ideas {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .idea-pill {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 1rem; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .idea-emoji { font-size: 1.5rem; flex-shrink: 0; }
+  .idea-text {
+    font-size: 0.9rem; line-height: 1.5; color: rgba(240,244,248,0.65);
+  }
+  .idea-text strong { color: #ffffff; font-weight: 500; display: block; margin-bottom: 0.1rem; }
+
+  /* FOOTER */
+  footer {
+    background: #141d27; padding: 3rem 5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
+  .footer-brand span { color: #C94FAE; }
+  .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(240,244,248,0.5); text-decoration: none;
+    letter-spacing: 0.06em; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #1D9E75; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .page-header { padding: 7rem 1.75rem 3.5rem; }
+    .events-section { padding: 4rem 1.75rem; }
+    .suggest-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.75rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <ul class="nav-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events" class="active">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/train">Train</a>
+  <a href="/events">Events</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about">About</a>
+  <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
+</div>
+
+<header class="page-header">
+  <span class="page-header-label">Events</span>
+  <h1>More than<br><em>just training.</em></h1>
+  <p>The dojo is a community space. These events are for everyone — members, drop-ins, neighbors, and curious strangers. No gi required.</p>
+</header>
+
+<section class="events-section">
+  <span class="section-label">Coming Soon</span>
+  <h2 class="events-title">What's happening here</h2>
+  <p class="events-sub">We open May 1st. Dates for all events will be announced through our Discord and Facebook page. Stay tuned.</p>
+
+  <div class="events-grid">
+
+    <div class="event-card">
+      <div class="event-header">
+        <div class="event-emoji">👻</div>
+        <span class="event-tag magenta">Jiu-Jitsu</span>
+        <h3 class="event-name">Ghost Jiu-Jitsu</h3>
+      </div>
+      <div class="event-body">
+        <p class="event-desc">Glow-in-the-dark rolling under blacklights. Neon tape on the mats, glow sticks, the whole deal. Same great jiu-jitsu — just spookier. Open to all skill levels, no experience required. Just show up ready to have fun.</p>
+        <span class="event-status"><span class="status-dot"></span> Date TBD — opening May 1st</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-header">
+        <div class="event-emoji">👕</div>
+        <span class="event-tag teal">Jiu-Jitsu</span>
+        <h3 class="event-name">Thrift-Jitsu</h3>
+      </div>
+      <div class="event-body">
+        <p class="event-desc">Hit the thrift store, find the wildest gi or outfit you can, and come roll. The more ridiculous the better. It's jiu-jitsu in costume — which turns out to be exactly as fun as it sounds. All skill levels welcome.</p>
+        <span class="event-status"><span class="status-dot"></span> Date TBD — opening May 1st</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-header">
+        <div class="event-emoji">🎲</div>
+        <span class="event-tag slate">Community</span>
+        <h3 class="event-name">Game Night</h3>
+      </div>
+      <div class="event-body">
+        <p class="event-desc">Board games, card games, tabletop RPGs — bring your favorites or just show up and join whatever's happening. The mats make surprisingly great gaming tables. No training required, everyone welcome.</p>
+        <span class="event-status"><span class="status-dot"></span> Date TBD — opening May 1st</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-header">
+        <div class="event-emoji">🍕</div>
+        <span class="event-tag magenta">Community</span>
+        <h3 class="event-name">Movie Night</h3>
+      </div>
+      <div class="event-body">
+        <p class="event-desc">Pizza, a projector, and a good movie. Sometimes a martial arts film, sometimes whatever the community votes for. Hang out, eat, watch something great together. No agenda, no training, just good company.</p>
+        <span class="event-status"><span class="status-dot"></span> Date TBD — opening May 1st</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="suggest-section">
+  <div class="suggest-left">
+    <span class="section-label" style="color:#1D9E75;">Your Ideas</span>
+    <h2>Got something in mind? <em>Tell us.</em></h2>
+    <p>This dojo belongs to the community. If you have an idea for an event — a workshop, a screening, a meetup, anything — we want to hear it. Reach out on Discord or Facebook and let's make it happen.</p>
+    <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="btn-teal">Join the community on Ko-fi</a>
+  </div>
+  <div class="suggest-right">
+    <div class="suggest-ideas">
+      <div class="idea-pill">
+        <div class="idea-emoji">🥋</div>
+        <div class="idea-text">
+          <strong>Beginner's Crash Course</strong>
+          A single afternoon intro to jiu-jitsu for total beginners and curious neighbors.
+        </div>
+      </div>
+      <div class="idea-pill">
+        <div class="idea-emoji">🎨</div>
+        <div class="idea-text">
+          <strong>Open Mat Social</strong>
+          Casual rolling with music, snacks, and no pressure. More hang than training.
+        </div>
+      </div>
+      <div class="idea-pill">
+        <div class="idea-emoji">📚</div>
+        <div class="idea-text">
+          <strong>Book Club</strong>
+          Martial arts philosophy, mindfulness, or whatever the group wants to read together.
+        </div>
+      </div>
+      <div class="idea-pill">
+        <div class="idea-emoji">💡</div>
+        <div class="idea-text">
+          <strong>Your idea here</strong>
+          Seriously. We're open. Reach out and pitch it.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">Third Place <span>Dojo</span></div>
+    <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
+    <div class="footer-copy">Third Place Dojo 2025</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
+  </ul>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
