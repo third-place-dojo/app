@@ -174,8 +174,14 @@
   .value-card {
     background: #F0F4F8; border-radius: 1.25rem; padding: 2rem 1.75rem;
     border: 1px solid rgba(30,42,56,0.07);
+    position: relative; overflow: hidden;
   }
-  .value-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .value-kanji {
+    position: absolute; right: -0.5rem; bottom: -1.5rem;
+    font-family: serif; font-size: 7rem; line-height: 1;
+    color: #1E2A38; opacity: 0.04; user-select: none; pointer-events: none;
+  }
+  .value-content { position: relative; z-index: 1; }
   .value-name {
     font-family: 'Playfair Display', serif; font-size: 1.2rem;
     color: #1E2A38; margin-bottom: 0.6rem;
@@ -218,6 +224,7 @@
     width: 2rem; height: 2rem; background: rgba(29,158,117,0.15); border-radius: 50%;
     display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0;
   }
+  .location-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
   .location-card {
     background: rgba(255,255,255,0.04); border-radius: 1.5rem; padding: 2.5rem;
     border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;
@@ -234,16 +241,6 @@
     font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: #1D9E75; margin-bottom: 1.5rem;
   }
-  .opening-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(201,79,174,0.15); color: #C94FAE;
-    border: 1px solid rgba(201,79,174,0.3); padding: 0.4rem 0.9rem;
-    border-radius: 2rem; font-size: 0.78rem; font-weight: 500; margin-bottom: 1.5rem;
-  }
-  .pulse-dot {
-    width: 6px; height: 6px; background: #C94FAE; border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
   .location-card p {
     font-size: 0.9rem; line-height: 1.7; color: rgba(240,244,248,0.6);
     margin-bottom: 1.75rem; font-family: 'Fraunces', serif;
@@ -255,6 +252,13 @@
     transition: transform 0.2s; box-shadow: 0 4px 16px rgba(201,79,174,0.35);
   }
   .support-link:hover { transform: translateY(-2px); }
+  .directions-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #1D9E75; color: white; text-decoration: none;
+    padding: 0.7rem 1.4rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 500;
+    transition: transform 0.2s; box-shadow: 0 4px 16px rgba(29,158,117,0.3);
+  }
+  .directions-link:hover { transform: translateY(-2px); }
   footer {
     background: #141d27; padding: 3rem 5rem;
     display: flex; align-items: center; justify-content: space-between;
@@ -263,6 +267,9 @@
   .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
   .footer-brand span { color: #C94FAE; }
   .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-directions { font-size: 0.78rem; margin-top: 0.35rem; }
+  .footer-directions a { color: #1D9E75; text-decoration: none; }
+  .footer-directions a:hover { text-decoration: underline; }
   .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
   .footer-links a {
@@ -348,36 +355,55 @@
   <span class="section-label">What we stand for</span>
   <h2 class="values-title">How we train. How we show up.</h2>
   <div class="values-grid">
+
     <div class="value-card">
-      <span class="value-icon">🚫</span>
-      <h3 class="value-name">No ego culture</h3>
-      <p class="value-desc">Rank doesn't make you better than anyone. We check our egos at the door and train to help each other grow — not to dominate, perform, or prove anything.</p>
+      <div class="value-kanji">礼</div>
+      <div class="value-content">
+        <h3 class="value-name">Respect in practice</h3>
+        <p class="value-desc">We train to help each other grow. Rank is a marker of progress, not a measure of worth. Everyone on the mat deserves the same respect — beginner or black belt.</p>
+      </div>
     </div>
+
     <div class="value-card">
-      <span class="value-icon">🌊</span>
-      <h3 class="value-name">Flow first</h3>
-      <p class="value-desc">Inspired by Csikszentmihalyi's concept of flow and Tohei's Ki principles. We train to find ease in movement, not force it. Hard and soft, together.</p>
+      <div class="value-kanji">流</div>
+      <div class="value-content">
+        <h3 class="value-name">Flow first</h3>
+        <p class="value-desc">Inspired by Csikszentmihalyi's concept of flow and Tohei's Ki principles. We train to find ease in movement, not force it. Hard and soft, together.</p>
+      </div>
     </div>
+
     <div class="value-card">
-      <span class="value-icon">🚪</span>
-      <h3 class="value-name">Open doors</h3>
-      <p class="value-desc">Zero experience required. Every age, every body, every starting point. The dojo exists for the community — not the other way around.</p>
+      <div class="value-kanji">門</div>
+      <div class="value-content">
+        <h3 class="value-name">Open doors</h3>
+        <p class="value-desc">Zero experience required. Every age, every body, every starting point. The dojo exists for the community — not the other way around.</p>
+      </div>
     </div>
+
     <div class="value-card">
-      <span class="value-icon">🎯</span>
-      <h3 class="value-name">Honest testing</h3>
-      <p class="value-desc">Belt ranks mean something here. Objective, pass/fail criteria — no politics, no pay-to-promote, no favoritism. You earn what you earn.</p>
+      <div class="value-kanji">真</div>
+      <div class="value-content">
+        <h3 class="value-name">Honest testing</h3>
+        <p class="value-desc">Belt ranks mean something here. Objective, pass/fail criteria — no politics, no pay-to-promote, no favoritism. You earn what you earn.</p>
+      </div>
     </div>
+
     <div class="value-card">
-      <span class="value-icon">🤝</span>
-      <h3 class="value-name">Community first</h3>
-      <p class="value-desc">You don't have to train to belong. Events, open mats, and gathering space exist for everyone. The dojo is a place, not just a program.</p>
+      <div class="value-kanji">和</div>
+      <div class="value-content">
+        <h3 class="value-name">Community first</h3>
+        <p class="value-desc">You don't have to train to belong. Events, open mats, and gathering space exist for everyone. The dojo is a place, not just a program.</p>
+      </div>
     </div>
+
     <div class="value-card">
-      <span class="value-icon">🧠</span>
-      <h3 class="value-name">Mindful practice</h3>
-      <p class="value-desc">Drawing on MBSR and mindfulness principles, we train with awareness — of our bodies, our partners, and the present moment. Martial arts as moving meditation.</p>
+      <div class="value-kanji">禅</div>
+      <div class="value-content">
+        <h3 class="value-name">Mindful practice</h3>
+        <p class="value-desc">Drawing on MBSR and mindfulness principles, we train with awareness — of our bodies, our partners, and the present moment. Martial arts as moving meditation.</p>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -389,7 +415,7 @@
       <p class="founder-title">Founder · Head Instructor</p>
     </div>
     <div class="founder-body">
-      <p>Brian has been training in martial arts since 2007, with experience in Goshin Jutsu Karate, IKCA Chinese Kenpo, Brazilian Jiu-Jitsu, and Goshin Aiki-Jutsu. He founded Kokoro-Jitsu in 2014 as a synthesis of what he had absorbed, discarded, and added across nearly two decades of practice.</p>
+      <p>Brian has been training in martial arts since 2007, with experience in Goshin Jutsu Karate, IKCA Chinese Kenpo, and Brazilian Jiu-Jitsu. He founded Kokoro-Jitsu in 2014 as a synthesis of what he had absorbed, discarded, and added across nearly two decades of practice.</p>
       <p>Third Place Dojo grew out of a simple observation: <strong>Coudersport needed a place like this.</strong> Not just a martial arts school, but a genuine gathering space — the kind of place where people show up because they want to, stay because it feels like home, and leave a little better than they arrived.</p>
       <p>Brian believes that martial arts, done right, is one of the best tools for building community, confidence, and character — regardless of age, background, or experience level. That's the dojo he's building.</p>
     </div>
@@ -400,7 +426,7 @@
   <div>
     <span class="section-label" style="color:#1D9E75;">Find Us</span>
     <h2 class="location-heading">Rooting in<br><em>Coudersport</em></h2>
-    <p class="location-body">We've secured a space on Main Street and we're finalizing the details. Opening soon — follow along and help us get the mats on the floor.</p>
+    <p class="location-body">A space on Main Street in the heart of Coudersport. Come train, come hang out, come belong.</p>
     <div class="location-details">
       <div class="location-detail">
         <div class="detail-icon">📍</div>
@@ -415,16 +441,15 @@
         <span>Ko-fi: ko-fi.com/kokorojitsu</span>
       </div>
     </div>
-    <a href="/train" class="btn-teal">See classes and schedule</a>
+    <div class="location-buttons">
+      <a href="/train" class="btn-teal">See classes and schedule</a>
+      <a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank" class="directions-link">Get Directions</a>
+    </div>
   </div>
   <div class="location-card">
     <h3 class="location-card-title">Coudersport Dojo</h3>
     <p class="location-card-sub">118 N. Main St. · Coudersport, PA</p>
-    <div class="opening-badge">
-      <div class="pulse-dot"></div>
-      Space secured — opening soon
-    </div>
-    <p>We're building this in public and in community. Every Ko-fi membership and donation goes directly toward getting the doors open.</p>
+    <p>We're building this in public and in community. Every Ko-fi membership and donation goes directly toward getting the mats on the floor.</p>
     <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="support-link">Support on Ko-fi</a>
   </div>
 </section>
@@ -433,14 +458,15 @@
   <div>
     <div class="footer-brand">Third Place <span>Dojo</span></div>
     <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
-    <div class="footer-copy">Third Place Dojo 2025</div>
+    <div class="footer-directions"><a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank">Get Directions</a></div>
+    <div class="footer-copy">Third Place Dojo 2026</div>
   </div>
   <ul class="footer-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events">Events</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer">Kokoro-Jitsu</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
