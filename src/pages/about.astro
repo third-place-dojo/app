@@ -46,7 +46,34 @@
     font-weight: 500; transition: background 0.2s !important;
   }
   .nav-cta:hover { background: #a83d90 !important; }
-
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #F0F4F8; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(14,22,32,0.97); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+    color: #F0F4F8; text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #C94FAE; }
+  .mobile-menu .mobile-cta {
+    background: #C94FAE; color: white; padding: 0.875rem 2.5rem;
+    border-radius: 3rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+  }
   .btn-primary {
     background: #C94FAE; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -55,7 +82,6 @@
     box-shadow: 0 4px 20px rgba(201,79,174,0.35);
   }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
-
   .btn-teal {
     background: #1D9E75; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -64,21 +90,16 @@
     box-shadow: 0 4px 20px rgba(29,158,117,0.3);
   }
   .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
-
   .section-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
     text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
   }
-
-  /* PAGE HEADER */
   .page-header {
     background: linear-gradient(160deg, #141d27 0%, #1E2A38 100%);
-    padding: 9rem 5rem 5rem;
-    position: relative; overflow: hidden;
+    padding: 9rem 5rem 5rem; position: relative; overflow: hidden;
   }
   .page-header::after {
-    content: '道場';
-    position: absolute; right: 3rem; bottom: -1.5rem;
+    content: '道場'; position: absolute; right: 3rem; bottom: -1.5rem;
     font-family: serif; font-size: 14rem;
     color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
   }
@@ -87,8 +108,7 @@
     text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
   }
   .page-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem);
     color: #ffffff; line-height: 1.05; font-weight: 700;
     margin-bottom: 1.25rem; position: relative; z-index: 1;
   }
@@ -97,12 +117,8 @@
     font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
     color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
   }
-
-  /* THIRD PLACE SECTION */
   .third-place-section {
-    padding: 7rem 5rem;
-    background: #F0F4F8;
-    position: relative;
+    padding: 7rem 5rem; background: #F0F4F8; position: relative;
   }
   .third-place-section::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
@@ -112,8 +128,7 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
   }
   .third-place-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem);
     color: #1E2A38; line-height: 1.2;
   }
   .third-place-heading em { font-style: italic; color: #C94FAE; }
@@ -123,11 +138,8 @@
   }
   .third-place-body p + p { margin-top: 1.25rem; }
   .third-place-body strong { font-weight: 600; color: #1E2A38; opacity: 1; }
-
-  /* MISSION STRIP */
   .mission-section {
-    background: #1E2A38; padding: 7rem 5rem;
-    position: relative; overflow: hidden;
+    background: #1E2A38; padding: 7rem 5rem; position: relative; overflow: hidden;
   }
   .mission-section::before {
     content: '心術'; position: absolute; right: 3rem; bottom: -2rem;
@@ -139,8 +151,7 @@
     position: relative; z-index: 1;
   }
   .mission-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: #ffffff; line-height: 1.3;
   }
   .mission-quote em { font-style: italic; color: #C94FAE; }
@@ -154,17 +165,12 @@
   }
   .mission-body p + p { margin-top: 1.25rem; }
   .mission-body strong { color: #ffffff; font-weight: 600; }
-
-  /* VALUES */
   .values-section { padding: 7rem 5rem; background: #F5EFE6; }
   .values-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: #1E2A38; margin-bottom: 3rem;
   }
-  .values-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-  }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .value-card {
     background: #F0F4F8; border-radius: 1.25rem; padding: 2rem 1.75rem;
     border: 1px solid rgba(30,42,56,0.07);
@@ -175,19 +181,12 @@
     color: #1E2A38; margin-bottom: 0.6rem;
   }
   .value-desc { font-size: 0.9rem; line-height: 1.75; color: #1E2A38; opacity: 0.65; }
-
-  /* FOUNDER */
-  .founder-section {
-    padding: 7rem 5rem; background: #F0F4F8;
-    position: relative;
-  }
+  .founder-section { padding: 7rem 5rem; background: #F0F4F8; }
   .founder-inner {
     display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start;
   }
-  .founder-label-block { }
   .founder-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: #1E2A38; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 0.5rem;
   }
   .founder-title {
@@ -200,22 +199,18 @@
   }
   .founder-body p + p { margin-top: 1.25rem; }
   .founder-body strong { font-weight: 600; color: #1E2A38; opacity: 1; }
-
-  /* LOCATION */
   .location-section {
     background: #1E2A38; padding: 5rem;
     display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
   }
   .location-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
     color: #ffffff; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 1.25rem;
   }
   .location-heading em { font-style: italic; color: #1D9E75; }
   .location-body {
-    font-size: 1rem; line-height: 1.8;
-    color: rgba(240,244,248,0.6); margin-bottom: 2rem;
-    font-family: 'Fraunces', serif;
+    font-size: 1rem; line-height: 1.8; color: rgba(240,244,248,0.6);
+    margin-bottom: 2rem; font-family: 'Fraunces', serif;
   }
   .location-details { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
   .location-detail { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: #F0F4F8; }
@@ -250,8 +245,8 @@
     animation: pulse 2s ease-in-out infinite;
   }
   .location-card p {
-    font-size: 0.9rem; line-height: 1.7; color: rgba(240,244,248,0.6); margin-bottom: 1.75rem;
-    font-family: 'Fraunces', serif;
+    font-size: 0.9rem; line-height: 1.7; color: rgba(240,244,248,0.6);
+    margin-bottom: 1.75rem; font-family: 'Fraunces', serif;
   }
   .support-link {
     display: inline-flex; align-items: center; gap: 0.5rem;
@@ -260,8 +255,6 @@
     transition: transform 0.2s; box-shadow: 0 4px 16px rgba(201,79,174,0.35);
   }
   .support-link:hover { transform: translateY(-2px); }
-
-  /* FOOTER */
   footer {
     background: #141d27; padding: 3rem 5rem;
     display: flex; align-items: center; justify-content: space-between;
@@ -277,15 +270,14 @@
     letter-spacing: 0.06em; transition: color 0.2s;
   }
   .footer-links a:hover { color: #1D9E75; }
-
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(0.8); }
   }
-
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .page-header { padding: 7rem 1.75rem 3.5rem; }
     .third-place-section, .values-section, .founder-section { padding: 4rem 1.75rem; }
     .third-place-grid, .mission-inner, .location-section, .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -307,7 +299,18 @@
     <li><a href="/about" class="active">About</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/train">Train</a>
+  <a href="/events">Events</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about">About</a>
+  <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
+</div>
 
 <header class="page-header">
   <span class="page-header-label">About</span>
@@ -332,7 +335,7 @@
       <blockquote class="mission-quote">
         "Absorb what is useful.<br>Discard what is not.<br><em>Add what is uniquely your own.</em>"
       </blockquote>
-      <p class="mission-attr">こころ術 · Kokoro-Jitsu</p>
+      <p class="mission-attr">Inspired by Bruce Lee · こころ術 · Kokoro-Jitsu</p>
     </div>
     <div class="mission-body">
       <p><strong>Rural communities deserve great training.</strong> You shouldn't have to drive two hours to find a martial arts school that takes you seriously, teaches honestly, and doesn't make you feel like an outsider for being a beginner.</p>
@@ -380,7 +383,7 @@
 
 <section class="founder-section">
   <div class="founder-inner">
-    <div class="founder-label-block">
+    <div>
       <span class="section-label">Founder</span>
       <h2 class="founder-name">Brian Lucas</h2>
       <p class="founder-title">Founder · Head Instructor</p>
@@ -441,6 +444,21 @@
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
