@@ -1,3 +1,6 @@
+# Copy everything below this line
+
+```
 ---
 ---
 <html lang="en">
@@ -5,8 +8,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Third Place Dojo - Coudersport, PA</title>
+<meta name="description" content="A martial arts and community space in Coudersport, PA. Home of Kokoro-Jitsu." />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="description" content="A community space in Coudersport, PA. Gather, train, belong. Home of Kokoro-Jitsu." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -19,40 +22,43 @@
     font-weight: 300;
     overflow-x: hidden;
   }
+
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.25rem 2.5rem;
-    background: rgba(245,239,230,0.88);
+    background: rgba(20,29,39,0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(30,42,56,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-logo {
     font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
-    color: #1E2A38; letter-spacing: 0.02em; text-decoration: none;
+    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
   }
   .nav-logo span { color: #C94FAE; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #1E2A38; text-decoration: none;
-    opacity: 0.7; transition: opacity 0.2s, color 0.2s;
+    text-transform: uppercase; color: #F0F4F8; text-decoration: none;
+    opacity: 0.6; transition: opacity 0.2s, color 0.2s;
   }
   .nav-links a:hover { opacity: 1; color: #C94FAE; }
   .nav-cta {
-    background: #1E2A38; color: #F0F4F8 !important;
+    background: #C94FAE; color: #ffffff !important;
     opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
-    transition: background 0.2s !important;
+    font-weight: 500; transition: background 0.2s !important;
   }
-  .nav-cta:hover { background: #C94FAE !important; }
+  .nav-cta:hover { background: #a83d90 !important; }
+
   .btn-primary {
     background: #C94FAE; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
     letter-spacing: 0.04em; display: inline-block;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(201,79,174,0.3);
+    box-shadow: 0 4px 20px rgba(201,79,174,0.35);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.4); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
+
   .btn-teal {
     background: #1D9E75; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -61,6 +67,16 @@
     box-shadow: 0 4px 20px rgba(29,158,117,0.3);
   }
   .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
+
+  .btn-ghost-light {
+    background: transparent; color: #F0F4F8; padding: 0.875rem 2rem;
+    border-radius: 3rem; border: 1.5px solid rgba(240,244,248,0.25);
+    text-decoration: none; font-size: 0.9rem; font-weight: 400;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost-light:hover { border-color: #1D9E75; color: #1D9E75; }
+
   .btn-ghost {
     background: transparent; color: #1E2A38; padding: 0.875rem 2rem;
     border-radius: 3rem; border: 1.5px solid rgba(30,42,56,0.25);
@@ -69,79 +85,94 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-ghost:hover { border-color: #1D9E75; color: #1D9E75; }
+
   .hero {
-    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 5rem; position: relative; overflow: hidden;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #141d27 0%, #1E2A38 60%, #1a2535 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden;
   }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 5rem 3rem 5rem 5rem; position: relative; z-index: 2;
+
+  .hero-kanji-bg {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: serif; font-size: clamp(16rem, 40vw, 32rem);
+    color: rgba(255,255,255,0.025); user-select: none; pointer-events: none;
+    letter-spacing: -0.05em; line-height: 1;
   }
-  .hero-eyebrow {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em;
-    text-transform: uppercase; color: #1D9E75; margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif; font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.1; color: #1E2A38; margin-bottom: 1.75rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
-  }
-  .hero-title em { font-style: italic; color: #C94FAE; }
-  .hero-body {
-    font-family: 'Fraunces', serif; font-size: 1.15rem; line-height: 1.75;
-    color: #1E2A38; max-width: 38ch; margin-bottom: 2.5rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
-  }
-  .hero-right {
-    position: relative; display: flex;
-    align-items: center; justify-content: center; overflow: hidden;
-  }
-  .hero-bg-shape {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, #1E2A38 0%, #2e3f52 100%);
-    clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
-  }
+
   .hero-circle-1 {
-    position: absolute; width: 420px; height: 420px; border-radius: 50%;
-    border: 1px solid rgba(201,79,174,0.2); top: 50%; left: 50%;
-    transform: translate(-50%,-50%); animation: slowSpin 30s linear infinite;
+    position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    border: 1px solid rgba(201,79,174,0.1); top: 50%; left: 50%;
+    transform: translate(-50%,-50%); animation: slowSpin 40s linear infinite;
   }
   .hero-circle-2 {
-    position: absolute; width: 280px; height: 280px; border-radius: 50%;
-    border: 1px solid rgba(29,158,117,0.3); top: 50%; left: 50%;
-    transform: translate(-50%,-50%); animation: slowSpin 20s linear infinite reverse;
+    position: absolute; width: 400px; height: 400px; border-radius: 50%;
+    border: 1px solid rgba(29,158,117,0.12); top: 50%; left: 50%;
+    transform: translate(-50%,-50%); animation: slowSpin 25s linear infinite reverse;
   }
-  .hero-kanji {
-    position: absolute; z-index: 1; font-size: 13rem;
-    color: rgba(255,255,255,0.04); font-family: serif; line-height: 1;
-    user-select: none; letter-spacing: -0.05em; left: 1rem; top: 50%;
-    transform: translateY(-50%);
+
+  .hero-location {
+    position: relative; z-index: 2;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s;
   }
+
   .hero-wordmark {
-    position: relative; z-index: 2; display: flex; flex-direction: column;
-    align-items: center; text-align: center; gap: 0.1rem;
-    animation: fadeIn 1.2s ease forwards 0.6s; opacity: 0;
-    padding: 0 1.5rem; width: 100%;
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.25s;
   }
+
   .hero-wordmark-top {
-    font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 4vw, 3.75rem);
-    font-weight: 300; font-style: italic; color: rgba(240,244,248,0.75);
-    letter-spacing: 0.06em; line-height: 1;
+    font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300; font-style: italic; color: rgba(240,244,248,0.6);
+    letter-spacing: 0.1em; line-height: 1; margin-bottom: 0.1em;
   }
+
   .hero-wordmark-bottom {
-    font-family: 'Playfair Display', serif; font-size: clamp(6rem, 11vw, 9.5rem);
-    font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 0.88;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5), 0 8px 40px rgba(0,0,0,0.4);
+    font-family: 'Playfair Display', serif; font-size: clamp(5rem, 14vw, 11rem);
+    font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 0.9;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.3);
   }
-  .hero-wordmark-sub {
-    margin-top: 1.25rem; font-size: 0.72rem; letter-spacing: 0.22em;
-    text-transform: uppercase; color: #1D9E75; font-weight: 500;
+
+  .hero-tagline {
+    position: relative; z-index: 2;
+    margin-top: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: rgba(240,244,248,0.85); line-height: 1.4;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.45s;
   }
+  .hero-tagline em { font-style: italic; color: #C94FAE; }
+
+  .hero-sub {
+    position: relative; z-index: 2;
+    margin-top: 1rem;
+    font-family: 'Fraunces', serif; font-size: 1.05rem;
+    color: rgba(240,244,248,0.5); line-height: 1.6; max-width: 42ch;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-actions {
+    position: relative; z-index: 2;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    margin-top: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.75s;
+  }
+
+  .hero-scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(240,244,248,0.3); animation: fadeIn 1s ease forwards 1.5s; opacity: 0;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, rgba(240,244,248,0.3), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
   .about-strip {
     background: #F0F4F8; padding: 5rem;
     position: relative; overflow: hidden;
@@ -164,6 +195,7 @@
   }
   .about-body p + p { margin-top: 1rem; }
   .about-body strong { font-weight: 600; color: #1E2A38; }
+
   .pillars-section { display: grid; grid-template-columns: repeat(3, 1fr); }
   .pillar { padding: 4rem 2.5rem; }
   .pillar-train { background: #141d27; }
@@ -195,6 +227,7 @@
   .pillar-gather .pillar-link { color: #C94FAE; }
   .pillar-belong .pillar-link { color: #04342C; }
   .pillar-link:hover { gap: 0.8rem; }
+
   .teasers-section { padding: 7rem 5rem; background: #F5EFE6; }
   .teasers-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
@@ -232,6 +265,7 @@
     color: #C94FAE; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
   }
   .teaser-card:hover .teaser-arrow { gap: 0.7rem; }
+
   footer {
     background: #141d27; padding: 3rem 5rem;
     display: flex; align-items: center; justify-content: space-between;
@@ -247,8 +281,9 @@
     letter-spacing: 0.06em; transition: color 0.2s;
   }
   .footer-links a:hover { color: #1D9E75; }
+
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -256,19 +291,19 @@
     from { transform: translate(-50%,-50%) rotate(0deg); }
     to { transform: translate(-50%,-50%) rotate(360deg); }
   }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 0; }
-    .hero-right { order: -1; height: 280px; padding-top: 4.5rem; }
-    .hero-left { order: 1; background: #F5EFE6; padding: 3rem 1.75rem 3.5rem; }
-    .hero-bg-shape { clip-path: none; }
-    .hero-kanji { font-size: 6rem; }
-    .hero-wordmark-bottom { font-size: 5rem; }
-    .hero-wordmark-top { font-size: 1.9rem; }
-    .hero-title { color: #1E2A38; font-size: clamp(2.4rem, 8vw, 3.5rem); }
-    .hero-eyebrow { color: #1D9E75; }
-    .btn-ghost { color: #1E2A38; border-color: rgba(30,42,56,0.3); }
+    .hero { padding: 7rem 1.75rem 4rem; }
+    .hero-circle-1 { width: 340px; height: 340px; }
+    .hero-circle-2 { width: 220px; height: 220px; }
+    .hero-wordmark-bottom { font-size: clamp(4rem, 18vw, 6rem); }
+    .hero-wordmark-top { font-size: 1.4rem; }
     .about-strip { padding: 4rem 1.75rem; }
     .about-inner { grid-template-columns: 1fr; gap: 2rem; }
     .pillars-section { grid-template-columns: 1fr; }
@@ -278,6 +313,7 @@
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="nav-logo">Third Place <span>Dojo</span></a>
   <ul class="nav-links">
@@ -288,29 +324,39 @@
     <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
   </ul>
 </nav>
+
 <section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Coudersport, PA · Space Secured</p>
-    <h1 class="hero-title">Your third<br>place to <em>train,<br>learn, belong.</em></h1>
-    <p class="hero-body">A place to gather, learn, roll, play, and belong. Community first. Martial arts always.</p>
-    <div class="hero-actions">
-      <a href="/train" class="btn-primary">Train with us</a>
-      <a href="/events" class="btn-teal">See events</a>
-      <a href="/about" class="btn-ghost">Learn more</a>
-    </div>
+  <div class="hero-kanji-bg">道場</div>
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+
+  <p class="hero-location">Coudersport, PA · Martial Arts · Community · Open Mat</p>
+
+  <div class="hero-wordmark">
+    <span class="hero-wordmark-top">Third Place</span>
+    <span class="hero-wordmark-bottom">Dojo</span>
   </div>
-  <div class="hero-right">
-    <div class="hero-bg-shape"></div>
-    <div class="hero-circle-1"></div>
-    <div class="hero-circle-2"></div>
-    <div class="hero-kanji">道場</div>
-    <div class="hero-wordmark">
-      <span class="hero-wordmark-top">Third Place</span>
-      <span class="hero-wordmark-bottom">Dojo</span>
-      <span class="hero-wordmark-sub">こころ術 · Coudersport</span>
-    </div>
+
+  <p class="hero-tagline">
+    Train. Gather. <em>Belong.</em>
+  </p>
+
+  <p class="hero-sub">
+    A martial arts school and community space on Main Street in Coudersport, PA. Home of Kokoro-Jitsu. Free open mat. Everyone welcome.
+  </p>
+
+  <div class="hero-actions">
+    <a href="/train" class="btn-primary">Train with us</a>
+    <a href="/events" class="btn-teal">See events</a>
+    <a href="/about" class="btn-ghost-light">Learn more</a>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
   </div>
 </section>
+
 <section class="about-strip">
   <div class="about-inner">
     <h2 class="about-heading">Not a gym.<br>Not a club.<br><em>A third place.</em></h2>
@@ -323,6 +369,7 @@
     </div>
   </div>
 </section>
+
 <section class="pillars-section">
   <div class="pillar pillar-train">
     <span class="pillar-label">Train</span>
@@ -343,6 +390,7 @@
     <a href="/pricing" class="pillar-link">See pricing</a>
   </div>
 </section>
+
 <section class="teasers-section">
   <p class="teasers-label">Explore</p>
   <h2 class="teasers-title">Everything that happens here.</h2>
@@ -377,6 +425,7 @@
     </a>
   </div>
 </section>
+
 <footer>
   <div>
     <div class="footer-brand">Third Place <span>Dojo</span></div>
@@ -392,5 +441,7 @@
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
+
 </body>
 </html>
+```
