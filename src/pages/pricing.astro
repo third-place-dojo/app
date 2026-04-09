@@ -90,12 +90,18 @@
     box-shadow: 0 4px 20px rgba(29,158,117,0.3);
   }
   .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
+  .btn-ghost-teal {
+    background: transparent; color: #1D9E75; padding: 0.875rem 2rem;
+    border-radius: 3rem; border: 1.5px solid #1D9E75;
+    text-decoration: none; font-size: 0.9rem; font-weight: 400;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-ghost-teal:hover { background: #1D9E75; color: white; }
   .section-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
     text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
   }
-
-  /* PAGE HEADER */
   .page-header {
     background: linear-gradient(160deg, #141d27 0%, #1E2A38 100%);
     padding: 9rem 5rem 5rem; position: relative; overflow: hidden;
@@ -120,21 +126,17 @@
     color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
   }
 
-  /* OPENING BANNER */
-  .opening-banner {
-    background: #C94FAE; padding: 1.25rem 5rem;
+  /* FREE FIRST CLASS BANNER */
+  .free-class-banner {
+    background: #1D9E75; padding: 1.25rem 5rem;
     display: flex; align-items: center; justify-content: center; gap: 1rem;
     flex-wrap: wrap;
   }
-  .pulse-dot {
-    width: 8px; height: 8px; background: white; border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite; flex-shrink: 0;
-  }
-  .opening-banner p {
-    font-size: 0.95rem; font-weight: 500; color: white; letter-spacing: 0.03em;
+  .free-class-banner p {
+    font-size: 0.95rem; font-weight: 500; color: #04342C; letter-spacing: 0.03em;
     text-align: center;
   }
-  .opening-banner strong { font-weight: 700; }
+  .free-class-banner strong { font-weight: 700; color: #04342C; }
 
   /* PRICING SECTION */
   .pricing-section {
@@ -175,27 +177,19 @@
   .card-badge.magenta { background: rgba(201,79,174,0.12); color: #C94FAE; }
   .card-badge.teal { background: rgba(29,158,117,0.12); color: #1D9E75; }
   .card-badge.white { background: rgba(255,255,255,0.12); color: rgba(240,244,248,0.8); }
-  .card-badge.gold { background: rgba(255,196,0,0.15); color: #b8860b; }
   .price-amount {
     font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;
     line-height: 1; color: #1E2A38; margin-bottom: 0.25rem;
   }
   .pricing-card.featured .price-amount { color: #ffffff; }
   .price-amount span { font-size: 1.5rem; font-weight: 400; vertical-align: super; }
-  .price-period {
-    font-size: 0.85rem; color: #8a9bb0; margin-bottom: 1.5rem;
-  }
+  .price-period { font-size: 0.85rem; color: #8a9bb0; margin-bottom: 1.5rem; }
   .pricing-card.featured .price-period { color: rgba(240,244,248,0.5); }
   .price-name {
     font-family: 'Playfair Display', serif; font-size: 1.25rem;
     color: #1E2A38; margin-bottom: 0.5rem;
   }
   .pricing-card.featured .price-name { color: #ffffff; }
-  .price-desc {
-    font-size: 0.9rem; line-height: 1.7; color: #8a9bb0; flex-grow: 1;
-    margin-bottom: 2rem;
-  }
-  .pricing-card.featured .price-desc { color: rgba(240,244,248,0.6); }
   .price-includes {
     list-style: none; display: flex; flex-direction: column; gap: 0.6rem;
     margin-bottom: 2rem; flex-grow: 1;
@@ -267,7 +261,7 @@
   .family-right { position: relative; z-index: 1; }
   .discount-badge {
     background: rgba(29,158,117,0.15); border: 1px solid rgba(29,158,117,0.3);
-    border-radius: 1.25rem; padding: 2rem 2rem;
+    border-radius: 1.25rem; padding: 2rem;
     display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;
   }
   .discount-number {
@@ -336,6 +330,9 @@
   .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
   .footer-brand span { color: #C94FAE; }
   .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-directions { font-size: 0.78rem; margin-top: 0.35rem; }
+  .footer-directions a { color: #1D9E75; text-decoration: none; }
+  .footer-directions a:hover { text-decoration: underline; }
   .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
   .footer-links a {
@@ -354,7 +351,7 @@
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .page-header { padding: 7rem 1.75rem 3.5rem; }
-    .opening-banner { padding: 1rem 1.75rem; }
+    .free-class-banner { padding: 1rem 1.75rem; }
     .pricing-section { padding: 4rem 1.75rem; }
     .dropin-section, .family-section, .free-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.75rem; }
     .cta-section { padding: 4rem 1.75rem; }
@@ -392,9 +389,8 @@
   <p>No contracts, no hidden fees, no pressure. Pick what works for you and show up. That's it.</p>
 </header>
 
-<div class="opening-banner">
-  <div class="pulse-dot"></div>
-  <p><strong>Opening May 1st</strong> at 118 N. Main St., Coudersport, PA</p>
+<div class="free-class-banner">
+  <p>🥋 <strong>Your first class is always free.</strong> No sign-up required — just show up.</p>
 </div>
 
 <section class="pricing-section">
@@ -424,7 +420,7 @@
       <h3 class="price-name">2 Classes per Week</h3>
       <ul class="price-includes">
         <li><span class="check">✓</span> 8 classes per month</li>
-        <li><span class="check">✓</span> Mix kids and adult classes</li>
+        <li><span class="check">✓</span> Kids, Teens, or Adults class</li>
         <li><span class="check">✓</span> Saturday KJ Club included</li>
         <li><span class="check">✓</span> No contract, cancel anytime</li>
       </ul>
@@ -450,7 +446,7 @@
   <div class="dropin-left">
     <span class="section-label">Drop-In</span>
     <h2>Just want to try it? <em>Walk in.</em></h2>
-    <p>No commitment, no membership required. Drop-in for any class on any day and see how it feels. You are always welcome.</p>
+    <p>No commitment, no membership required. Drop-in for any class on any day and see how it feels. You are always welcome — and your first class is on us.</p>
   </div>
   <div class="dropin-right">
     <div class="dropin-price"><span>$</span>20</div>
@@ -459,7 +455,7 @@
       <li><span class="check">✓</span> Any Monday, Wednesday, or Friday class</li>
       <li><span class="check">✓</span> Kids, Teens, or Adults</li>
       <li><span class="check">✓</span> No registration required</li>
-      <li><span class="check">✓</span> Just show up</li>
+      <li><span class="check">✓</span> First class always free</li>
     </ul>
   </div>
 </section>
@@ -501,11 +497,12 @@
 
 <section class="cta-section">
   <span class="section-label" style="text-align:center; display:block;">Ready?</span>
-  <h2>Doors open <em>May 1st.</em></h2>
-  <p>Come see the space, meet the community, and train your first class. No pressure, no pitch. Just martial arts and good people.</p>
+  <h2>Come check us out. <em>First class is free.</em></h2>
+  <p>Come see the space, meet the community, and train your first class on us. No pressure, no pitch. Just martial arts and good people.</p>
   <div class="cta-buttons">
     <a href="/train" class="btn-primary">See the schedule</a>
-    <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="btn-teal">Support on Ko-fi</a>
+    <a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank" class="btn-teal">Get Directions</a>
+    <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="btn-ghost-teal">Support on Ko-fi</a>
   </div>
 </section>
 
@@ -513,14 +510,15 @@
   <div>
     <div class="footer-brand">Third Place <span>Dojo</span></div>
     <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
-    <div class="footer-copy">Third Place Dojo 2025</div>
+    <div class="footer-directions"><a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank">Get Directions</a></div>
+    <div class="footer-copy">Third Place Dojo 2026</div>
   </div>
   <ul class="footer-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events">Events</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer">Kokoro-Jitsu</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
