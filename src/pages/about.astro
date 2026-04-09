@@ -1,1 +1,446 @@
+---
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Third Place Dojo</title>
+<meta name="description" content="The story behind Third Place Dojo in Coudersport, PA. A martial arts school and community space built around the third place concept." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F5EFE6;
+    color: #1E2A38;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(20,29,39,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav-logo span { color: #C94FAE; }
+  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #F0F4F8; text-decoration: none;
+    opacity: 0.6; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; color: #C94FAE; }
+  .nav-cta {
+    background: #C94FAE; color: #ffffff !important;
+    opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
+    font-weight: 500; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #a83d90 !important; }
 
+  .btn-primary {
+    background: #C94FAE; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,79,174,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
+
+  .btn-teal {
+    background: #1D9E75; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(29,158,117,0.3);
+  }
+  .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
+
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: linear-gradient(160deg, #141d27 0%, #1E2A38 100%);
+    padding: 9rem 5rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: '道場';
+    position: absolute; right: 3rem; bottom: -1.5rem;
+    font-family: serif; font-size: 14rem;
+    color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
+  }
+  .page-header-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #ffffff; line-height: 1.05; font-weight: 700;
+    margin-bottom: 1.25rem; position: relative; z-index: 1;
+  }
+  .page-header h1 em { font-style: italic; color: #C94FAE; }
+  .page-header p {
+    font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
+    color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
+  }
+
+  /* THIRD PLACE SECTION */
+  .third-place-section {
+    padding: 7rem 5rem;
+    background: #F0F4F8;
+    position: relative;
+  }
+  .third-place-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #C94FAE, #1D9E75);
+  }
+  .third-place-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+  }
+  .third-place-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: #1E2A38; line-height: 1.2;
+  }
+  .third-place-heading em { font-style: italic; color: #C94FAE; }
+  .third-place-body {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.9;
+    color: #1E2A38; opacity: 0.8;
+  }
+  .third-place-body p + p { margin-top: 1.25rem; }
+  .third-place-body strong { font-weight: 600; color: #1E2A38; opacity: 1; }
+
+  /* MISSION STRIP */
+  .mission-section {
+    background: #1E2A38; padding: 7rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .mission-section::before {
+    content: '心術'; position: absolute; right: 3rem; bottom: -2rem;
+    font-size: 16rem; font-family: serif; color: rgba(255,255,255,0.03);
+    line-height: 1; user-select: none;
+  }
+  .mission-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .mission-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #ffffff; line-height: 1.3;
+  }
+  .mission-quote em { font-style: italic; color: #C94FAE; }
+  .mission-attr {
+    margin-top: 1.5rem; font-size: 0.78rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #1D9E75;
+  }
+  .mission-body {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.9;
+    color: rgba(240,244,248,0.7);
+  }
+  .mission-body p + p { margin-top: 1.25rem; }
+  .mission-body strong { color: #ffffff; font-weight: 600; }
+
+  /* VALUES */
+  .values-section { padding: 7rem 5rem; background: #F5EFE6; }
+  .values-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #1E2A38; margin-bottom: 3rem;
+  }
+  .values-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  }
+  .value-card {
+    background: #F0F4F8; border-radius: 1.25rem; padding: 2rem 1.75rem;
+    border: 1px solid rgba(30,42,56,0.07);
+  }
+  .value-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .value-name {
+    font-family: 'Playfair Display', serif; font-size: 1.2rem;
+    color: #1E2A38; margin-bottom: 0.6rem;
+  }
+  .value-desc { font-size: 0.9rem; line-height: 1.75; color: #1E2A38; opacity: 0.65; }
+
+  /* FOUNDER */
+  .founder-section {
+    padding: 7rem 5rem; background: #F0F4F8;
+    position: relative;
+  }
+  .founder-inner {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start;
+  }
+  .founder-label-block { }
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #1E2A38; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 0.5rem;
+  }
+  .founder-title {
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #8a9bb0; margin-top: 0.5rem;
+  }
+  .founder-body {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.9;
+    color: #1E2A38; opacity: 0.8;
+  }
+  .founder-body p + p { margin-top: 1.25rem; }
+  .founder-body strong { font-weight: 600; color: #1E2A38; opacity: 1; }
+
+  /* LOCATION */
+  .location-section {
+    background: #1E2A38; padding: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .location-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #ffffff; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 1.25rem;
+  }
+  .location-heading em { font-style: italic; color: #1D9E75; }
+  .location-body {
+    font-size: 1rem; line-height: 1.8;
+    color: rgba(240,244,248,0.6); margin-bottom: 2rem;
+    font-family: 'Fraunces', serif;
+  }
+  .location-details { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .location-detail { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: #F0F4F8; }
+  .detail-icon {
+    width: 2rem; height: 2rem; background: rgba(29,158,117,0.15); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0;
+  }
+  .location-card {
+    background: rgba(255,255,255,0.04); border-radius: 1.5rem; padding: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;
+  }
+  .location-card::before {
+    content: '道場'; position: absolute; right: 1rem; bottom: -1rem;
+    font-size: 7rem; opacity: 0.05; font-family: serif; line-height: 1;
+  }
+  .location-card-title {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem;
+    color: #ffffff; margin-bottom: 0.4rem;
+  }
+  .location-card-sub {
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #1D9E75; margin-bottom: 1.5rem;
+  }
+  .opening-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,79,174,0.15); color: #C94FAE;
+    border: 1px solid rgba(201,79,174,0.3); padding: 0.4rem 0.9rem;
+    border-radius: 2rem; font-size: 0.78rem; font-weight: 500; margin-bottom: 1.5rem;
+  }
+  .pulse-dot {
+    width: 6px; height: 6px; background: #C94FAE; border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .location-card p {
+    font-size: 0.9rem; line-height: 1.7; color: rgba(240,244,248,0.6); margin-bottom: 1.75rem;
+    font-family: 'Fraunces', serif;
+  }
+  .support-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #C94FAE; color: white; text-decoration: none;
+    padding: 0.7rem 1.4rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 500;
+    transition: transform 0.2s; box-shadow: 0 4px 16px rgba(201,79,174,0.35);
+  }
+  .support-link:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: #141d27; padding: 3rem 5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
+  .footer-brand span { color: #C94FAE; }
+  .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(240,244,248,0.5); text-decoration: none;
+    letter-spacing: 0.06em; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #1D9E75; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .page-header { padding: 7rem 1.75rem 3.5rem; }
+    .third-place-section, .values-section, .founder-section { padding: 4rem 1.75rem; }
+    .third-place-grid, .mission-inner, .location-section, .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .mission-section { padding: 4rem 1.75rem; }
+    .values-grid { grid-template-columns: 1fr; }
+    .location-section { padding: 4rem 1.75rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <ul class="nav-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <span class="page-header-label">About</span>
+  <h1>Not just a gym.<br><em>A third place.</em></h1>
+  <p>The story behind Third Place Dojo — what it is, why it exists, and what we believe about community, martial arts, and belonging.</p>
+</header>
+
+<section class="third-place-section">
+  <div class="third-place-grid">
+    <h2 class="third-place-heading">What is a<br><em>third place?</em></h2>
+    <div class="third-place-body">
+      <p>Sociologist Ray Oldenburg identified the "third place" as the informal social environments that exist beyond home and work — the barbershop, the coffee shop, the park bench, the diner. These are the spaces where real community actually happens. Where you know people's names. Where you show up not because you have to, but because you want to.</p>
+      <p>They've been disappearing for decades. <strong>We think Coudersport deserves one back.</strong></p>
+      <p>A dojo is a perfect third place. It has the structure of a school and the warmth of a gathering spot. It creates regulars. It builds relationships across age groups and backgrounds. It gives people somewhere to go that isn't work, isn't home, and isn't just consumption. It's participation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mission-section">
+  <div class="mission-inner">
+    <div>
+      <blockquote class="mission-quote">
+        "Absorb what is useful.<br>Discard what is not.<br><em>Add what is uniquely your own.</em>"
+      </blockquote>
+      <p class="mission-attr">こころ術 · Kokoro-Jitsu</p>
+    </div>
+    <div class="mission-body">
+      <p><strong>Rural communities deserve great training.</strong> You shouldn't have to drive two hours to find a martial arts school that takes you seriously, teaches honestly, and doesn't make you feel like an outsider for being a beginner.</p>
+      <p>Third Place Dojo exists to bring that kind of training to Coudersport — and to wrap it in a community that's bigger than any one art or program. Whether you want to train, or just want somewhere to belong, <strong>you are welcome here.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <span class="section-label">What we stand for</span>
+  <h2 class="values-title">How we train. How we show up.</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-icon">🚫</span>
+      <h3 class="value-name">No ego culture</h3>
+      <p class="value-desc">Rank doesn't make you better than anyone. We check our egos at the door and train to help each other grow — not to dominate, perform, or prove anything.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🌊</span>
+      <h3 class="value-name">Flow first</h3>
+      <p class="value-desc">Inspired by Csikszentmihalyi's concept of flow and Tohei's Ki principles. We train to find ease in movement, not force it. Hard and soft, together.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🚪</span>
+      <h3 class="value-name">Open doors</h3>
+      <p class="value-desc">Zero experience required. Every age, every body, every starting point. The dojo exists for the community — not the other way around.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🎯</span>
+      <h3 class="value-name">Honest testing</h3>
+      <p class="value-desc">Belt ranks mean something here. Objective, pass/fail criteria — no politics, no pay-to-promote, no favoritism. You earn what you earn.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🤝</span>
+      <h3 class="value-name">Community first</h3>
+      <p class="value-desc">You don't have to train to belong. Events, open mats, and gathering space exist for everyone. The dojo is a place, not just a program.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🧠</span>
+      <h3 class="value-name">Mindful practice</h3>
+      <p class="value-desc">Drawing on MBSR and mindfulness principles, we train with awareness — of our bodies, our partners, and the present moment. Martial arts as moving meditation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="founder-section">
+  <div class="founder-inner">
+    <div class="founder-label-block">
+      <span class="section-label">Founder</span>
+      <h2 class="founder-name">Brian Lucas</h2>
+      <p class="founder-title">Founder · Head Instructor</p>
+    </div>
+    <div class="founder-body">
+      <p>Brian has been training in martial arts since 2007, with experience in Goshin Jutsu Karate, IKCA Chinese Kenpo, Brazilian Jiu-Jitsu, and Goshin Aiki-Jutsu. He founded Kokoro-Jitsu in 2014 as a synthesis of what he had absorbed, discarded, and added across nearly two decades of practice.</p>
+      <p>Third Place Dojo grew out of a simple observation: <strong>Coudersport needed a place like this.</strong> Not just a martial arts school, but a genuine gathering space — the kind of place where people show up because they want to, stay because it feels like home, and leave a little better than they arrived.</p>
+      <p>Brian believes that martial arts, done right, is one of the best tools for building community, confidence, and character — regardless of age, background, or experience level. That's the dojo he's building.</p>
+    </div>
+  </div>
+</section>
+
+<section class="location-section">
+  <div>
+    <span class="section-label" style="color:#1D9E75;">Find Us</span>
+    <h2 class="location-heading">Rooting in<br><em>Coudersport</em></h2>
+    <p class="location-body">We've secured a space on Main Street and we're finalizing the details. Opening soon — follow along and help us get the mats on the floor.</p>
+    <div class="location-details">
+      <div class="location-detail">
+        <div class="detail-icon">📍</div>
+        <span>118 N. Main St., Coudersport, PA 16915</span>
+      </div>
+      <div class="location-detail">
+        <div class="detail-icon">💬</div>
+        <span>Discord: The Kokoro-Jitsu Club</span>
+      </div>
+      <div class="location-detail">
+        <div class="detail-icon">☕</div>
+        <span>Ko-fi: ko-fi.com/kokorojitsu</span>
+      </div>
+    </div>
+    <a href="/train" class="btn-teal">See classes and schedule</a>
+  </div>
+  <div class="location-card">
+    <h3 class="location-card-title">Coudersport Dojo</h3>
+    <p class="location-card-sub">118 N. Main St. · Coudersport, PA</p>
+    <div class="opening-badge">
+      <div class="pulse-dot"></div>
+      Space secured — opening soon
+    </div>
+    <p>We're building this in public and in community. Every Ko-fi membership and donation goes directly toward getting the doors open.</p>
+    <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="support-link">Support on Ko-fi</a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">Third Place <span>Dojo</span></div>
+    <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
+    <div class="footer-copy">Third Place Dojo 2025</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
