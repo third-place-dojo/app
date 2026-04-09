@@ -135,18 +135,6 @@
     );
   }
 
-  /* Dots */
-  .slide-dots {
-    position: absolute; bottom: 5rem; left: 50%; transform: translateX(-50%);
-    z-index: 3; display: flex; gap: 0.5rem;
-  }
-  .dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(240,244,248,0.35); border: none; cursor: pointer;
-    transition: background 0.3s, transform 0.3s; padding: 0;
-  }
-  .dot.active { background: #C94FAE; transform: scale(1.4); }
-
   /* Hero content */
   .hero-location {
     position: relative; z-index: 2;
@@ -372,7 +360,7 @@
 <section class="hero">
 
   <div class="slideshow">
-    <div class="slide active"></div>
+    <div class="slide"></div>
     <div class="slide"></div>
     <div class="slide"></div>
     <div class="slide"></div>
@@ -413,8 +401,6 @@
     <a href="/events" class="btn-teal">See events</a>
     <a href="/about" class="btn-ghost-light">Learn more</a>
   </div>
-
-  <div class="slide-dots" id="dots"></div>
 
   <div class="hero-scroll-hint">
     <div class="scroll-line"></div>
@@ -510,26 +496,14 @@
 
 <script>
   const slides = document.querySelectorAll('.slide');
-  const dotsContainer = document.getElementById('dots');
-  let current = 0;
+  let current = Math.floor(Math.random() * slides.length);
   let timer;
-
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => { goTo(i); resetTimer(); });
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = document.querySelectorAll('.dot');
+  slides[current].classList.add('active');
 
   function goTo(n) {
     slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
     current = (n + slides.length) % slides.length;
     slides[current].classList.add('active');
-    dots[current].classList.add('active');
   }
 
   function next() { goTo(current + 1); }
