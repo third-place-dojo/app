@@ -1,1 +1,544 @@
+---
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing - Third Place Dojo</title>
+<meta name="description" content="Simple, transparent pricing at Third Place Dojo in Coudersport, PA. No contracts, no hidden fees." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F5EFE6;
+    color: #1E2A38;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(20,29,39,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav-logo span { color: #C94FAE; }
+  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #F0F4F8; text-decoration: none;
+    opacity: 0.6; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; color: #C94FAE; }
+  .nav-cta {
+    background: #C94FAE; color: #ffffff !important;
+    opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
+    font-weight: 500; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #a83d90 !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #F0F4F8; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(14,22,32,0.97); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+    color: #F0F4F8; text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #C94FAE; }
+  .mobile-menu .mobile-cta {
+    background: #C94FAE; color: white; padding: 0.875rem 2.5rem;
+    border-radius: 3rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+  }
+  .btn-primary {
+    background: #C94FAE; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,79,174,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
+  .btn-teal {
+    background: #1D9E75; color: white; padding: 0.875rem 2rem;
+    border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.04em; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(29,158,117,0.3);
+  }
+  .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
+  }
 
+  /* PAGE HEADER */
+  .page-header {
+    background: linear-gradient(160deg, #141d27 0%, #1E2A38 100%);
+    padding: 9rem 5rem 5rem; position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: '道場'; position: absolute; right: 3rem; bottom: -1.5rem;
+    font-family: serif; font-size: 14rem;
+    color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
+  }
+  .page-header-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem; display: block;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #ffffff; line-height: 1.05; font-weight: 700;
+    margin-bottom: 1.25rem; position: relative; z-index: 1;
+  }
+  .page-header h1 em { font-style: italic; color: #C94FAE; }
+  .page-header p {
+    font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
+    color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
+  }
+
+  /* OPENING BANNER */
+  .opening-banner {
+    background: #C94FAE; padding: 1.25rem 5rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .pulse-dot {
+    width: 8px; height: 8px; background: white; border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite; flex-shrink: 0;
+  }
+  .opening-banner p {
+    font-size: 0.95rem; font-weight: 500; color: white; letter-spacing: 0.03em;
+    text-align: center;
+  }
+  .opening-banner strong { font-weight: 700; }
+
+  /* PRICING SECTION */
+  .pricing-section {
+    padding: 7rem 5rem; background: #F0F4F8; position: relative;
+  }
+  .pricing-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #C94FAE, #1D9E75);
+  }
+  .pricing-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: #1E2A38; margin-bottom: 0.5rem;
+  }
+  .pricing-sub {
+    font-size: 0.95rem; color: #8a9bb0; margin-bottom: 3.5rem; line-height: 1.6;
+  }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .pricing-card {
+    background: #ffffff; border-radius: 1.5rem; padding: 2.5rem 2rem;
+    border: 1px solid rgba(30,42,56,0.08);
+    display: flex; flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(30,42,56,0.1); }
+  .pricing-card.featured {
+    background: #1E2A38; border-color: transparent;
+    box-shadow: 0 8px 32px rgba(30,42,56,0.2);
+  }
+  .pricing-card.featured:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(30,42,56,0.3); }
+  .card-badge {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 2rem;
+    margin-bottom: 1.5rem; display: inline-block; align-self: flex-start;
+  }
+  .card-badge.magenta { background: rgba(201,79,174,0.12); color: #C94FAE; }
+  .card-badge.teal { background: rgba(29,158,117,0.12); color: #1D9E75; }
+  .card-badge.white { background: rgba(255,255,255,0.12); color: rgba(240,244,248,0.8); }
+  .card-badge.gold { background: rgba(255,196,0,0.15); color: #b8860b; }
+  .price-amount {
+    font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;
+    line-height: 1; color: #1E2A38; margin-bottom: 0.25rem;
+  }
+  .pricing-card.featured .price-amount { color: #ffffff; }
+  .price-amount span { font-size: 1.5rem; font-weight: 400; vertical-align: super; }
+  .price-period {
+    font-size: 0.85rem; color: #8a9bb0; margin-bottom: 1.5rem;
+  }
+  .pricing-card.featured .price-period { color: rgba(240,244,248,0.5); }
+  .price-name {
+    font-family: 'Playfair Display', serif; font-size: 1.25rem;
+    color: #1E2A38; margin-bottom: 0.5rem;
+  }
+  .pricing-card.featured .price-name { color: #ffffff; }
+  .price-desc {
+    font-size: 0.9rem; line-height: 1.7; color: #8a9bb0; flex-grow: 1;
+    margin-bottom: 2rem;
+  }
+  .pricing-card.featured .price-desc { color: rgba(240,244,248,0.6); }
+  .price-includes {
+    list-style: none; display: flex; flex-direction: column; gap: 0.6rem;
+    margin-bottom: 2rem; flex-grow: 1;
+  }
+  .price-includes li {
+    font-size: 0.88rem; color: #1E2A38; display: flex; align-items: center; gap: 0.6rem;
+    line-height: 1.4;
+  }
+  .pricing-card.featured .price-includes li { color: rgba(240,244,248,0.8); }
+  .check {
+    width: 18px; height: 18px; background: rgba(29,158,117,0.15);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; color: #1D9E75; flex-shrink: 0;
+  }
+  .pricing-card.featured .check { background: rgba(255,255,255,0.1); color: #1D9E75; }
+
+  /* DROP IN */
+  .dropin-section {
+    background: #F5EFE6; padding: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .dropin-left h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.75rem);
+    color: #1E2A38; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 1rem;
+  }
+  .dropin-left h2 em { font-style: italic; color: #C94FAE; }
+  .dropin-left p {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.85;
+    color: #1E2A38; opacity: 0.75;
+  }
+  .dropin-right {
+    background: #ffffff; border-radius: 1.5rem; padding: 2.5rem;
+    border: 1px solid rgba(30,42,56,0.08);
+  }
+  .dropin-price {
+    font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700;
+    color: #1E2A38; line-height: 1; margin-bottom: 0.25rem;
+  }
+  .dropin-price span { font-size: 1.75rem; font-weight: 400; vertical-align: super; }
+  .dropin-period { font-size: 0.9rem; color: #8a9bb0; margin-bottom: 1.5rem; }
+  .dropin-details {
+    list-style: none; display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .dropin-details li {
+    font-size: 0.9rem; color: #1E2A38; display: flex; align-items: center; gap: 0.6rem;
+  }
+
+  /* FAMILY DISCOUNT */
+  .family-section {
+    background: #1E2A38; padding: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .family-section::before {
+    content: '家族'; position: absolute; right: 3rem; bottom: -2rem;
+    font-size: 14rem; font-family: serif; color: rgba(255,255,255,0.03);
+    line-height: 1; user-select: none;
+  }
+  .family-left { position: relative; z-index: 1; }
+  .family-left h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.75rem);
+    color: #ffffff; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 1rem;
+  }
+  .family-left h2 em { font-style: italic; color: #1D9E75; }
+  .family-left p {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.85;
+    color: rgba(240,244,248,0.65);
+  }
+  .family-right { position: relative; z-index: 1; }
+  .discount-badge {
+    background: rgba(29,158,117,0.15); border: 1px solid rgba(29,158,117,0.3);
+    border-radius: 1.25rem; padding: 2rem 2rem;
+    display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .discount-number {
+    font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+    color: #1D9E75; line-height: 1; flex-shrink: 0;
+  }
+  .discount-text {
+    font-size: 0.95rem; line-height: 1.6; color: rgba(240,244,248,0.7);
+  }
+  .discount-text strong { color: #ffffff; font-weight: 600; }
+  .family-note {
+    font-size: 0.85rem; color: rgba(240,244,248,0.4); line-height: 1.6;
+  }
+
+  /* FREE STUFF */
+  .free-section {
+    background: #1D9E75; padding: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .free-left h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.75rem);
+    color: #04342C; line-height: 1.2; margin-top: 0.5rem; margin-bottom: 1rem;
+  }
+  .free-left p {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.85;
+    color: #085041;
+  }
+  .free-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .free-card {
+    background: rgba(255,255,255,0.15); border-radius: 1rem; padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .free-card-name {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    color: #04342C; font-weight: 700; margin-bottom: 0.25rem;
+  }
+  .free-card-detail { font-size: 0.875rem; color: #085041; line-height: 1.5; }
+  .free-tag {
+    display: inline-block; background: rgba(4,52,44,0.2); color: #04342C;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 7rem 5rem; background: #F0F4F8; text-align: center;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.75rem);
+    color: #1E2A38; margin-bottom: 1rem; line-height: 1.2;
+  }
+  .cta-section h2 em { font-style: italic; color: #C94FAE; }
+  .cta-section p {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.8;
+    color: #1E2A38; opacity: 0.7; max-width: 48ch; margin: 0 auto 2.5rem;
+  }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer {
+    background: #141d27; padding: 3rem 5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
+  .footer-brand span { color: #C94FAE; }
+  .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(240,244,248,0.5); text-decoration: none;
+    letter-spacing: 0.06em; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #1D9E75; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .page-header { padding: 7rem 1.75rem 3.5rem; }
+    .opening-banner { padding: 1rem 1.75rem; }
+    .pricing-section { padding: 4rem 1.75rem; }
+    .dropin-section, .family-section, .free-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.75rem; }
+    .cta-section { padding: 4rem 1.75rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <ul class="nav-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing" class="active">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/train">Train</a>
+  <a href="/events">Events</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about">About</a>
+  <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
+</div>
+
+<header class="page-header">
+  <span class="page-header-label">Pricing</span>
+  <h1>Simple pricing.<br><em>No surprises.</em></h1>
+  <p>No contracts, no hidden fees, no pressure. Pick what works for you and show up. That's it.</p>
+</header>
+
+<div class="opening-banner">
+  <div class="pulse-dot"></div>
+  <p><strong>Opening May 1st</strong> at 118 N. Main St., Coudersport, PA</p>
+</div>
+
+<section class="pricing-section">
+  <span class="section-label">Membership</span>
+  <h2 class="pricing-title">Monthly plans</h2>
+  <p class="pricing-sub">All plans include access to Saturday Kokoro-Jitsu Club open training. Cancel anytime.</p>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <span class="card-badge magenta">Starter</span>
+      <div class="price-amount"><span>$</span>60</div>
+      <div class="price-period">per month</div>
+      <h3 class="price-name">1 Class per Week</h3>
+      <ul class="price-includes">
+        <li><span class="check">✓</span> 4 classes per month</li>
+        <li><span class="check">✓</span> Kids, Teens, or Adults class</li>
+        <li><span class="check">✓</span> Saturday KJ Club included</li>
+        <li><span class="check">✓</span> No contract, cancel anytime</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card featured">
+      <span class="card-badge white">Most Popular</span>
+      <div class="price-amount"><span>$</span>90</div>
+      <div class="price-period">per month</div>
+      <h3 class="price-name">2 Classes per Week</h3>
+      <ul class="price-includes">
+        <li><span class="check">✓</span> 8 classes per month</li>
+        <li><span class="check">✓</span> Mix kids and adult classes</li>
+        <li><span class="check">✓</span> Saturday KJ Club included</li>
+        <li><span class="check">✓</span> No contract, cancel anytime</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card">
+      <span class="card-badge teal">Best Value</span>
+      <div class="price-amount"><span>$</span>110</div>
+      <div class="price-period">per month</div>
+      <h3 class="price-name">Unlimited</h3>
+      <ul class="price-includes">
+        <li><span class="check">✓</span> Unlimited classes</li>
+        <li><span class="check">✓</span> Every Mon, Wed, Fri session</li>
+        <li><span class="check">✓</span> Saturday KJ Club included</li>
+        <li><span class="check">✓</span> No contract, cancel anytime</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="dropin-section">
+  <div class="dropin-left">
+    <span class="section-label">Drop-In</span>
+    <h2>Just want to try it? <em>Walk in.</em></h2>
+    <p>No commitment, no membership required. Drop-in for any class on any day and see how it feels. You are always welcome.</p>
+  </div>
+  <div class="dropin-right">
+    <div class="dropin-price"><span>$</span>20</div>
+    <div class="dropin-period">per class, any session</div>
+    <ul class="dropin-details">
+      <li><span class="check">✓</span> Any Monday, Wednesday, or Friday class</li>
+      <li><span class="check">✓</span> Kids, Teens, or Adults</li>
+      <li><span class="check">✓</span> No registration required</li>
+      <li><span class="check">✓</span> Just show up</li>
+    </ul>
+  </div>
+</section>
+
+<section class="family-section">
+  <div class="family-left">
+    <span class="section-label" style="color:#1D9E75;">Family Discount</span>
+    <h2>Train together. <em>Save together.</em></h2>
+    <p>When more than one family member joins, every additional member gets 15% off their monthly plan. The more the merrier — and the cheaper.</p>
+  </div>
+  <div class="family-right">
+    <div class="discount-badge">
+      <div class="discount-number">15%</div>
+      <div class="discount-text"><strong>off for every additional family member</strong> on any monthly plan. Applies automatically — just let us know at sign-up.</div>
+    </div>
+    <p class="family-note">Discount applies to the second and each subsequent family member. All members must be in the same household.</p>
+  </div>
+</section>
+
+<section class="free-section">
+  <div class="free-left">
+    <span class="section-label" style="color:#04342C;">Always Free</span>
+    <h2>Some things here don't cost anything.</h2>
+    <p>The dojo is a third place, not just a business. These programs exist for the community, no membership required.</p>
+  </div>
+  <div class="free-cards">
+    <div class="free-card">
+      <span class="free-tag">Saturday</span>
+      <div class="free-card-name">Kokoro-Jitsu Club</div>
+      <div class="free-card-detail">10:00 AM - 12:00 PM · Teens and adults · Free / donation-based. Open training, no curriculum, no pressure. Show up and roll.</div>
+    </div>
+    <div class="free-card">
+      <span class="free-tag">Open Mat</span>
+      <div class="free-card-name">Gracie Garage</div>
+      <div class="free-card-detail">Times vary · For those studying Gracie Combatives. Free mat space and training partners, no drop-in fee ever.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <span class="section-label" style="text-align:center; display:block;">Ready?</span>
+  <h2>Doors open <em>May 1st.</em></h2>
+  <p>Come see the space, meet the community, and train your first class. No pressure, no pitch. Just martial arts and good people.</p>
+  <div class="cta-buttons">
+    <a href="/train" class="btn-primary">See the schedule</a>
+    <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="btn-teal">Support on Ko-fi</a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">Third Place <span>Dojo</span></div>
+    <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
+    <div class="footer-copy">Third Place Dojo 2025</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
+  </ul>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
