@@ -162,6 +162,12 @@
     border: 1px solid rgba(30,42,56,0.07); transition: transform 0.25s, box-shadow 0.25s;
   }
   .program-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,42,56,0.09); }
+  .program-kanji {
+    font-family: serif; font-size: 2.5rem; line-height: 1;
+    margin-bottom: 1rem; display: block; color: #C94FAE;
+  }
+  .program-kanji.teal { color: #1D9E75; }
+  .program-kanji.slate { color: #1E2A38; opacity: 0.4; }
   .program-tag {
     font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
     text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem;
@@ -170,7 +176,6 @@
   .program-tag.magenta { background: rgba(201,79,174,0.1); color: #C94FAE; }
   .program-tag.teal { background: rgba(29,158,117,0.1); color: #1D9E75; }
   .program-tag.slate { background: rgba(30,42,56,0.08); color: #1E2A38; }
-  .program-icon { font-size: 2.25rem; margin-bottom: 1rem; display: block; }
   .program-name {
     font-family: 'Playfair Display', serif; font-size: 1.4rem;
     color: #1E2A38; margin-bottom: 0.75rem; line-height: 1.2;
@@ -219,6 +224,9 @@
   .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
   .footer-brand span { color: #C94FAE; }
   .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-directions { font-size: 0.78rem; margin-top: 0.35rem; }
+  .footer-directions a { color: #1D9E75; text-decoration: none; }
+  .footer-directions a:hover { text-decoration: underline; }
   .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
   .footer-links a {
@@ -264,13 +272,13 @@
 <header class="page-header">
   <span class="page-header-label">Training Programs</span>
   <h1>Come learn.<br><em>Come move.</em></h1>
-  <p>Classes for kids, teens, and adults. Structured curriculum, zero ego, and a community that shows up for each other. All skill levels welcome — zero experience required.</p>
+  <p>Classes for kids, teens, and adults. Structured curriculum and a community that shows up for each other. All skill levels welcome — zero experience required.</p>
 </header>
 
 <section class="schedule-section">
   <span class="section-label">Schedule</span>
   <h2 class="schedule-title">Weekly class schedule</h2>
-  <p class="schedule-sub">Opening soon at 118 N. Main St., Coudersport, PA</p>
+  <p class="schedule-sub">118 N. Main St., Coudersport, PA</p>
   <div class="schedule-grid">
     <div class="schedule-day">
       <span class="day-name">Monday</span>
@@ -285,7 +293,7 @@
         <span class="class-time">6:30 PM</span>
         <div class="class-info">
           <div class="class-name">Teens and Adults</div>
-          <div class="class-desc">13+ · 60 min · Kokoro-Jitsu curriculum</div>
+          <div class="class-desc">13+ · 90 min · Kokoro-Jitsu curriculum</div>
         </div>
       </div>
     </div>
@@ -302,7 +310,7 @@
         <span class="class-time">6:30 PM</span>
         <div class="class-info">
           <div class="class-name">Teens and Adults</div>
-          <div class="class-desc">13+ · 60 min · Kokoro-Jitsu curriculum</div>
+          <div class="class-desc">13+ · 90 min · Kokoro-Jitsu curriculum</div>
         </div>
       </div>
     </div>
@@ -319,7 +327,7 @@
         <span class="class-time">6:30 PM</span>
         <div class="class-info">
           <div class="class-name">Teens and Adults</div>
-          <div class="class-desc">13+ · 60 min · Kokoro-Jitsu curriculum</div>
+          <div class="class-desc">13+ · 90 min · Kokoro-Jitsu curriculum</div>
         </div>
       </div>
     </div>
@@ -342,26 +350,26 @@
   <h2 class="programs-title">What we offer</h2>
   <div class="programs-grid">
     <div class="program-card">
-      <span class="program-icon">🧒</span>
+      <span class="program-kanji">学</span>
       <span class="program-tag magenta">Kids</span>
       <h3 class="program-name">Kids Class (8-12)</h3>
       <p class="program-desc">A structured, age-appropriate introduction to Kokoro-Jitsu. Kids learn movement, coordination, basic self-defense concepts, and how to be good training partners. Confidence and respect are the real curriculum.</p>
     </div>
     <div class="program-card">
-      <span class="program-icon">🥋</span>
+      <span class="program-kanji">武</span>
       <span class="program-tag magenta">Teens and Adults</span>
       <h3 class="program-name">Teens and Adults</h3>
-      <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. Flow-first, ego-free training culture. All experience levels welcome.</p>
+      <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. All experience levels welcome.</p>
     </div>
     <div class="program-card">
-      <span class="program-icon">🏛️</span>
+      <span class="program-kanji teal">心</span>
       <span class="program-tag teal">Community</span>
       <h3 class="program-name">The Kokoro-Jitsu Club</h3>
       <p class="program-desc">Saturday open training, free and donation-based. No formal curriculum — just mat time, exploration, rolling, and community. Open to teens and adults. You do not need to be a registered student to attend. Show up and train.</p>
-      <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="program-link teal">Support on Ko-fi</a>
+      <a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer" class="program-link teal">Learn more at kokorojitsu.com</a>
     </div>
     <div class="program-card">
-      <span class="program-icon">🤼</span>
+      <span class="program-kanji slate">道</span>
       <span class="program-tag slate">Open Mat</span>
       <h3 class="program-name">Gracie Garage</h3>
       <p class="program-desc">Third Place Dojo is pursuing Gracie Garage affiliation through Gracie University. If you are studying Gracie Combatives and looking for training partners or mat space in Coudersport, you are welcome here. Times are arranged by contact — no drop-in fee, ever.</p>
@@ -375,10 +383,10 @@
     <span class="section-label" style="color:#1D9E75;">The Martial Art</span>
     <h2 class="kj-title">Kokoro-Jitsu</h2>
     <p class="kj-japanese">こころ術</p>
-    <a href="https://kokorojitsu.com" target="_blank" class="btn-primary">Explore kokorojitsu.com</a>
+    <a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Explore kokorojitsu.com</a>
   </div>
   <div class="kj-right">
-    <p>A <strong>living martial art</strong> rooted in BJJ, Kenpo, Karate, and Aiki-Jitsu. Built around the idea that you absorb what works, discard what does not, and add what is uniquely yours.</p>
+    <p>A <strong>living martial art</strong> rooted in BJJ, Kenpo, Karate, and Aiki principles. Built around the idea that you absorb what works, discard what does not, and add what is uniquely yours.</p>
     <p>Practical, mindful, and always evolving. <strong>Objective belt testing</strong>, no politics, no performance. Just honest training and real progress.</p>
     <p>The full curriculum, rank structure, philosophy, and black belt degree system live at kokorojitsu.com.</p>
   </div>
@@ -388,14 +396,15 @@
   <div>
     <div class="footer-brand">Third Place <span>Dojo</span></div>
     <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
-    <div class="footer-copy">Third Place Dojo 2025</div>
+    <div class="footer-directions"><a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank">Get Directions</a></div>
+    <div class="footer-copy">Third Place Dojo 2026</div>
   </div>
   <ul class="footer-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events">Events</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="https://kokorojitsu.com" target="_blank">Kokoro-Jitsu</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer">Kokoro-Jitsu</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
 </footer>
