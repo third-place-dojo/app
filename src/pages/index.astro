@@ -104,27 +104,6 @@
   }
   .slide.active { opacity: 1; }
 
-  .slide:nth-child(1)  { background-image: url('/slides/slide-01.jpg'); }
-  .slide:nth-child(2)  { background-image: url('/slides/slide-02.jpg'); }
-  .slide:nth-child(3)  { background-image: url('/slides/slide-03.jpg'); }
-  .slide:nth-child(4)  { background-image: url('/slides/slide-04.jpg'); }
-  .slide:nth-child(5)  { background-image: url('/slides/slide-05.jpg'); }
-  .slide:nth-child(6)  { background-image: url('/slides/slide-06.jpg'); }
-  .slide:nth-child(7)  { background-image: url('/slides/slide-07.jpg'); }
-  .slide:nth-child(8)  { background-image: url('/slides/slide-08.jpg'); }
-  .slide:nth-child(9)  { background-image: url('/slides/slide-09.jpg'); }
-  .slide:nth-child(10) { background-image: url('/slides/slide-10.jpg'); }
-  .slide:nth-child(11) { background-image: url('/slides/slide-11.jpg'); }
-  .slide:nth-child(12) { background-image: url('/slides/slide-12.jpg'); }
-  .slide:nth-child(13) { background-image: url('/slides/slide-13.jpg'); }
-  .slide:nth-child(14) { background-image: url('/slides/slide-14.jpg'); }
-  .slide:nth-child(15) { background-image: url('/slides/slide-15.jpg'); }
-  .slide:nth-child(16) { background-image: url('/slides/slide-16.jpg'); }
-  .slide:nth-child(17) { background-image: url('/slides/slide-17.jpg'); }
-  .slide:nth-child(18) { background-image: url('/slides/slide-18.jpg'); }
-  .slide:nth-child(19) { background-image: url('/slides/slide-19.jpg'); }
-  .slide:nth-child(20) { background-image: url('/slides/slide-20.jpg'); }
-
   /* Dark overlay over photos so text stays readable */
   .slideshow-overlay {
     position: absolute; inset: 0; z-index: 1;
@@ -496,10 +475,29 @@
 </footer>
 
 <script>
+  const images = [
+    '/slides/slide-01.jpg', '/slides/slide-02.jpg', '/slides/slide-03.jpg',
+    '/slides/slide-04.jpg', '/slides/slide-05.jpg', '/slides/slide-06.jpg',
+    '/slides/slide-07.jpg', '/slides/slide-08.jpg', '/slides/slide-09.jpg',
+    '/slides/slide-10.jpg', '/slides/slide-11.jpg', '/slides/slide-12.jpg',
+    '/slides/slide-13.jpg', '/slides/slide-14.jpg', '/slides/slide-15.jpg',
+    '/slides/slide-16.jpg', '/slides/slide-17.jpg', '/slides/slide-18.jpg',
+    '/slides/slide-19.jpg', '/slides/slide-20.jpg'
+  ];
+
+  for (let i = images.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [images[i], images[j]] = [images[j], images[i]];
+  }
+
   const slides = document.querySelectorAll('.slide');
-  let current = Math.floor(Math.random() * slides.length);
+  slides.forEach((slide, i) => {
+    slide.style.backgroundImage = "url('" + images[i] + "')";
+  });
+
+  let current = 0;
   let timer;
-  slides[current].classList.add('active');
+  slides[0].classList.add('active');
 
   function goTo(n) {
     slides[current].classList.remove('active');
