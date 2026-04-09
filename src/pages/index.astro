@@ -497,23 +497,14 @@
 
 <script>
   const slides = document.querySelectorAll('.slide');
-  const slideArray = Array.from(slides);
-
-  for (let i = slideArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    slideArray[i].parentNode.insertBefore(slideArray[j], slideArray[i]);
-    slideArray.splice(i, 1, slideArray.splice(j, 1, slideArray[i])[0]);
-  }
-
-  const reshuffled = document.querySelectorAll('.slide');
-  let current = 0;
+  let current = Math.floor(Math.random() * slides.length);
   let timer;
-  reshuffled[0].classList.add('active');
+  slides[current].classList.add('active');
 
   function goTo(n) {
-    reshuffled[current].classList.remove('active');
-    current = (n + reshuffled.length) % reshuffled.length;
-    reshuffled[current].classList.add('active');
+    slides[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
   }
 
   function next() { goTo(current + 1); }
