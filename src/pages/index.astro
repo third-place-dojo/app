@@ -19,7 +19,6 @@
     font-weight: 300;
     overflow-x: hidden;
   }
-
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -47,7 +46,34 @@
     font-weight: 500; transition: background 0.2s !important;
   }
   .nav-cta:hover { background: #a83d90 !important; }
-
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #F0F4F8; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(14,22,32,0.97); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+    color: #F0F4F8; text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #C94FAE; }
+  .mobile-menu .mobile-cta {
+    background: #C94FAE; color: white; padding: 0.875rem 2.5rem;
+    border-radius: 3rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+  }
   .btn-primary {
     background: #C94FAE; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -56,7 +82,6 @@
     box-shadow: 0 4px 20px rgba(201,79,174,0.35);
   }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
-
   .btn-teal {
     background: #1D9E75; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -65,7 +90,6 @@
     box-shadow: 0 4px 20px rgba(29,158,117,0.3);
   }
   .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,158,117,0.4); }
-
   .btn-ghost-light {
     background: transparent; color: #F0F4F8; padding: 0.875rem 2rem;
     border-radius: 3rem; border: 1.5px solid rgba(240,244,248,0.35);
@@ -74,7 +98,6 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-ghost-light:hover { border-color: #1D9E75; color: #1D9E75; }
-
   .btn-ghost {
     background: transparent; color: #1E2A38; padding: 0.875rem 2rem;
     border-radius: 3rem; border: 1.5px solid rgba(30,42,56,0.25);
@@ -83,18 +106,12 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-ghost:hover { border-color: #1D9E75; color: #1D9E75; }
-
-  /* HERO */
   .hero {
     min-height: 100vh; position: relative; overflow: hidden;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: 8rem 2rem 6rem;
   }
-
-  /* SLIDESHOW */
-  .slideshow {
-    position: absolute; inset: 0; z-index: 0;
-  }
+  .slideshow { position: absolute; inset: 0; z-index: 0; }
   .slide {
     position: absolute; inset: 0;
     background-size: cover; background-position: center; background-repeat: no-repeat;
@@ -103,8 +120,6 @@
     animation: kenBurns 8s ease-in-out infinite alternate;
   }
   .slide.active { opacity: 1; }
-
-  /* Dark overlay over photos so text stays readable */
   .slideshow-overlay {
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(
@@ -114,9 +129,6 @@
       rgba(14,22,32,0.80) 100%
     );
   }
-
-  /* Hero content */
-
   .hero-wordmark {
     position: relative; z-index: 2;
     display: flex; flex-direction: column; align-items: center;
@@ -132,32 +144,25 @@
     font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 0.9;
     text-shadow: 0 2px 30px rgba(0,0,0,0.5);
   }
-
   .hero-tagline {
-    position: relative; z-index: 2;
-    margin-top: 1.75rem;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+    position: relative; z-index: 2; margin-top: 1.75rem;
+    font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.5vw, 1.65rem);
     color: rgba(240,244,248,0.9); line-height: 1.4;
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
   }
   .hero-tagline em { font-style: italic; color: #C94FAE; }
-
   .hero-sub {
-    position: relative; z-index: 2;
-    margin-top: 1rem;
+    position: relative; z-index: 2; margin-top: 1rem;
     font-family: 'Fraunces', serif; font-size: 1rem;
     color: rgba(240,244,248,0.55); line-height: 1.7; max-width: 44ch;
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.65s;
   }
-
   .hero-actions {
     position: relative; z-index: 2;
     display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
     margin-top: 2.25rem;
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
   }
-
   .hero-scroll-hint {
     position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
     z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
@@ -170,11 +175,8 @@
     background: linear-gradient(180deg, rgba(240,244,248,0.4), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
   }
-
-  /* ABOUT */
   .about-strip {
-    background: #F0F4F8; padding: 5rem;
-    position: relative; overflow: hidden;
+    background: #F0F4F8; padding: 5rem; position: relative; overflow: hidden;
   }
   .about-strip::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
@@ -194,8 +196,6 @@
   }
   .about-body p + p { margin-top: 1rem; }
   .about-body strong { font-weight: 600; color: #1E2A38; }
-
-  /* PILLARS */
   .pillars-section { display: grid; grid-template-columns: repeat(3, 1fr); }
   .pillar { padding: 4rem 2.5rem; }
   .pillar-train { background: #141d27; }
@@ -227,8 +227,6 @@
   .pillar-gather .pillar-link { color: #C94FAE; }
   .pillar-belong .pillar-link { color: #04342C; }
   .pillar-link:hover { gap: 0.8rem; }
-
-  /* TEASERS */
   .teasers-section { padding: 7rem 5rem; background: #F5EFE6; }
   .teasers-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
@@ -266,8 +264,6 @@
     color: #C94FAE; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
   }
   .teaser-card:hover .teaser-arrow { gap: 0.7rem; }
-
-  /* FOOTER */
   footer {
     background: #141d27; padding: 3rem 5rem;
     display: flex; align-items: center; justify-content: space-between;
@@ -283,17 +279,11 @@
     letter-spacing: 0.06em; transition: color 0.2s;
   }
   .footer-links a:hover { color: #1D9E75; }
-
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes slowSpin {
-    from { transform: translate(-50%,-50%) rotate(0deg); }
-    to { transform: translate(-50%,-50%) rotate(360deg); }
-  }
   @keyframes scrollPulse {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 0.9; }
@@ -302,11 +292,10 @@
     from { transform: scale(1); }
     to { transform: scale(1.06); }
   }
-
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .hero { padding: 7rem 1.75rem 5rem; }
     .hero-wordmark-bottom { font-size: clamp(4rem, 18vw, 6rem); }
     .hero-wordmark-top { font-size: 1.3rem; }
@@ -329,10 +318,20 @@
     <li><a href="/about">About</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<section class="hero">
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/train">Train</a>
+  <a href="/events">Events</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about">About</a>
+  <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
+</div>
 
+<section class="hero">
   <div class="slideshow">
     <div class="slide"></div>
     <div class="slide"></div>
@@ -356,29 +355,21 @@
     <div class="slide"></div>
   </div>
   <div class="slideshow-overlay"></div>
-
   <div class="hero-wordmark">
     <span class="hero-wordmark-top">Third Place</span>
     <span class="hero-wordmark-bottom">Dojo</span>
   </div>
-
   <p class="hero-tagline">Train. Gather. <em>Belong.</em></p>
-
-  <p class="hero-sub">
-    A martial arts school and community space on Main Street in Coudersport, PA. Home of Kokoro-Jitsu. Free open mat. Everyone welcome.
-  </p>
-
+  <p class="hero-sub">A martial arts school and community space on Main Street in Coudersport, PA. Home of Kokoro-Jitsu. Free open mat. Everyone welcome.</p>
   <div class="hero-actions">
     <a href="/train" class="btn-primary">Train with us</a>
     <a href="/events" class="btn-teal">See events</a>
     <a href="/about" class="btn-ghost-light">Learn more</a>
   </div>
-
   <div class="hero-scroll-hint">
     <div class="scroll-line"></div>
     Scroll
   </div>
-
 </section>
 
 <section class="about-strip">
@@ -467,6 +458,19 @@
 </footer>
 
 <script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
   const images = [
     '/slides/slide-01.jpg', '/slides/slide-02.jpg', '/slides/slide-03.jpg',
     '/slides/slide-04.jpg', '/slides/slide-05.jpg', '/slides/slide-06.jpg',
@@ -476,34 +480,27 @@
     '/slides/slide-16.jpg', '/slides/slide-17.jpg', '/slides/slide-18.jpg',
     '/slides/slide-19.jpg', '/slides/slide-20.jpg'
   ];
-
   for (let i = images.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [images[i], images[j]] = [images[j], images[i]];
   }
-
   const slides = document.querySelectorAll('.slide');
   slides.forEach((slide, i) => {
     slide.style.backgroundImage = "url('" + images[i] + "')";
   });
-
   let current = 0;
   let timer;
   slides[0].classList.add('active');
-
   function goTo(n) {
     slides[current].classList.remove('active');
     current = (n + slides.length) % slides.length;
     slides[current].classList.add('active');
   }
-
   function next() { goTo(current + 1); }
-
   function resetTimer() {
     clearInterval(timer);
     timer = setInterval(next, 5000);
   }
-
   resetTimer();
 </script>
 
