@@ -248,18 +248,21 @@
     background: #F0F4F8; border-radius: 1.25rem; padding: 2rem 1.75rem;
     border: 1px solid rgba(30,42,56,0.07); transition: transform 0.25s, box-shadow 0.25s;
     display: flex; flex-direction: column; text-decoration: none; color: inherit;
+    position: relative; overflow: hidden;
   }
   .teaser-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,42,56,0.09); }
   .teaser-kanji {
-    font-family: serif; font-size: 2.5rem; line-height: 1;
-    margin-bottom: 1rem; color: #C94FAE;
+    position: absolute; right: -0.75rem; bottom: -1.5rem;
+    font-family: serif; font-size: 9rem; line-height: 1;
+    color: #1E2A38; opacity: 0.05; user-select: none; pointer-events: none;
   }
-  .teaser-kanji.teal { color: #1D9E75; }
-  .teaser-kanji.slate { color: #1E2A38; opacity: 0.4; }
+  .teaser-kanji.magenta { color: #C94FAE; opacity: 0.07; }
+  .teaser-kanji.teal { color: #1D9E75; opacity: 0.1; }
+  .teaser-content { position: relative; z-index: 1; display: flex; flex-direction: column; flex-grow: 1; }
   .teaser-tag {
     font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
     text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem;
-    margin-bottom: 1rem; display: inline-block;
+    margin-bottom: 1rem; display: inline-block; align-self: flex-start;
   }
   .teaser-tag.magenta { background: rgba(201,79,174,0.1); color: #C94FAE; }
   .teaser-tag.teal { background: rgba(29,158,117,0.1); color: #1D9E75; }
@@ -372,12 +375,10 @@
     <div class="slide"></div>
   </div>
   <div class="slideshow-overlay"></div>
-
   <div class="hero-coming-soon">
     <div class="coming-dot"></div>
     Coming Soon — Opening Monday, May 4th
   </div>
-
   <div class="hero-wordmark">
     <span class="hero-wordmark-top">Third Place</span>
     <span class="hero-wordmark-bottom">Dojo</span>
@@ -432,27 +433,37 @@
   <p class="teasers-label">Explore</p>
   <h2 class="teasers-title">Everything that happens here.</h2>
   <div class="teasers-grid">
+
     <a href="/train" class="teaser-card">
-      <div class="teaser-kanji">心</div>
-      <span class="teaser-tag magenta">Martial Art</span>
-      <h3 class="teaser-name">Kokoro-Jitsu</h3>
-      <p class="teaser-desc">A living art rooted in BJJ, Kenpo, Karate, and Aiki principles. Absorb. Discard. Add. Structured ranks, objective testing.</p>
-      <span class="teaser-arrow">Explore the art</span>
+      <div class="teaser-kanji magenta">心</div>
+      <div class="teaser-content">
+        <span class="teaser-tag magenta">Martial Art</span>
+        <h3 class="teaser-name">Kokoro-Jitsu</h3>
+        <p class="teaser-desc">A living art rooted in BJJ, Kenpo, Karate, and Aiki principles. Absorb. Discard. Add. Structured ranks, objective testing.</p>
+        <span class="teaser-arrow">Explore the art</span>
+      </div>
     </a>
+
     <a href="/events" class="teaser-card">
       <div class="teaser-kanji teal">遊</div>
-      <span class="teaser-tag teal">Events</span>
-      <h3 class="teaser-name">Ghost JJ and Thrift-Jitsu</h3>
-      <p class="teaser-desc">Glow-in-the-dark rolling, thrift store outfit nights, game nights, and more. The dojo as a community space, not just a training floor.</p>
-      <span class="teaser-arrow" style="color:#1D9E75">See what's on</span>
+      <div class="teaser-content">
+        <span class="teaser-tag teal">Events</span>
+        <h3 class="teaser-name">Ghost JJ and Thrift-Jitsu</h3>
+        <p class="teaser-desc">Glow-in-the-dark rolling, thrift store outfit nights, game nights, and more. The dojo as a community space, not just a training floor.</p>
+        <span class="teaser-arrow" style="color:#1D9E75">See what's on</span>
+      </div>
     </a>
+
     <a href="/train" class="teaser-card">
-      <div class="teaser-kanji slate">道</div>
-      <span class="teaser-tag slate">Open Mat</span>
-      <h3 class="teaser-name">Gracie Garage</h3>
-      <p class="teaser-desc">Free, informal grappling in the spirit of Gracie Garage. No hierarchy, no pressure. Just rolling and learning together.</p>
-      <span class="teaser-arrow" style="color:#1E2A38">Join the mat</span>
+      <div class="teaser-kanji">道</div>
+      <div class="teaser-content">
+        <span class="teaser-tag slate">Open Mat</span>
+        <h3 class="teaser-name">Gracie Garage</h3>
+        <p class="teaser-desc">Free, informal grappling in the spirit of Gracie Garage. No hierarchy, no pressure. Just rolling and learning together.</p>
+        <span class="teaser-arrow" style="color:#1E2A38">Join the mat</span>
+      </div>
     </a>
+
   </div>
 </section>
 
