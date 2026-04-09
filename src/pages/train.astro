@@ -160,14 +160,17 @@
   .program-card {
     background: #F0F4F8; border-radius: 1.5rem; padding: 2.5rem 2rem;
     border: 1px solid rgba(30,42,56,0.07); transition: transform 0.25s, box-shadow 0.25s;
+    position: relative; overflow: hidden;
   }
   .program-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(30,42,56,0.09); }
   .program-kanji {
-    font-family: serif; font-size: 2.5rem; line-height: 1;
-    margin-bottom: 1rem; display: block; color: #C94FAE;
+    position: absolute; right: -0.5rem; bottom: -1.5rem;
+    font-family: serif; font-size: 9rem; line-height: 1;
+    color: #C94FAE; opacity: 0.07; user-select: none; pointer-events: none;
   }
-  .program-kanji.teal { color: #1D9E75; }
-  .program-kanji.slate { color: #1E2A38; opacity: 0.4; }
+  .program-kanji.teal { color: #1D9E75; opacity: 0.1; }
+  .program-kanji.slate { color: #1E2A38; opacity: 0.04; }
+  .program-content { position: relative; z-index: 1; }
   .program-tag {
     font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
     text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2rem;
@@ -187,7 +190,6 @@
     font-size: 0.85rem; font-weight: 500; text-decoration: none;
     display: inline-flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
   }
-  .program-link.magenta { color: #C94FAE; }
   .program-link.teal { color: #1D9E75; }
   .program-link.slate { color: #1E2A38; }
   .program-link:hover { gap: 0.7rem; }
@@ -349,32 +351,45 @@
   <span class="section-label">Programs</span>
   <h2 class="programs-title">What we offer</h2>
   <div class="programs-grid">
+
     <div class="program-card">
-      <span class="program-kanji">学</span>
-      <span class="program-tag magenta">Kids</span>
-      <h3 class="program-name">Kids Class (8-12)</h3>
-      <p class="program-desc">A structured, age-appropriate introduction to Kokoro-Jitsu. Kids learn movement, coordination, basic self-defense concepts, and how to be good training partners. Confidence and respect are the real curriculum.</p>
+      <div class="program-kanji">学</div>
+      <div class="program-content">
+        <span class="program-tag magenta">Kids</span>
+        <h3 class="program-name">Kids Class (8-12)</h3>
+        <p class="program-desc">A structured, age-appropriate introduction to Kokoro-Jitsu. Kids learn movement, coordination, basic self-defense concepts, and how to be good training partners. Confidence and respect are the real curriculum.</p>
+      </div>
     </div>
+
     <div class="program-card">
-      <span class="program-kanji">武</span>
-      <span class="program-tag magenta">Teens and Adults</span>
-      <h3 class="program-name">Teens and Adults</h3>
-      <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. All experience levels welcome.</p>
+      <div class="program-kanji">武</div>
+      <div class="program-content">
+        <span class="program-tag magenta">Teens and Adults</span>
+        <h3 class="program-name">Teens and Adults</h3>
+        <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. All experience levels welcome.</p>
+      </div>
     </div>
+
     <div class="program-card">
-      <span class="program-kanji teal">心</span>
-      <span class="program-tag teal">Community</span>
-      <h3 class="program-name">The Kokoro-Jitsu Club</h3>
-      <p class="program-desc">Saturday open training, free and donation-based. No formal curriculum — just mat time, exploration, rolling, and community. Open to teens and adults. You do not need to be a registered student to attend. Show up and train.</p>
-      <a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer" class="program-link teal">Learn more at kokorojitsu.com</a>
+      <div class="program-kanji teal">心</div>
+      <div class="program-content">
+        <span class="program-tag teal">Community</span>
+        <h3 class="program-name">The Kokoro-Jitsu Club</h3>
+        <p class="program-desc">Saturday open training, free and donation-based. No formal curriculum — just mat time, exploration, rolling, and community. Open to teens and adults. You do not need to be a registered student to attend. Show up and train.</p>
+        <a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer" class="program-link teal">Learn more at kokorojitsu.com</a>
+      </div>
     </div>
+
     <div class="program-card">
-      <span class="program-kanji slate">道</span>
-      <span class="program-tag slate">Open Mat</span>
-      <h3 class="program-name">Gracie Garage</h3>
-      <p class="program-desc">Third Place Dojo is pursuing Gracie Garage affiliation through Gracie University. If you are studying Gracie Combatives and looking for training partners or mat space in Coudersport, you are welcome here. Times are arranged by contact — no drop-in fee, ever.</p>
-      <a href="https://www.gracieuniversity.com/Pages/Public/Affiliates" target="_blank" class="program-link slate">Find Gracie Garage locations</a>
+      <div class="program-kanji slate">道</div>
+      <div class="program-content">
+        <span class="program-tag slate">Open Mat</span>
+        <h3 class="program-name">Gracie Garage</h3>
+        <p class="program-desc">Third Place Dojo is pursuing Gracie Garage affiliation through Gracie University. If you are studying Gracie Combatives and looking for training partners or mat space in Coudersport, you are welcome here. Times are arranged by contact — no drop-in fee, ever.</p>
+        <a href="https://www.gracieuniversity.com/Pages/Public/Affiliates" target="_blank" class="program-link slate">Find Gracie Garage locations</a>
+      </div>
     </div>
+
   </div>
 </section>
 
