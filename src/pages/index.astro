@@ -232,6 +232,53 @@
   .pillar-gather .pillar-link { color: #C94FAE; }
   .pillar-belong .pillar-link { color: #04342C; }
   .pillar-link:hover { gap: 0.8rem; }
+
+  /* FUNDRAISING SECTION */
+  .fundraise-section {
+    background: #1E2A38; padding: 6rem 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .fundraise-section::before {
+    content: '場'; position: absolute; right: 2rem; bottom: -2rem;
+    font-size: 18rem; font-family: serif; color: rgba(255,255,255,0.03);
+    line-height: 1; user-select: none;
+  }
+  .fundraise-left { position: relative; z-index: 1; }
+  .fundraise-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #C94FAE; margin-bottom: 1rem; display: block;
+  }
+  .fundraise-heading {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+    color: #ffffff; line-height: 1.2; margin-bottom: 1.5rem;
+  }
+  .fundraise-heading em { font-style: italic; color: #C94FAE; }
+  .fundraise-body {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.9;
+    color: rgba(240,244,248,0.65); margin-bottom: 2rem;
+  }
+  .fundraise-body strong { color: #ffffff; font-weight: 600; }
+  .fundraise-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .fundraise-right { position: relative; z-index: 1; }
+  .fundraise-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .fundraise-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 1.25rem; padding: 1.75rem;
+    display: flex; align-items: flex-start; gap: 1.25rem;
+  }
+  .fundraise-card-icon {
+    font-size: 1.75rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem;
+  }
+  .fundraise-card-text { flex: 1; }
+  .fundraise-card-title {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem;
+    color: #ffffff; margin-bottom: 0.3rem;
+  }
+  .fundraise-card-desc {
+    font-size: 0.88rem; line-height: 1.6; color: rgba(240,244,248,0.55);
+  }
+
   .teasers-section { padding: 7rem 5rem; background: #F5EFE6; }
   .teasers-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
@@ -322,6 +369,7 @@
     .about-strip { padding: 4rem 1.75rem; }
     .about-inner { grid-template-columns: 1fr; gap: 2rem; }
     .pillars-section { grid-template-columns: 1fr; }
+    .fundraise-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.75rem; }
     .teasers-section { padding: 4rem 1.75rem; }
     footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
   }
@@ -426,6 +474,43 @@
     <h2 class="pillar-heading">Stay awhile.</h2>
     <p class="pillar-body">Coudersport's third place. A place you go because you want to. Simple pricing, no contracts, no pressure.</p>
     <a href="/pricing" class="pillar-link">See pricing</a>
+  </div>
+</section>
+
+<section class="fundraise-section">
+  <div class="fundraise-left">
+    <span class="fundraise-label">Help Us Open</span>
+    <h2 class="fundraise-heading">We're building this <em>together.</em></h2>
+    <p class="fundraise-body">Third Place Dojo is community-funded and community-built. We've secured the space on Main Street — now we're working to get the mats on the floor, the lights on, and the doors open. <strong>Every bit of support goes directly toward opening day.</strong></p>
+    <div class="fundraise-buttons">
+      <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="btn-primary">Support on Ko-fi</a>
+      <a href="/pricing" class="btn-teal">See membership options</a>
+    </div>
+  </div>
+  <div class="fundraise-right">
+    <div class="fundraise-cards">
+      <div class="fundraise-card">
+        <div class="fundraise-card-icon">☕</div>
+        <div class="fundraise-card-text">
+          <div class="fundraise-card-title">Ko-fi memberships and donations</div>
+          <div class="fundraise-card-desc">Support us on Ko-fi at any level. Every contribution — big or small — helps get the mats down and the doors open.</div>
+        </div>
+      </div>
+      <div class="fundraise-card">
+        <div class="fundraise-card-icon">🥋</div>
+        <div class="fundraise-card-text">
+          <div class="fundraise-card-title">Pre-register as a founding member</div>
+          <div class="fundraise-card-desc">Sign up for a monthly membership before we open. Founding members lock in their rate and help make opening day possible.</div>
+        </div>
+      </div>
+      <div class="fundraise-card">
+        <div class="fundraise-card-icon">📢</div>
+        <div class="fundraise-card-text">
+          <div class="fundraise-card-title">Spread the word</div>
+          <div class="fundraise-card-desc">Tell a neighbor, share the site, invite someone who needs a third place. Community starts before the doors open.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
