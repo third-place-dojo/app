@@ -35,24 +35,15 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
     text-decoration: none;
     flex-shrink: 0;
   }
-  .nav-logo-icon-wrap {
-    display: flex; align-items: center; justify-content: center;
-    height: 44px; width: 44px; border-radius: 50%;
-    background: #1B2E45;
-    overflow: hidden; flex-shrink: 0;
-  }
-  .nav-logo-icon {
-    height: 38px; width: 38px;
-    object-fit: contain;
-  }
-  .nav-logo-wordmark {
-    height: 30px;
+  .nav-logo-img {
+    height: 48px;
     width: auto;
-    filter: invert(1) brightness(3) contrast(1.2);
+    /* black bg on PNG becomes transparent on dark nav */
+    mix-blend-mode: screen;
+    filter: brightness(1.2);
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -163,26 +154,14 @@
   /* hero logo lockup */
   .hero-logo-lockup {
     position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
+    display: flex; flex-direction: column; align-items: center;
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
   }
-  .hero-logo-icon-wrap {
-    display: flex; align-items: center; justify-content: center;
-    height: clamp(130px, 20vw, 200px);
-    width: clamp(130px, 20vw, 200px);
-    border-radius: 50%;
-    background: #1B2E45;
-    overflow: hidden; flex-shrink: 0;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-  }
-  .hero-logo-icon {
-    height: 90%; width: 90%;
-    object-fit: contain;
-  }
-  .hero-logo-wordmark {
-    height: clamp(52px, 10vw, 100px);
+  .hero-logo-img {
+    height: clamp(200px, 30vw, 360px);
     width: auto;
-    filter: invert(1) brightness(4) contrast(1.3) drop-shadow(0 2px 16px rgba(0,0,0,0.6));
+    mix-blend-mode: screen;
+    filter: brightness(1.3) drop-shadow(0 4px 32px rgba(0,0,0,0.4));
   }
 
   .hero-tagline {
@@ -371,13 +350,10 @@
   .footer-brand-lockup {
     display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;
   }
-  .footer-logo-icon {
-    height: 36px; width: auto;
+  .footer-logo-img {
+    height: 52px; width: auto;
     mix-blend-mode: screen;
-  }
-  .footer-logo-wordmark {
-    height: 18px; width: auto;
-    filter: invert(1) brightness(3) contrast(1.2);
+    filter: brightness(1.1);
     opacity: 0.85;
   }
   .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
@@ -431,10 +407,7 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="/" class="nav-logo">
-    <div class="nav-logo-icon-wrap">
-      <img src="/logo-icon.png" alt="Third Place Dojo icon" class="nav-logo-icon">
-    </div>
-    <img src="/logo-wordmark.png" alt="Third Place Dojo" class="nav-logo-wordmark">
+    <img src="/logo-full.png" alt="Third Place Dojo" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="/train">Train</a></li>
@@ -489,10 +462,7 @@
   </div>
 
   <div class="hero-logo-lockup">
-    <div class="hero-logo-icon-wrap">
-      <img src="/logo-icon.png" alt="Third Place Dojo" class="hero-logo-icon">
-    </div>
-    <img src="/logo-wordmark.png" alt="Third Place Dojo" class="hero-logo-wordmark">
+    <img src="/logo-full.png" alt="Third Place Dojo" class="hero-logo-img">
   </div>
 
   <p class="hero-tagline">Train. Gather. <em>Belong.</em></p>
@@ -632,8 +602,7 @@
 <footer>
   <div>
     <div class="footer-brand-lockup">
-      <img src="/logo-icon.png" alt="Third Place Dojo" class="footer-logo-icon">
-      <img src="/logo-wordmark.png" alt="Third Place Dojo" class="footer-logo-wordmark">
+      <img src="/logo-full.png" alt="Third Place Dojo" class="footer-logo-img">
     </div>
     <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
     <div class="footer-directions"><a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank">Get Directions</a></div>
