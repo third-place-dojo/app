@@ -38,12 +38,22 @@
     text-decoration: none;
     flex-shrink: 0;
   }
+  /* crop to the right half (badge) of the combined PNG */
+  .nav-logo-crop {
+    height: 48px;
+    width: 48px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
   .nav-logo-img {
     height: 48px;
     width: auto;
-    /* black bg on PNG becomes transparent on dark nav */
+    /* shift left to show only the right (badge) half */
+    position: absolute;
+    right: 0;
     mix-blend-mode: screen;
-    filter: brightness(1.2);
+    filter: brightness(1.3);
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -157,9 +167,17 @@
     display: flex; flex-direction: column; align-items: center;
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
   }
+  /* crop to the left half (full lockup) of the combined PNG */
+  .hero-logo-crop {
+    width: clamp(220px, 32vw, 400px);
+    overflow: hidden;
+    position: relative;
+  }
   .hero-logo-img {
     height: clamp(200px, 30vw, 360px);
     width: auto;
+    /* show only left half — shift right half out of view */
+    max-width: none;
     mix-blend-mode: screen;
     filter: brightness(1.3) drop-shadow(0 4px 32px rgba(0,0,0,0.4));
   }
@@ -407,7 +425,9 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="/" class="nav-logo">
-    <img src="/logo-full.png" alt="Third Place Dojo" class="nav-logo-img">
+    <div class="nav-logo-crop">
+      <img src="/logo-full.png" alt="Third Place Dojo" class="nav-logo-img">
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="/train">Train</a></li>
@@ -462,7 +482,9 @@
   </div>
 
   <div class="hero-logo-lockup">
-    <img src="/logo-full.png" alt="Third Place Dojo" class="hero-logo-img">
+    <div class="hero-logo-crop">
+      <img src="/logo-full.png" alt="Third Place Dojo" class="hero-logo-img">
+    </div>
   </div>
 
   <p class="hero-tagline">Train. Gather. <em>Belong.</em></p>
