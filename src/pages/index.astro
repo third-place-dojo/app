@@ -22,20 +22,33 @@
     font-weight: 300;
     overflow-x: hidden;
   }
+
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 2.5rem;
+    padding: 1rem 2.5rem;
     background: rgba(20,29,39,0.25);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
-    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    flex-shrink: 0;
   }
-  .nav-logo span { color: #C94FAE; }
-  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-logo-icon {
+    height: 44px;
+    width: auto;
+  }
+  .nav-logo-wordmark {
+    height: 26px;
+    width: auto;
+    /* dark brush PNG — invert to white for dark nav bg */
+    filter: invert(1) brightness(2);
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
@@ -77,6 +90,8 @@
     border-radius: 3rem; font-family: 'DM Sans', sans-serif;
     font-size: 1rem; font-weight: 500;
   }
+
+  /* ── BUTTONS ── */
   .btn-primary {
     background: #C94FAE; color: white; padding: 0.875rem 2rem;
     border-radius: 3rem; text-decoration: none; font-size: 0.9rem; font-weight: 500;
@@ -101,6 +116,8 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-ghost:hover { border-color: #1D9E75; color: #1D9E75; }
+
+  /* ── HERO ── */
   .hero {
     min-height: 100vh; position: relative; overflow: hidden;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -137,21 +154,25 @@
     width: 6px; height: 6px; background: #C94FAE; border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
   }
-  .hero-wordmark {
+
+  /* hero logo lockup */
+  .hero-logo-lockup {
     position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: center;
+    display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
   }
-  .hero-wordmark-top {
-    font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3vw, 2.25rem);
-    font-weight: 300; font-style: italic; color: rgba(240,244,248,0.65);
-    letter-spacing: 0.1em; line-height: 1; margin-bottom: 0.1em;
+  .hero-logo-icon {
+    height: clamp(80px, 14vw, 140px);
+    width: auto;
+    filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5));
   }
-  .hero-wordmark-bottom {
-    font-family: 'Playfair Display', serif; font-size: clamp(5rem, 14vw, 10rem);
-    font-weight: 700; color: #ffffff; letter-spacing: -0.02em; line-height: 0.9;
-    text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+  .hero-logo-wordmark {
+    height: clamp(32px, 6vw, 64px);
+    width: auto;
+    /* dark PNG on dark bg — invert to white */
+    filter: invert(1) brightness(2) drop-shadow(0 2px 12px rgba(0,0,0,0.5));
   }
+
   .hero-tagline {
     position: relative; z-index: 2; margin-top: 1.75rem;
     font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.5vw, 1.65rem);
@@ -183,6 +204,8 @@
     background: linear-gradient(180deg, rgba(240,244,248,0.4), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
   }
+
+  /* ── ABOUT ── */
   .about-strip {
     background: #F0F4F8; padding: 5rem; position: relative; overflow: hidden;
   }
@@ -204,6 +227,8 @@
   }
   .about-body p + p { margin-top: 1rem; }
   .about-body strong { font-weight: 600; color: #1E2A38; }
+
+  /* ── PILLARS ── */
   .pillars-section { display: grid; grid-template-columns: repeat(3, 1fr); }
   .pillar { padding: 4rem 2.5rem; }
   .pillar-train { background: #141d27; }
@@ -236,7 +261,7 @@
   .pillar-belong .pillar-link { color: #04342C; }
   .pillar-link:hover { gap: 0.8rem; }
 
-  /* FUNDRAISING SECTION */
+  /* ── FUNDRAISING ── */
   .fundraise-section {
     background: #1E2A38; padding: 6rem 5rem;
     display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
@@ -270,18 +295,15 @@
     border-radius: 1.25rem; padding: 1.75rem;
     display: flex; align-items: flex-start; gap: 1.25rem;
   }
-  .fundraise-card-icon {
-    font-size: 1.75rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem;
-  }
+  .fundraise-card-icon { font-size: 1.75rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
   .fundraise-card-text { flex: 1; }
   .fundraise-card-title {
     font-family: 'Playfair Display', serif; font-size: 1.05rem;
     color: #ffffff; margin-bottom: 0.3rem;
   }
-  .fundraise-card-desc {
-    font-size: 0.88rem; line-height: 1.6; color: rgba(240,244,248,0.55);
-  }
+  .fundraise-card-desc { font-size: 0.88rem; line-height: 1.6; color: rgba(240,244,248,0.55); }
 
+  /* ── TEASERS ── */
   .teasers-section { padding: 7rem 5rem; background: #F5EFE6; }
   .teasers-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
@@ -327,13 +349,22 @@
     color: #C94FAE; display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s;
   }
   .teaser-card:hover .teaser-arrow { gap: 0.7rem; }
+
+  /* ── FOOTER ── */
   footer {
     background: #141d27; padding: 3rem 5rem;
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 1.5rem;
   }
-  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1rem; color: #F0F4F8; opacity: 0.9; }
-  .footer-brand span { color: #C94FAE; }
+  .footer-brand-lockup {
+    display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;
+  }
+  .footer-logo-icon { height: 36px; width: auto; }
+  .footer-logo-wordmark {
+    height: 18px; width: auto;
+    filter: invert(1) brightness(2);
+    opacity: 0.85;
+  }
   .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
   .footer-directions { font-size: 0.78rem; margin-top: 0.35rem; }
   .footer-directions a { color: #1D9E75; text-decoration: none; }
@@ -345,6 +376,8 @@
     letter-spacing: 0.06em; transition: color 0.2s;
   }
   .footer-links a:hover { color: #1D9E75; }
+
+  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -362,13 +395,13 @@
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(0.8); }
   }
+
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .hero { padding: 5rem 1.75rem 4rem; }
-    .hero-wordmark-bottom { font-size: clamp(4rem, 18vw, 6rem); }
-    .hero-wordmark-top { font-size: 1.3rem; }
     .about-strip { padding: 4rem 1.75rem; }
     .about-inner { grid-template-columns: 1fr; gap: 2rem; }
     .pillars-section { grid-template-columns: 1fr; }
@@ -380,8 +413,12 @@
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
-  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <a href="/" class="nav-logo">
+    <img src="/logo-icon.png" alt="Third Place Dojo icon" class="nav-logo-icon">
+    <img src="/logo-wordmark.png" alt="Third Place Dojo" class="nav-logo-wordmark">
+  </a>
   <ul class="nav-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events">Events</a></li>
@@ -394,6 +431,7 @@
   </button>
 </nav>
 
+<!-- ── MOBILE MENU ── -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="/train">Train</a>
   <a href="/events">Events</a>
@@ -402,6 +440,7 @@
   <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
 </div>
 
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="slideshow">
     <div class="slide"></div>
@@ -426,14 +465,17 @@
     <div class="slide"></div>
   </div>
   <div class="slideshow-overlay"></div>
+
   <div class="hero-coming-soon">
     <div class="coming-dot"></div>
     Coming Soon — Opening Monday, May 4th
   </div>
-  <div class="hero-wordmark">
-    <span class="hero-wordmark-top">Third Place</span>
-    <span class="hero-wordmark-bottom">Dojo</span>
+
+  <div class="hero-logo-lockup">
+    <img src="/logo-icon.png" alt="Third Place Dojo" class="hero-logo-icon">
+    <img src="/logo-wordmark.png" alt="Third Place Dojo" class="hero-logo-wordmark">
   </div>
+
   <p class="hero-tagline">Train. Gather. <em>Belong.</em></p>
   <p class="hero-sub">Home is the first place. Work and school are the second. Third Place Dojo is everything in between.</p>
   <div class="hero-actions">
@@ -446,6 +488,7 @@
   </div>
 </section>
 
+<!-- ── ABOUT ── -->
 <section class="about-strip">
   <div class="about-inner">
     <h2 class="about-heading">Not a gym.<br>Not a club.<br><em>A third place.</em></h2>
@@ -459,6 +502,7 @@
   </div>
 </section>
 
+<!-- ── PILLARS ── -->
 <section class="pillars-section">
   <div class="pillar pillar-train">
     <span class="pillar-label">Train</span>
@@ -480,6 +524,7 @@
   </div>
 </section>
 
+<!-- ── FUNDRAISING ── -->
 <section class="fundraise-section">
   <div class="fundraise-left">
     <span class="fundraise-label">Help Us Open</span>
@@ -525,6 +570,7 @@
   </div>
 </section>
 
+<!-- ── TEASERS ── -->
 <section class="teasers-section">
   <p class="teasers-label">Explore</p>
   <h2 class="teasers-title">Everything that happens here.</h2>
@@ -563,9 +609,13 @@
   </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
   <div>
-    <div class="footer-brand">Third Place <span>Dojo</span></div>
+    <div class="footer-brand-lockup">
+      <img src="/logo-icon.png" alt="Third Place Dojo" class="footer-logo-icon">
+      <img src="/logo-wordmark.png" alt="Third Place Dojo" class="footer-logo-wordmark">
+    </div>
     <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
     <div class="footer-directions"><a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank">Get Directions</a></div>
     <div class="footer-copy">Third Place Dojo 2026</div>
@@ -581,6 +631,7 @@
 </footer>
 
 <script>
+  // Mobile menu toggle
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => {
@@ -594,6 +645,7 @@
     });
   });
 
+  // Slideshow
   const images = [
     '/slides/slide-01.jpg', '/slides/slide-02.jpg', '/slides/slide-03.jpg',
     '/slides/slide-04.jpg', '/slides/slide-05.jpg', '/slides/slide-06.jpg',
@@ -603,6 +655,7 @@
     '/slides/slide-16.jpg', '/slides/slide-17.jpg', '/slides/slide-18.jpg',
     '/slides/slide-19.jpg', '/slides/slide-20.jpg'
   ];
+  // Fisher-Yates shuffle
   for (let i = images.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [images[i], images[j]] = [images[j], images[i]];
