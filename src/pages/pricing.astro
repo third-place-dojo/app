@@ -31,11 +31,16 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
-    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
   }
-  .nav-logo span { color: #C94FAE; }
-  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-logo-img {
+    height: 28px;
+    width: auto;
+    filter: brightness(2) contrast(1.2);
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
@@ -128,8 +133,6 @@
     font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
     color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
   }
-
-  /* FREE FIRST CLASS BANNER */
   .free-class-banner {
     background: #1D9E75; padding: 1.25rem 5rem;
     display: flex; align-items: center; justify-content: center; gap: 1rem;
@@ -140,8 +143,6 @@
     text-align: center;
   }
   .free-class-banner strong { font-weight: 700; color: #04342C; }
-
-  /* PRICING SECTION */
   .pricing-section {
     padding: 7rem 5rem; background: #F0F4F8; position: relative;
   }
@@ -208,8 +209,6 @@
     font-size: 0.65rem; color: #1D9E75; flex-shrink: 0;
   }
   .pricing-card.featured .check { background: rgba(255,255,255,0.1); color: #1D9E75; }
-
-  /* DROP IN */
   .dropin-section {
     background: #F5EFE6; padding: 5rem;
     display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
@@ -239,8 +238,6 @@
   .dropin-details li {
     font-size: 0.9rem; color: #1E2A38; display: flex; align-items: center; gap: 0.6rem;
   }
-
-  /* FAMILY DISCOUNT */
   .family-section {
     background: #1E2A38; padding: 5rem;
     display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
@@ -278,8 +275,6 @@
   .family-note {
     font-size: 0.85rem; color: rgba(240,244,248,0.4); line-height: 1.6;
   }
-
-  /* FREE STUFF */
   .free-section {
     background: #1D9E75; padding: 5rem;
     display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
@@ -308,8 +303,6 @@
     text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2rem;
     margin-bottom: 0.5rem;
   }
-
-  /* CTA */
   .cta-section {
     padding: 7rem 5rem; background: #F0F4F8; text-align: center;
   }
@@ -323,8 +316,6 @@
     color: #1E2A38; opacity: 0.7; max-width: 48ch; margin: 0 auto 2.5rem;
   }
   .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-  /* FOOTER */
   footer {
     background: #141d27; padding: 3rem 5rem;
     display: flex; align-items: center; justify-content: space-between;
@@ -343,12 +334,6 @@
     letter-spacing: 0.06em; transition: color 0.2s;
   }
   .footer-links a:hover { color: #1D9E75; }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -365,7 +350,9 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <a href="/" class="nav-logo">
+    <img src="/nav-logo.png" alt="Third Place Dojo" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events">Events</a></li>
@@ -400,9 +387,7 @@
   <span class="section-label">Membership</span>
   <h2 class="pricing-title">Monthly plans</h2>
   <p class="pricing-sub">All plans include access to Saturday Kokoro-Jitsu Club open training. Cancel anytime.</p>
-
   <div class="pricing-grid">
-
     <div class="pricing-card">
       <span class="card-badge magenta">Starter</span>
       <div class="price-amount"><span>$</span>60</div>
@@ -415,7 +400,6 @@
         <li><span class="check">✓</span> No contract, cancel anytime</li>
       </ul>
     </div>
-
     <div class="pricing-card featured">
       <span class="card-badge white">Most Popular</span>
       <div class="price-amount"><span>$</span>90</div>
@@ -428,7 +412,6 @@
         <li><span class="check">✓</span> No contract, cancel anytime</li>
       </ul>
     </div>
-
     <div class="pricing-card">
       <span class="card-badge teal">Best Value</span>
       <div class="price-amount"><span>$</span>110</div>
@@ -441,7 +424,6 @@
         <li><span class="check">✓</span> No contract, cancel anytime</li>
       </ul>
     </div>
-
   </div>
 </section>
 
