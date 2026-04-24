@@ -31,11 +31,16 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
-    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
   }
-  .nav-logo span { color: #C94FAE; }
-  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-logo-img {
+    height: 28px;
+    width: auto;
+    filter: brightness(2) contrast(1.2);
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
@@ -253,7 +258,9 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <a href="/" class="nav-logo">
+    <img src="/nav-logo.png" alt="Third Place Dojo" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="/train" class="active">Train</a></li>
     <li><a href="/events">Events</a></li>
@@ -354,7 +361,6 @@
   <span class="section-label">Programs</span>
   <h2 class="programs-title">What we offer</h2>
   <div class="programs-grid">
-
     <div class="program-card">
       <div class="program-kanji">学</div>
       <div class="program-content">
@@ -363,7 +369,6 @@
         <p class="program-desc">A structured, age-appropriate introduction to Kokoro-Jitsu. Kids learn movement, coordination, basic self-defense concepts, and how to be good training partners. Confidence and respect are the real curriculum.</p>
       </div>
     </div>
-
     <div class="program-card">
       <div class="program-kanji">武</div>
       <div class="program-content">
@@ -372,7 +377,6 @@
         <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. All experience levels welcome.</p>
       </div>
     </div>
-
     <div class="program-card">
       <div class="program-kanji teal">心</div>
       <div class="program-content">
@@ -382,7 +386,6 @@
         <a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer" class="program-link teal">Learn more at kokorojitsu.com</a>
       </div>
     </div>
-
     <div class="program-card">
       <div class="program-kanji slate">道</div>
       <div class="program-content">
@@ -392,7 +395,6 @@
         <a href="https://www.gracieuniversity.com/Pages/Public/Affiliates" target="_blank" class="program-link slate">Find Gracie Garage locations</a>
       </div>
     </div>
-
   </div>
 </section>
 
