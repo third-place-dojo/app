@@ -42,12 +42,13 @@
   .nav-logo-icon {
     height: 44px;
     width: auto;
+    /* navy bg blends into dark nav via screen mode */
+    mix-blend-mode: screen;
   }
   .nav-logo-wordmark {
-    height: 26px;
+    height: 30px;
     width: auto;
-    /* dark brush PNG — invert to white for dark nav bg */
-    filter: invert(1) brightness(2);
+    filter: invert(1) brightness(3) contrast(1.2);
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -162,15 +163,15 @@
     opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
   }
   .hero-logo-icon {
-    height: clamp(80px, 14vw, 140px);
+    height: clamp(100px, 18vw, 180px);
     width: auto;
-    filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5));
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 4px 32px rgba(0,0,0,0.6));
   }
   .hero-logo-wordmark {
-    height: clamp(32px, 6vw, 64px);
+    height: clamp(48px, 9vw, 96px);
     width: auto;
-    /* dark PNG on dark bg — invert to white */
-    filter: invert(1) brightness(2) drop-shadow(0 2px 12px rgba(0,0,0,0.5));
+    filter: invert(1) brightness(3) contrast(1.2) drop-shadow(0 2px 16px rgba(0,0,0,0.6));
   }
 
   .hero-tagline {
@@ -359,10 +360,13 @@
   .footer-brand-lockup {
     display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;
   }
-  .footer-logo-icon { height: 36px; width: auto; }
+  .footer-logo-icon {
+    height: 36px; width: auto;
+    mix-blend-mode: screen;
+  }
   .footer-logo-wordmark {
     height: 18px; width: auto;
-    filter: invert(1) brightness(2);
+    filter: invert(1) brightness(3) contrast(1.2);
     opacity: 0.85;
   }
   .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
