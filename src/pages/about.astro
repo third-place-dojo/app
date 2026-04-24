@@ -31,11 +31,16 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
-    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
   }
-  .nav-logo span { color: #C94FAE; }
-  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-logo-img {
+    height: 28px;
+    width: auto;
+    filter: brightness(2) contrast(1.2);
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
@@ -280,10 +285,6 @@
     letter-spacing: 0.06em; transition: color 0.2s;
   }
   .footer-links a:hover { color: #1D9E75; }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -301,7 +302,9 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <a href="/" class="nav-logo">
+    <img src="/nav-logo.png" alt="Third Place Dojo" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events">Events</a></li>
@@ -358,7 +361,6 @@
   <span class="section-label">What we stand for</span>
   <h2 class="values-title">How we train. How we show up.</h2>
   <div class="values-grid">
-
     <div class="value-card">
       <div class="value-kanji">礼</div>
       <div class="value-content">
@@ -366,7 +368,6 @@
         <p class="value-desc">We train to help each other grow. Rank is a marker of progress, not a measure of worth. Everyone on the mat deserves the same respect whether a beginner or black belt.</p>
       </div>
     </div>
-
     <div class="value-card">
       <div class="value-kanji">流</div>
       <div class="value-content">
@@ -374,7 +375,6 @@
         <p class="value-desc">Inspired by Csikszentmihalyi's concept of flow and Tohei's Ki principles. We train to find ease in movement, not force it. Hard and soft, together.</p>
       </div>
     </div>
-
     <div class="value-card">
       <div class="value-kanji">門</div>
       <div class="value-content">
@@ -382,7 +382,6 @@
         <p class="value-desc">Zero experience required. Every age, every body, every starting point. The dojo exists for the community and not the other way around.</p>
       </div>
     </div>
-
     <div class="value-card">
       <div class="value-kanji">真</div>
       <div class="value-content">
@@ -390,7 +389,6 @@
         <p class="value-desc">Belt ranks mean something here. Objective, pass/fail criteria with no politics, no pay-to-promote, no favoritism. You earn what you earn.</p>
       </div>
     </div>
-
     <div class="value-card">
       <div class="value-kanji">和</div>
       <div class="value-content">
@@ -398,7 +396,6 @@
         <p class="value-desc">You don't have to train to belong. Events, open mats, and gathering space exist for everyone. The dojo is a place, not just a program.</p>
       </div>
     </div>
-
     <div class="value-card">
       <div class="value-kanji">禅</div>
       <div class="value-content">
@@ -406,7 +403,6 @@
         <p class="value-desc">Drawing on MBSR and mindfulness principles, we train with awareness of our bodies, our partners, and the present moment. Martial arts as moving meditation.</p>
       </div>
     </div>
-
   </div>
 </section>
 
