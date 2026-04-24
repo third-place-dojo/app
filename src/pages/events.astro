@@ -31,11 +31,16 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
-    color: #F0F4F8; letter-spacing: 0.02em; text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
   }
-  .nav-logo span { color: #C94FAE; }
-  .nav-logo em { font-style: normal; color: rgba(240,244,248,0.3); font-size: 0.85em; margin-left: 0.25rem; }
+  .nav-logo-img {
+    height: 28px;
+    width: auto;
+    filter: brightness(2) contrast(1.2);
+  }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
@@ -245,7 +250,9 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Third Place <span>Dojo</span> <em>道場</em></a>
+  <a href="/" class="nav-logo">
+    <img src="/nav-logo.png" alt="Third Place Dojo" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="/train">Train</a></li>
     <li><a href="/events" class="active">Events</a></li>
