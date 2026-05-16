@@ -400,12 +400,8 @@
     <h2 class="form-heading">Send us a message</h2>
     <p class="form-sub">Fill out the form and we'll get back to you as soon as we can.</p>
 
-    <!-- Formspree success (shown after submit) -->
-    <div data-fs-success>
-      <div class="success-icon">🥋</div>
-      <div class="success-title">Message sent!</div>
-      <div class="success-body">Thanks for reaching out. We'll get back to you within 24 hours. In the meantime, feel free to check out the <a href="/train">class schedule</a> or <a href="/events">upcoming events</a>.</div>
-    </div>
+    <!-- Formspree success (populated by JS after submit) -->
+    <div data-fs-success></div>
 
     <!-- Formspree global error -->
     <span data-fs-error=""></span>
@@ -493,6 +489,27 @@
       mobileMenu.classList.remove('open');
     });
   });
+</script>
+
+<!-- Populate success message content when Formspree shows it -->
+<script>
+  const successEl = document.querySelector('[data-fs-success]');
+  const observer = new MutationObserver(() => {
+    if (successEl.textContent.trim() === '' && successEl.getAttribute('style') !== 'display: none;') {
+      // Formspree showed it but left it empty — fill it
+    }
+  });
+  // Watch for Formspree toggling display on the success div
+  const formEl = document.getElementById('contact-form');
+  new MutationObserver(() => {
+    if (successEl && getComputedStyle(successEl).display !== 'none' && successEl.innerHTML.trim() === '') {
+      successEl.innerHTML = `
+        <div class="success-icon">🥋</div>
+        <div class="success-title">Message sent!</div>
+        <div class="success-body">Thanks for reaching out. We'll get back to you within 24 hours. Feel free to check out the <a href="/train">class schedule</a> or <a href="/events">upcoming events</a>.</div>
+      `;
+    }
+  }).observe(successEl, { attributes: true, attributeFilter: ['style'] });
 </script>
 
 <!-- Formspree Ajax CDN -->
