@@ -196,9 +196,8 @@
     border-color: #C94FAE;
     box-shadow: 0 0 0 3px rgba(201,79,174,0.1);
   }
-  .form-input[aria-invalid="true"],
-  .form-select[aria-invalid="true"],
-  .form-textarea[aria-invalid="true"] {
+  .form-input.invalid,
+  .form-textarea.invalid {
     border-color: #C94FAE;
     box-shadow: 0 0 0 3px rgba(201,79,174,0.15);
   }
@@ -214,23 +213,12 @@
   }
   .form-select option { color: #1E2A38; background: #F0F4F8; }
 
-  /* Formspree field-level errors */
-  [data-fs-error] {
+  .form-error-msg {
     font-size: 0.78rem; color: #C94FAE;
     font-family: 'Fraunces', serif; font-style: italic;
-    min-height: 0; display: none;
+    display: none;
   }
-  [data-fs-error]:not(:empty) { display: block; margin-top: 0.2rem; }
-
-  /* Formspree global error (empty name = form-level) */
-  [data-fs-error=""]:not(:empty) {
-    display: block;
-    grid-column: 1 / -1;
-    background: rgba(201,79,174,0.08);
-    border: 1.5px solid rgba(201,79,174,0.25);
-    border-radius: 0.75rem; padding: 0.85rem 1rem;
-    font-size: 0.88rem; margin-bottom: 1rem;
-  }
+  .form-error-msg.visible { display: block; }
 
   .form-submit {
     grid-column: 1 / -1;
@@ -253,25 +241,26 @@
     font-family: 'Fraunces', serif; font-style: italic;
   }
 
-  /* Formspree success */
-  [data-fs-success] { display: none; }
-  [data-fs-success]:not(:empty) {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 1rem;
+  /* ── SUCCESS BOX ── */
+  .form-success {
+    display: none;
+    flex-direction: column; align-items: flex-start; gap: 1rem;
     padding: 2.5rem;
     background: rgba(29,158,117,0.08);
     border: 1.5px solid rgba(29,158,117,0.25);
     border-radius: 1.25rem;
     margin-bottom: 2rem;
   }
-  [data-fs-success] .success-icon { font-size: 2rem; }
-  [data-fs-success] .success-title {
+  .form-success.visible { display: flex; }
+  .success-icon { font-size: 2rem; }
+  .success-title {
     font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #1D9E75;
   }
-  [data-fs-success] .success-body {
+  .success-body {
     font-family: 'Fraunces', serif; font-size: 0.95rem;
     color: rgba(30,42,56,0.65); line-height: 1.6;
   }
-  [data-fs-success] a { color: #1D9E75; }
+  .success-body a { color: #1D9E75; }
 
   /* ── FOOTER ── */
   footer {
@@ -400,24 +389,25 @@
     <h2 class="form-heading">Send us a message</h2>
     <p class="form-sub">Fill out the form and we'll get back to you as soon as we can.</p>
 
-    <!-- Formspree success (populated by JS after submit) -->
-    <div data-fs-success></div>
-
-    <!-- Formspree global error -->
-    <span data-fs-error=""></span>
+    <!-- Success box (hidden until submission) -->
+    <div class="form-success" id="form-success">
+      <div class="success-icon">🥋</div>
+      <div class="success-title">Message sent!</div>
+      <div class="success-body">Thanks for reaching out. We'll get back to you within 24 hours. Feel free to check out the <a href="/train">class schedule</a> or <a href="/events">upcoming events</a>.</div>
+    </div>
 
     <form id="contact-form" class="form-grid">
 
       <div class="form-field">
         <label class="form-label" for="name">Your name</label>
-        <input class="form-input" id="name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" data-fs-field>
-        <span data-fs-error="name"></span>
+        <input class="form-input" id="name" name="name" type="text" placeholder="Jane Smith" autocomplete="name">
+        <span class="form-error-msg" id="name-error">Please enter your name.</span>
       </div>
 
       <div class="form-field">
         <label class="form-label" for="email">Email address</label>
-        <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" data-fs-field>
-        <span data-fs-error="email"></span>
+        <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email">
+        <span class="form-error-msg" id="email-error">Please enter a valid email address.</span>
       </div>
 
       <div class="form-field">
@@ -441,12 +431,12 @@
 
       <div class="form-field full">
         <label class="form-label" for="message">Message</label>
-        <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a little about yourself or what you're looking for..." data-fs-field></textarea>
-        <span data-fs-error="message"></span>
+        <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a little about yourself or what you're looking for..."></textarea>
+        <span class="form-error-msg" id="message-error">Please enter a message.</span>
       </div>
 
       <div class="form-submit">
-        <button class="btn-submit" type="submit" data-fs-submit-btn>Send message</button>
+        <button class="btn-submit" id="submit-btn" type="submit">Send message</button>
         <span class="form-note">We typically respond within 24 hours.</span>
       </div>
 
@@ -475,8 +465,8 @@
   </ul>
 </footer>
 
-<!-- Mobile menu -->
 <script>
+  // Mobile menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => {
@@ -489,35 +479,70 @@
       mobileMenu.classList.remove('open');
     });
   });
-</script>
 
-<!-- Populate success message content when Formspree shows it -->
-<script>
-  const successEl = document.querySelector('[data-fs-success]');
-  const observer = new MutationObserver(() => {
-    if (successEl.textContent.trim() === '' && successEl.getAttribute('style') !== 'display: none;') {
-      // Formspree showed it but left it empty — fill it
+  // Form submission
+  const form = document.getElementById('contact-form');
+  const successBox = document.getElementById('form-success');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    let valid = true;
+
+    // Simple validation
+    [
+      { el: name, errId: 'name-error', check: () => name.value.trim() !== '' },
+      { el: email, errId: 'email-error', check: () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) },
+      { el: message, errId: 'message-error', check: () => message.value.trim() !== '' },
+    ].forEach(({ el, errId, check }) => {
+      const errEl = document.getElementById(errId);
+      if (!check()) {
+        el.classList.add('invalid');
+        errEl.classList.add('visible');
+        valid = false;
+      } else {
+        el.classList.remove('invalid');
+        errEl.classList.remove('visible');
+      }
+    });
+
+    if (!valid) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch('https://formspree.io/f/xdabqqln', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        successBox.classList.add('visible');
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+      alert('Something went wrong. Please try emailing us directly at thirdplacedojo@gmail.com');
     }
   });
-  // Watch for Formspree toggling display on the success div
-  const formEl = document.getElementById('contact-form');
-  new MutationObserver(() => {
-    if (successEl && getComputedStyle(successEl).display !== 'none' && successEl.innerHTML.trim() === '') {
-      successEl.innerHTML = `
-        <div class="success-icon">🥋</div>
-        <div class="success-title">Message sent!</div>
-        <div class="success-body">Thanks for reaching out. We'll get back to you within 24 hours. Feel free to check out the <a href="/train">class schedule</a> or <a href="/events">upcoming events</a>.</div>
-      `;
-    }
-  }).observe(successEl, { attributes: true, attributeFilter: ['style'] });
-</script>
 
-<!-- Formspree Ajax CDN -->
-<script>
-  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-  formspree('initForm', { formElement: '#contact-form', formId: 'xdabqqln' });
+  // Clear invalid state on input
+  ['name', 'email', 'message'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function () {
+      this.classList.remove('invalid');
+      document.getElementById(id + '-error').classList.remove('visible');
+    });
+  });
 </script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
