@@ -135,45 +135,32 @@
       rgba(14,22,32,0.80) 100%
     );
   }
-  .hero-coming-soon {
-    position: relative; z-index: 2;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(201,79,174,0.15); border: 1px solid rgba(201,79,174,0.35);
-    color: #C94FAE; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2rem;
-    margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
-  }
-  .coming-dot {
-    width: 6px; height: 6px; background: #C94FAE; border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
 
   .hero-tagline {
     position: relative; z-index: 2; margin-top: 1rem;
     font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.5vw, 1.65rem);
     color: rgba(240,244,248,0.9); line-height: 1.4;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
   }
   .hero-tagline em { font-style: italic; color: #C94FAE; }
   .hero-sub {
     position: relative; z-index: 2; margin-top: 1rem;
     font-family: 'Fraunces', serif; font-size: 1rem;
     color: rgba(240,244,248,0.55); line-height: 1.7; max-width: 44ch;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
   }
   .hero-actions {
     position: relative; z-index: 2;
     display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
     margin-top: 2.25rem;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.65s;
+    opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
   }
   .hero-scroll-hint {
     position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
     z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
     font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
     color: rgba(240,244,248,0.3);
-    opacity: 0; animation: fadeIn 1s ease forwards 1.4s;
+    opacity: 0; animation: fadeIn 1s ease forwards 1.2s;
   }
   .scroll-line {
     width: 1px; height: 36px;
@@ -399,6 +386,7 @@
     <li><a href="/events">Events</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -412,6 +400,7 @@
   <a href="/events">Events</a>
   <a href="/pricing">Pricing</a>
   <a href="/about">About</a>
+  <a href="/contact">Contact</a>
   <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
 </div>
 
@@ -440,11 +429,6 @@
     <div class="slide"></div>
   </div>
   <div class="slideshow-overlay"></div>
-
-  <div class="hero-coming-soon">
-    <div class="coming-dot"></div>
-    Coming Soon — Opening Monday, May 4th
-  </div>
 
   <p class="hero-tagline">Train. Gather. <em>Belong.</em></p>
   <p class="hero-sub">Home is the first place. Work and school are the second. Third Place Dojo is everything in between.</p>
@@ -594,6 +578,7 @@
     <li><a href="/events">Events</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
     <li><a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer">Kokoro-Jitsu</a></li>
     <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
   </ul>
