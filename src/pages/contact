@@ -1,0 +1,543 @@
+---
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Third Place Dojo</title>
+<meta name="description" content="Get in touch with Third Place Dojo in Coudersport, PA." />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F5EFE6;
+    color: #1E2A38;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(20,29,39,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .nav-logo-img {
+    height: 28px; width: auto;
+    filter: brightness(1.5) contrast(1.2);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #F0F4F8; text-decoration: none;
+    opacity: 0.6; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; color: #C94FAE; }
+  .nav-cta {
+    background: #C94FAE; color: #ffffff !important;
+    opacity: 1 !important; padding: 0.5rem 1.25rem; border-radius: 2rem;
+    font-weight: 500; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #a83d90 !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 101;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #F0F4F8; border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(14,22,32,0.97); z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+    color: #F0F4F8; text-decoration: none; transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #C94FAE; }
+  .mobile-menu .mobile-cta {
+    background: #C94FAE; color: white; padding: 0.875rem 2.5rem;
+    border-radius: 3rem; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: #1E2A38;
+    padding: 9rem 5rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: '問'; position: absolute; right: 3rem; bottom: -2rem;
+    font-size: 20rem; font-family: serif; color: rgba(255,255,255,0.03);
+    line-height: 1; user-select: none; pointer-events: none;
+  }
+  .page-header-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #C94FAE; margin-bottom: 1rem; display: block;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+  .page-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #F0F4F8; line-height: 1.1; max-width: 18ch;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+  .page-header-title em { font-style: italic; color: #C94FAE; }
+  .page-header-sub {
+    font-family: 'Fraunces', serif; font-size: 1.05rem;
+    color: rgba(240,244,248,0.5); line-height: 1.7; margin-top: 1.25rem; max-width: 48ch;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+  }
+  .header-rule {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, #C94FAE, #1D9E75, transparent);
+    margin-top: 3rem;
+    opacity: 0; animation: fadeIn 1s ease forwards 0.5s;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .contact-body {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+    min-height: 60vh;
+  }
+
+  /* ── INFO PANEL ── */
+  .info-panel {
+    background: #F0F4F8;
+    padding: 4rem 3.5rem;
+    display: flex; flex-direction: column; gap: 2.5rem;
+    border-right: 1px solid rgba(30,42,56,0.08);
+  }
+  .info-section-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: #1D9E75; margin-bottom: 0.5rem; display: block;
+  }
+  .info-block { display: flex; flex-direction: column; gap: 0.3rem; }
+  .info-value {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem;
+    color: #1E2A38; line-height: 1.5;
+  }
+  .info-link {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem;
+    color: #1E2A38; text-decoration: none; line-height: 1.5;
+    transition: color 0.2s;
+  }
+  .info-link:hover { color: #C94FAE; }
+
+  .hours-grid {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1.5rem;
+    font-size: 0.9rem; color: #1E2A38;
+  }
+  .hours-day { opacity: 0.5; font-weight: 400; }
+  .hours-time { font-weight: 500; }
+  .hours-note {
+    font-size: 0.8rem; color: rgba(30,42,56,0.45);
+    font-family: 'Fraunces', serif; font-style: italic; margin-top: 0.5rem;
+    grid-column: 1 / -1;
+  }
+
+  .map-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 500; color: #1D9E75;
+    text-decoration: none; transition: gap 0.2s;
+    margin-top: 0.5rem;
+  }
+  .map-link:hover { gap: 0.8rem; }
+
+  .divider {
+    width: 100%; height: 1px;
+    background: rgba(30,42,56,0.1);
+  }
+
+  /* ── FORM PANEL ── */
+  .form-panel {
+    background: #F5EFE6;
+    padding: 4rem 4rem;
+  }
+  .form-heading {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem;
+    color: #1E2A38; margin-bottom: 0.5rem;
+  }
+  .form-sub {
+    font-family: 'Fraunces', serif; font-size: 0.95rem;
+    color: rgba(30,42,56,0.55); line-height: 1.6; margin-bottom: 2.5rem;
+  }
+
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+  }
+  .form-field {
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .form-field.full { grid-column: 1 / -1; }
+  .form-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(30,42,56,0.5);
+  }
+  .form-input,
+  .form-select,
+  .form-textarea {
+    background: #F0F4F8;
+    border: 1.5px solid rgba(30,42,56,0.12);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 400;
+    color: #1E2A38;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    appearance: none;
+  }
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: #C94FAE;
+    box-shadow: 0 0 0 3px rgba(201,79,174,0.1);
+  }
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: rgba(30,42,56,0.3); }
+  .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E2A38' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  .form-select option { color: #1E2A38; background: #F0F4F8; }
+
+  .form-submit {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .btn-submit {
+    background: #C94FAE; color: white;
+    border: none; cursor: pointer;
+    padding: 0.875rem 2.5rem; border-radius: 3rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,79,174,0.35);
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,79,174,0.5); }
+  .btn-submit:active { transform: translateY(0); }
+  .form-note {
+    font-size: 0.8rem; color: rgba(30,42,56,0.4);
+    font-family: 'Fraunces', serif; font-style: italic;
+  }
+
+  /* ── SUCCESS STATE ── */
+  .form-success {
+    display: none;
+    flex-direction: column; align-items: flex-start; gap: 1rem;
+    padding: 2.5rem;
+    background: rgba(29,158,117,0.08);
+    border: 1.5px solid rgba(29,158,117,0.25);
+    border-radius: 1.25rem;
+    margin-top: 1rem;
+  }
+  .form-success.visible { display: flex; }
+  .success-icon { font-size: 2rem; }
+  .success-title {
+    font-family: 'Playfair Display', serif; font-size: 1.35rem; color: #1D9E75;
+  }
+  .success-body {
+    font-family: 'Fraunces', serif; font-size: 0.95rem;
+    color: rgba(30,42,56,0.65); line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #141d27; padding: 3rem 5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-brand-lockup {
+    display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;
+  }
+  .footer-logo-img {
+    height: 52px; width: auto;
+    mix-blend-mode: screen; filter: brightness(1.1); opacity: 0.85;
+  }
+  .footer-sub { font-size: 0.78rem; color: rgba(240,244,248,0.4); margin-top: 0.25rem; }
+  .footer-directions { font-size: 0.78rem; margin-top: 0.35rem; }
+  .footer-directions a { color: #1D9E75; text-decoration: none; }
+  .footer-directions a:hover { text-decoration: underline; }
+  .footer-copy { font-size: 0.72rem; color: rgba(240,244,248,0.2); margin-top: 0.35rem; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(240,244,248,0.5); text-decoration: none;
+    letter-spacing: 0.06em; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #1D9E75; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .page-header { padding: 7rem 1.75rem 3.5rem; }
+    .contact-body { grid-template-columns: 1fr; }
+    .info-panel { padding: 3rem 1.75rem; border-right: none; border-bottom: 1px solid rgba(30,42,56,0.08); }
+    .form-panel { padding: 3rem 1.75rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/nav-logo.png" alt="Third Place Dojo" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact" class="active">Contact</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" class="nav-cta">Support Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/train">Train</a>
+  <a href="/events">Events</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+  <a href="https://ko-fi.com/kokorojitsu" target="_blank" class="mobile-cta">Support Us</a>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<section class="page-header">
+  <span class="page-header-label">Get in Touch</span>
+  <h1 class="page-header-title">We'd love to <em>hear from you.</em></h1>
+  <p class="page-header-sub">Questions about classes, events, or just want to say hi before stepping on the mat? Reach out anytime.</p>
+  <div class="header-rule"></div>
+</section>
+
+<!-- ── CONTACT BODY ── -->
+<div class="contact-body">
+
+  <!-- INFO PANEL -->
+  <div class="info-panel">
+
+    <div class="info-block">
+      <span class="info-section-label">Email</span>
+      <a href="mailto:thirdplacedojo@gmail.com" class="info-link">thirdplacedojo@gmail.com</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="info-block">
+      <span class="info-section-label">Phone</span>
+      <a href="tel:+18142031719" class="info-link">(814) 203-1719</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="info-block">
+      <span class="info-section-label">Location</span>
+      <span class="info-value">118 N. Main St.<br>Coudersport, PA 16915</span>
+      <a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank" class="map-link">
+        Get directions →
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="info-block">
+      <span class="info-section-label">Class Schedule</span>
+      <div class="hours-grid">
+        <span class="hours-day">Mon</span><span class="hours-time">Kids 5:30pm / Teens &amp; Adults 6:30pm</span>
+        <span class="hours-day">Wed</span><span class="hours-time">Kids 5:30pm / Teens &amp; Adults 6:30pm</span>
+        <span class="hours-day">Fri</span><span class="hours-time">Open Mat (Gracie Garage)</span>
+        <span class="hours-note">Check the events page for special sessions and updates.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FORM PANEL -->
+  <div class="form-panel">
+    <h2 class="form-heading">Send us a message</h2>
+    <p class="form-sub">Fill out the form and we'll get back to you as soon as we can.</p>
+
+    <div id="contact-form">
+      <div class="form-grid">
+
+        <div class="form-field">
+          <label class="form-label" for="name">Your name</label>
+          <input class="form-input" id="name" type="text" placeholder="Brian Lucas" autocomplete="name">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" id="email" type="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="phone">Phone (optional)</label>
+          <input class="form-input" id="phone" type="tel" placeholder="(814) 555-0100" autocomplete="tel">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="topic">I'm interested in...</label>
+          <select class="form-select" id="topic">
+            <option value="">Select a topic</option>
+            <option value="classes">Signing up for classes</option>
+            <option value="kids">Kids program</option>
+            <option value="teens-adults">Teens &amp; Adults program</option>
+            <option value="open-mat">Gracie Garage / Open Mat</option>
+            <option value="events">Events &amp; community nights</option>
+            <option value="membership">Membership &amp; pricing</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form-field full">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" placeholder="Tell us a little about yourself or what you're looking for..."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button class="btn-submit" id="submit-btn" type="button">Send message</button>
+          <span class="form-note">We typically respond within 24 hours.</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="success-icon">🥋</div>
+      <div class="success-title">Message sent!</div>
+      <div class="success-body">Thanks for reaching out. We'll get back to you within 24 hours. In the meantime, feel free to check out the <a href="/train" style="color:#1D9E75;">class schedule</a> or <a href="/events" style="color:#1D9E75;">upcoming events</a>.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="footer-brand-lockup">
+      <img src="/logo-full.png" alt="Third Place Dojo" class="footer-logo-img">
+    </div>
+    <div class="footer-sub">118 N. Main St. · Coudersport, PA · 道場</div>
+    <div class="footer-directions"><a href="https://maps.google.com/?q=118+N+Main+St+Coudersport+PA+16915" target="_blank">Get Directions</a></div>
+    <div class="footer-copy">Third Place Dojo 2026</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="/train">Train</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer">Kokoro-Jitsu</a></li>
+    <li><a href="https://ko-fi.com/kokorojitsu" target="_blank">Ko-fi</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Form submission — mailto fallback
+  document.getElementById('submit-btn').addEventListener('click', () => {
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const topic   = document.getElementById('topic').value;
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      // Simple shake on missing fields
+      ['name','email','message'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = '#C94FAE';
+          el.style.boxShadow = '0 0 0 3px rgba(201,79,174,0.15)';
+          setTimeout(() => {
+            el.style.borderColor = '';
+            el.style.boxShadow = '';
+          }, 2000);
+        }
+      });
+      return;
+    }
+
+    const topicLabels = {
+      classes: 'Signing up for classes',
+      kids: 'Kids program',
+      'teens-adults': 'Teens & Adults program',
+      'open-mat': 'Gracie Garage / Open Mat',
+      events: 'Events & community nights',
+      membership: 'Membership & pricing',
+      other: 'Something else',
+      '': 'General inquiry'
+    };
+
+    const subject = encodeURIComponent(`Contact Form: ${topicLabels[topic] || 'General inquiry'}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}${phone ? '\nPhone: ' + phone : ''}\nTopic: ${topicLabels[topic] || 'General inquiry'}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:thirdplacedojo@gmail.com?subject=${subject}&body=${body}`;
+
+    // Show success
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('visible');
+  });
+</script>
+
+</body>
+</html>
