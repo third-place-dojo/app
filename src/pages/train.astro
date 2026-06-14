@@ -108,6 +108,8 @@
     font-family: 'Fraunces', serif; font-size: 1.1rem; line-height: 1.8;
     color: rgba(240,244,248,0.6); max-width: 52ch; position: relative; z-index: 1;
   }
+  .page-header p a { color: #1D9E75; text-decoration: none; }
+  .page-header p a:hover { text-decoration: underline; }
   .schedule-section { padding: 6rem 5rem; background: #F0F4F8; position: relative; }
   .schedule-section::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
@@ -119,7 +121,7 @@
   }
   .schedule-sub { font-size: 0.95rem; color: #8a9bb0; margin-bottom: 3rem; }
   .schedule-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 380px)); gap: 1.5rem; justify-content: center;
   }
   .schedule-day {
     background: #ffffff; border-radius: 1.25rem; padding: 2rem;
@@ -277,7 +279,7 @@
 <header class="page-header">
   <span class="page-header-label">Training Programs</span>
   <h1>Come learn.<br><em>Come move.</em></h1>
-  <p>Classes for kids, teens, and adults. Structured curriculum and a community that shows up for each other. All skill levels welcome — zero experience required.</p>
+  <p>A structured curriculum and a community that shows up for each other. All skill levels welcome — zero experience required. Not sure if it's the right fit? <a href="/contact">Reach out</a> and let's talk.</p>
 </header>
 
 <section class="schedule-section">
@@ -286,53 +288,12 @@
   <p class="schedule-sub">118 N. Main St., Coudersport, PA</p>
   <div class="schedule-grid">
     <div class="schedule-day">
-      <span class="day-name">Monday</span>
-      <div class="class-item">
-        <span class="class-time">5:30 PM</span>
-        <div class="class-info">
-          <div class="class-name">Kids Class</div>
-          <div class="class-desc">Ages 8-12 · 45 min · Kokoro-Jitsu fundamentals</div>
-        </div>
-      </div>
+      <span class="day-name">Monday – Friday</span>
       <div class="class-item">
         <span class="class-time">6:30 PM</span>
         <div class="class-info">
-          <div class="class-name">Teens and Adults</div>
-          <div class="class-desc">13+ · 60 min · Kokoro-Jitsu curriculum</div>
-        </div>
-      </div>
-    </div>
-    <div class="schedule-day">
-      <span class="day-name">Wednesday</span>
-      <div class="class-item">
-        <span class="class-time">5:30 PM</span>
-        <div class="class-info">
-          <div class="class-name">Kids Class</div>
-          <div class="class-desc">Ages 8-12 · 45 min · Kokoro-Jitsu fundamentals</div>
-        </div>
-      </div>
-      <div class="class-item">
-        <span class="class-time">6:30 PM</span>
-        <div class="class-info">
-          <div class="class-name">Teens and Adults</div>
-          <div class="class-desc">13+ · 60 min · Kokoro-Jitsu curriculum</div>
-        </div>
-      </div>
-    </div>
-    <div class="schedule-day">
-      <span class="day-name">Friday</span>
-      <div class="class-item">
-        <span class="class-time">5:30 PM</span>
-        <div class="class-info">
-          <div class="class-name">Kids Class</div>
-          <div class="class-desc">Ages 8-12 · 45 min · Kokoro-Jitsu fundamentals</div>
-        </div>
-      </div>
-      <div class="class-item">
-        <span class="class-time">6:30 PM</span>
-        <div class="class-info">
-          <div class="class-name">Teens and Adults</div>
-          <div class="class-desc">13+ · 60 min · Kokoro-Jitsu curriculum</div>
+          <div class="class-name">Kokoro-Jitsu Class</div>
+          <div class="class-desc">60 min · Full curriculum, all levels</div>
         </div>
       </div>
     </div>
@@ -342,11 +303,12 @@
         <span class="class-time">5:00 PM</span>
         <div class="class-info">
           <div class="class-name">The Kokoro-Jitsu Club</div>
-          <div class="class-desc">Teens and adults · 2 hrs · Free / donation-based open training</div>
+          <div class="class-desc">2 hrs · Free / donation-based open training</div>
         </div>
       </div>
     </div>
   </div>
+  <p class="schedule-note"><strong>Private Lessons</strong> — available by appointment, Monday through Friday at 5:30 PM. Reach out through the <a href="/contact">contact page</a> to schedule.</p>
   <p class="schedule-note"><strong>Gracie Garage Open Mat</strong> — times vary. If you are studying Gracie Combatives and looking for a place to train with others, reach out through the <a href="https://www.gracieuniversity.com/Pages/Public/Affiliates" target="_blank">Gracie University locator</a>. Space and mat time are available at no cost.</p>
 </section>
 
@@ -355,19 +317,19 @@
   <h2 class="programs-title">What we offer</h2>
   <div class="programs-grid">
     <div class="program-card">
-      <div class="program-kanji">学</div>
+      <div class="program-kanji">武</div>
       <div class="program-content">
-        <span class="program-tag magenta">Kids</span>
-        <h3 class="program-name">Kids Class (8-12)</h3>
-        <p class="program-desc">A structured, age-appropriate introduction to Kokoro-Jitsu. Kids learn movement, coordination, basic self-defense concepts, and how to be good training partners. Confidence and respect are the real curriculum.</p>
+        <span class="program-tag magenta">All Levels</span>
+        <h3 class="program-name">Kokoro-Jitsu Class</h3>
+        <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. All experience levels welcome.</p>
       </div>
     </div>
     <div class="program-card">
-      <div class="program-kanji">武</div>
+      <div class="program-kanji">学</div>
       <div class="program-content">
-        <span class="program-tag magenta">Teens and Adults</span>
-        <h3 class="program-name">Teens and Adults</h3>
-        <p class="program-desc">The full Kokoro-Jitsu curriculum. BJJ, Kenpo, Karate, and Aiki principles woven into a single living art. Structured belt ranks with objective testing. All experience levels welcome.</p>
+        <span class="program-tag magenta">1-on-1</span>
+        <h3 class="program-name">Private Lessons</h3>
+        <p class="program-desc">One-on-one instruction tailored to your goals, available by appointment Monday through Friday at 5:30 PM. A great option for focused skill work, accelerated learning, or just a different pace. Reach out to schedule.</p>
       </div>
     </div>
     <div class="program-card">
@@ -375,7 +337,7 @@
       <div class="program-content">
         <span class="program-tag teal">Community</span>
         <h3 class="program-name">The Kokoro-Jitsu Club</h3>
-        <p class="program-desc">Saturday open training, free and donation-based. No formal curriculum — just mat time, exploration, rolling, and community. Open to teens and adults. You do not need to be a registered student to attend. Show up and train.</p>
+        <p class="program-desc">Saturday open training, free and donation-based. No formal curriculum — just mat time, exploration, rolling, and community. You do not need to be a registered student to attend. Show up and train.</p>
         <a href="https://kokorojitsu.com" target="_blank" rel="noopener noreferrer" class="program-link teal">Learn more at kokorojitsu.com</a>
       </div>
     </div>
